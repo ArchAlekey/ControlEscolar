@@ -15,12 +15,14 @@ CREATE TABLE `cat_carreras` (
 CREATE TABLE `cat_materias` (
   `nid_materia` int AUTO_INCREMENT PRIMARY KEY,
   `nid_carrera` int NOT NULL,
+  `nid_semestre` int NOT NULL,  
   `cnombre_materia` varchar(50) NOT NULL,
   `cclave_materia` varchar(10) NOT NULL,
   `bhabilitado` bit NOT NULL,
   `dfecha_alta` date NOT NULL,
   `dfecha_baja` date,
-  Foreign Key (nid_carrera) REFERENCES cat_carreras(nid_carrera)
+  Foreign Key (nid_carrera) REFERENCES cat_carreras(nid_carrera),
+  Foreign Key (nid_semestre) REFERENCES cat_semestres(nid_semestre)
 );
 
 CREATE TABLE `cat_semestres` (
@@ -170,3 +172,6 @@ CREATE TABLE `tbl_historial_acaedmico` (
   `dfecha_baja` date,
   Foreign Key (nid_calificación) REFERENCES tbl_calificaciones(`nid_calificación`)
 );
+
+
+
