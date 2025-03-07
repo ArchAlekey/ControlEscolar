@@ -1,12 +1,21 @@
--- Active: 1737221727660@@127.0.0.1@3306@controlescolar
-CREATE DATABASE ControlEscolar;
-
-Use ControlEscolar;
+-- Active: 1739329630699@@127.0.0.1@3306@aca_vendes
+/* DROP DATABASE db_onepiece; */
+CREATE DATABASE db_onepiece;
+Use db_onepiece;
 
 -- Aquí comienzan las tablas de tipos catálogo
 CREATE TABLE `cat_carreras` (
   `nid_carrera` int AUTO_INCREMENT PRIMARY KEY,
   `ccarrera` varchar(50) NOT NULL,
+  `bhabilitado` bit NOT NULL,
+  `dfecha_alta` date NOT NULL,
+  `dfecha_baja` date
+);
+
+CREATE TABLE `cat_semestres` (
+  `nid_semestre` int AUTO_INCREMENT PRIMARY KEY,
+  `nsemestre` int NOT NULL,
+  `bpar_impar` bit NOT NULL,
   `bhabilitado` bit NOT NULL,
   `dfecha_alta` date NOT NULL,
   `dfecha_baja` date
@@ -23,23 +32,6 @@ CREATE TABLE `cat_materias` (
   `dfecha_baja` date,
   Foreign Key (nid_carrera) REFERENCES cat_carreras(nid_carrera),
   Foreign Key (nid_semestre) REFERENCES cat_semestres(nid_semestre)
-);
-
-CREATE TABLE `cat_semestres` (
-  `nid_semestre` int AUTO_INCREMENT PRIMARY KEY,
-  `nsemestre` int NOT NULL,
-  `bpar_impar` bit NOT NULL,
-  `bhabilitado` bit NOT NULL,
-  `dfecha_alta` date NOT NULL,
-  `dfecha_baja` date
-);
-
-CREATE TABLE `cat_profesores` (
-  `nid_profesor` int AUTO_INCREMENT PRIMARY KEY,
-  `cnombre_profesor` varchar(100) NOT NULL,
-  `bhabilitado` bit NOT NULL,
-  `dfecha_alta` date NOT NULL,
-  `dfecha_baja` date
 );
 
 CREATE TABLE `cat_grupos` (
@@ -62,14 +54,6 @@ CREATE TABLE `cat_periodos` (
 CREATE TABLE `cat_horarios` (
   `nid_horario` int AUTO_INCREMENT PRIMARY KEY,
   `chorario` varchar(20) NOT NULL,
-  `bhabilitado` bit NOT NULL,
-  `dfecha_alta` date NOT NULL,
-  `dfecha_baja` date
-);
-
-CREATE TABLE `cat_perfiles` (
-  `nid_perfil` int AUTO_INCREMENT PRIMARY KEY,
-  `cperfil` varchar(25) NOT NULL,
   `bhabilitado` bit NOT NULL,
   `dfecha_alta` date NOT NULL,
   `dfecha_baja` date
@@ -101,8 +85,38 @@ CREATE TABLE `tbl_personas` (
   `dfecha_baja` date
 );
 
-CREATE TABLE `tbl_academicos` (
-  `nid_academico` int AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE `tbl_academicos_alumnos` (
+  `nid_academico_alumno` int AUTO_INCREMENT PRIMARY KEY,
+  `nid_persona` int NOT NULL,
+  `nid_categoria` int NOT NULL,
+  `nid_carrera` int NOT NULL,
+  `cnumero_cuenta` varchar(9) UNIQUE NOT NULL,
+  `ccorreo_institucional` varchar(50) NOT NULL,
+  `bhabilitado` bit NOT NULL,
+  `dfecha_alta` date NOT NULL,
+  `dfecha_baja` date,
+  Foreign Key (nid_persona) REFERENCES tbl_personas(`nid_persona`),
+  Foreign Key (nid_categoria) REFERENCES cat_categorias(`nid_categoria`),
+  Foreign Key (nid_carrera) REFERENCES cat_carreras(`nid_carrera`)
+);
+
+CREATE TABLE `tbl_academicos_profesores` (
+  `nid_academico_profesor` int AUTO_INCREMENT PRIMARY KEY,
+  `nid_persona` int NOT NULL,
+  `nid_categoria` int NOT NULL,
+  `nid_carrera` int NOT NULL,
+  `cnumero_cuenta` varchar(9) UNIQUE NOT NULL,
+  `ccorreo_institucional` varchar(50) NOT NULL,
+  `bhabilitado` bit NOT NULL,
+  `dfecha_alta` date NOT NULL,
+  `dfecha_baja` date,
+  Foreign Key (nid_persona) REFERENCES tbl_personas(`nid_persona`),
+  Foreign Key (nid_categoria) REFERENCES cat_categorias(`nid_categoria`),
+  Foreign Key (nid_carrera) REFERENCES cat_carreras(`nid_carrera`)
+);
+
+CREATE TABLE `tbl_academicos_admin` (
+  `nid_academico_admin` int AUTO_INCREMENT PRIMARY KEY,
   `nid_persona` int NOT NULL,
   `nid_categoria` int NOT NULL,
   `nid_carrera` int NOT NULL,
@@ -118,60 +132,44 @@ CREATE TABLE `tbl_academicos` (
 
 CREATE TABLE `tbl_usuarios` (
   `nid_usuario` int AUTO_INCREMENT PRIMARY KEY,
-  `nid_academico` int NOT NULL,
-  `nid_perfil` int NOT NULL,
+  `nid_persona` int NOT NULL,
   `cusuario` varchar(9) NOT NULL,
   `ccontraseña` varchar(50) NOT NULL,
   `bhabilitado` bit NOT NULL,
   `dfecha_alta` date NOT NULL,
   `dfecha_baja` date,
-  Foreign Key (nid_academico) REFERENCES tbl_academicos(nid_academico),
-  Foreign Key (nid_perfil) REFERENCES cat_perfiles(nid_perfil)
+  Foreign Key (nid_persona) REFERENCES tbl_personas(nid_persona)
 );
 
-CREATE TABLE `tbl_inscripcion` (
-  `nid_inscripcion` int AUTO_INCREMENT PRIMARY KEY,
-  `nid_academico` int NOT NULL,
+CREATE TABLE `tbl_horario_materias` (
+  `nid_horario_materia` int AUTO_INCREMENT PRIMARY KEY,
   `nid_periodo` int NOT NULL,
   `nid_semestre` int NOT NULL,
-  `nid_materia` int NOT NULL,
   `nid_grupo` int NOT NULL,
-  `nid_profesor` int NOT NULL,
+  `nid_academico_profesor` int NOT NULL,
   `nid_horario` int NOT NULL,
+  `nid_materia` int NOT NULL,
   `bhabilitado` bit NOT NULL,
   `dfecha_alta` date NOT NULL,
   `dfecha_baja` date,
-  Foreign Key (nid_academico) REFERENCES tbl_academicos(`nid_academico`),
+  
   Foreign Key (nid_periodo) REFERENCES cat_periodos(`nid_periodo`),
   Foreign Key (nid_semestre) REFERENCES cat_semestres(`nid_semestre`),
-  Foreign Key (nid_materia) REFERENCES cat_materias(`nid_materia`),
   Foreign Key (nid_grupo) REFERENCES cat_grupos(`nid_grupo`),
-  Foreign Key (nid_profesor) REFERENCES cat_profesores(`nid_profesor`),
-  Foreign Key (nid_horario) REFERENCES cat_horarios(`nid_horario`)
+  Foreign Key (nid_academico_profesor) REFERENCES tbl_academicos_profesores(nid_academico_profesor),
+  Foreign Key (nid_horario) REFERENCES cat_horarios(`nid_horario`),
+  Foreign Key (nid_materia) REFERENCES cat_materias(`nid_materia`)
 );
 
-
-CREATE TABLE `tbl_calificaciones` (
-  `nid_calificación` int AUTO_INCREMENT PRIMARY KEY,
-  `nid_inscripcion` int NOT NULL,
-  `nid_usuario` int NOT NULL,
-  `ncalificación` decimal(2,2) NOT NULL,
-  `bhabilitado` bit NOT NULL,
+CREATE TABLE `tbl_insc_alumnos`(
+  nid_insc_alumno INT AUTO_INCREMENT PRIMARY KEY,
+  nid_horario_materia INT NOT NULL,
+  nid_usuario int NOT NULL,
+  ncalificación DECIMAL(2,2) NULL,
+    `bhabilitado` bit NOT NULL,
   `dfecha_alta` date NOT NULL,
   `dfecha_baja` date,
-  Foreign Key (nid_inscripcion) REFERENCES tbl_inscripcion(`nid_inscripcion`),
-  Foreign Key (nid_usuario) REFERENCES tbl_usuarios(`nid_usuario`)
+
+  Foreign Key (nid_horario_materia) REFERENCES tbl_horario_materias(nid_horario_materia),
+  Foreign Key (nid_usuario) REFERENCES tbl_usuarios(nid_usuario)
 );
-
-CREATE TABLE `tbl_historial_acaedmico` (
-  `nid_historial_academico` int AUTO_INCREMENT PRIMARY KEY,
-  `nid_calificación` int NOT NULL,
-  `npromedio` decimal(2,2) NOT NULL,
-  `bhabilitado` bit NOT NULL,
-  `dfecha_alta` date NOT NULL,
-  `dfecha_baja` date,
-  Foreign Key (nid_calificación) REFERENCES tbl_calificaciones(`nid_calificación`)
-);
-
-
-
