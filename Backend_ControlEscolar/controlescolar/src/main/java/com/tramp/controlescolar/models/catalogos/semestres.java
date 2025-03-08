@@ -21,21 +21,21 @@ public class semestres {
     }
 
     public Integer getIdSemestre(){return nid_semestre;}
-    public void setIdSemestre(Integer nid_semestre){this.nid_semestre = nid_semestre;}
+    public void setIdSemestre(Integer IntIdSemestre){this.nid_semestre = IntIdSemestre;}
 
     public Integer getSemestre(){return nsemestre;}
-    public void setSemestre(Integer nsemestre){this.nsemestre = nsemestre;}
+    public void setSemestre(Integer IntSemestre){this.nsemestre = IntSemestre;}
 
     public boolean getParImpar(){return bpar_impar;}
-    public void setParImpar(boolean bpar_impar){this.bpar_impar = bpar_impar;}
+    public void setParImpar(boolean BoolParImpar){this.bpar_impar = BoolParImpar;}
 
     public boolean getHabilitado(){return bhabilitado;}
-    public void setHabilitado(boolean bhabilitado){this.bhabilitado = bhabilitado;}
+    public void setHabilitado(boolean BoolHabilitado){this.bhabilitado = BoolHabilitado;}
 
     public Date getFechaAlta(){return dfecha_alta;}
-    public void setFechaAlta(Date dfecha_alta){this.dfecha_alta = dfecha_alta;}
+    public void setFechaAlta(Date DateFechaAlta){this.dfecha_alta = DateFechaAlta;}
 
     public Date getFechaBaja(){return dfecha_baja;}
-    public void setFechaBaja(Date dfecha_baja){this.dfecha_baja = dfecha_baja;}
+    public void setFechaBaja(Date DateFechaBaja){this.dfecha_baja = DateFechaBaja;}
 
 }

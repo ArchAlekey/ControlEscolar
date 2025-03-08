@@ -8,9 +8,9 @@ public class carreras {
     private Date dfecha_alta;
     private Date dfecha_baja;
     
-    public carreras(int IntId_carrera, String StrCarrera, boolean BoolHabilitado, Date DateFechaAlta, Date DateFechaBaja)
+    public carreras(int IntIdCarrera, String StrCarrera, boolean BoolHabilitado, Date DateFechaAlta, Date DateFechaBaja)
     {
-        this.nid_carrera = IntId_carrera;
+        this.nid_carrera = IntIdCarrera;
         this.ccarrera = StrCarrera;
         this.bhabilitado = BoolHabilitado;
         this.dfecha_alta = DateFechaAlta;
@@ -19,17 +19,17 @@ public class carreras {
 
     //Getters y Setters
     public Integer getIdCarrera(){return nid_carrera;}
-    public void setIdCarrera(Integer nid_carrera){this.nid_carrera = nid_carrera;}
+    public void setIdCarrera(Integer IntIdCarrera){this.nid_carrera = IntIdCarrera;}
 
     public String getCarrera(){return ccarrera;}
-    public void setCarrera(String ccarrera){this.ccarrera = ccarrera;}
+    public void setCarrera(String StrCarrera){this.ccarrera = StrCarrera;}
 
     public boolean getHabilitado(){return bhabilitado;}
-    public void setHabilitado(boolean bhabilitado){this.bhabilitado = bhabilitado;}
+    public void setHabilitado(boolean BoolHabilitado){this.bhabilitado = BoolHabilitado;}
 
     public Date getFechaAlta(){return dfecha_alta;}
-    public void setFechaAlta(Date dfecha_alta){this.dfecha_alta = dfecha_alta;}
+    public void setFechaAlta(Date DateFechaAlta){this.dfecha_alta = DateFechaAlta;}
 
     public Date getFechaBaja(){return dfecha_baja;}
-    public void setFechaBaja(Date dfecha_baja){this.dfecha_baja = dfecha_baja;}
+    public void setFechaBaja(Date DateFechaBaja){this.dfecha_baja = DateFechaBaja;}
 }

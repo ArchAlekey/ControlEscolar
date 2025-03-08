@@ -10,27 +10,27 @@ public class categorias {
     private Date dfecha_baja;
 
     // Constructor
-    public categorias(Integer nid_categoria, String ccategoria, boolean bhabilitado, Date dfecha_alta, Date dfecha_baja) {
-        this.nid_categoria = nid_categoria;
-        this.ccategoria = ccategoria;
-        this.bhabilitado = bhabilitado;
-        this.dfecha_alta = dfecha_alta;
-        this.dfecha_baja = dfecha_baja;
+    public categorias(Integer IntIdCategoria, String StrCategoria, boolean BoolHabilitado, Date DateFechaAlta, Date DateFechaBaja) {
+        this.nid_categoria = IntIdCategoria;
+        this.ccategoria = StrCategoria;
+        this.bhabilitado = BoolHabilitado;
+        this.dfecha_alta = DateFechaAlta;
+        this.dfecha_baja = DateFechaBaja;
     }
 
     // Getters y setters
-    public Integer getNid_categoria() {return nid_categoria;}
-    public void setNid_categoria(Integer nid_categoria) {this.nid_categoria = nid_categoria;}
+    public Integer getIdCategoria() {return nid_categoria;}
+    public void setIdCategoria(Integer IntIdCategoria) {this.nid_categoria = IntIdCategoria;}
 
-    public String getCcategoria() {return ccategoria;}
-    public void setCcategoria(String ccategoria) {this.ccategoria = ccategoria;}
+    public String getCategoria() {return ccategoria;}
+    public void setCategoria(String StrCategoria){this.ccategoria = StrCategoria;}
 
-    public boolean isBhabilitado() {return bhabilitado;}
-    public void setBhabilitado(boolean bhabilitado) {this.bhabilitado = bhabilitado;}
+    public boolean getHabilitado() {return bhabilitado;}
+    public void setHabilitado(Boolean BoolHabilitado) {this.bhabilitado = BoolHabilitado;}
 
-    public Date getDfecha_alta() {return dfecha_alta;}
-    public void setDfecha_alta(Date dfecha_alta) {this.dfecha_alta = dfecha_alta;}
+    public Date getFechaAlta() {return dfecha_alta;}
+    public void setFechaAlta(Date DateFechaAlta) {this.dfecha_alta = DateFechaAlta;}
 
-    public Date getDfecha_baja() {return dfecha_baja;}
-    public void setDfecha_baja(Date dfecha_baja) {this.dfecha_baja = dfecha_baja;}
+    public Date getFechaBaja() {return dfecha_baja;}
+    public void setFechaBaja(Date DateFechaBaja) {this.dfecha_baja = DateFechaBaja;}
 }
