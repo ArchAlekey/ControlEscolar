@@ -15,3 +15,7 @@ Repositorio destinado para el desarrollo del proyecto de control escolar de la m
 >Base de datos con "Mysql"
 
 ![images](https://github.com/user-attachments/assets/19b44c42-01e2-478e-a5eb-54d41257109f)
+
+>Recurso online para el modelado de la base de datos
+
+>https://dbdiagram.io/d/ControlEscolar-67c21afb263d6cf9a0d88176
