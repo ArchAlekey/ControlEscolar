@@ -1,12 +1,37 @@
 package com.tramp.controlescolar.models.catalogos;
 
+import jakarta.persistence.*;
 import java.util.Date;
+
+@Entity
+@Table(name = "cat_carreras")
 public class carreras {
-    private int nid_carrera;
+/*     private int nid_carrera;
     private String ccarrera;
     private boolean bhabilitado;
     private Date dfecha_alta;
+    private Date dfecha_baja; */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "nid_carrera")
+    private int nid_carrera;
+
+    @Column(name = "ccarrera", nullable = false)
+    private String ccarrera;
+
+    @Column(name = "bhabilitado")
+    private boolean bhabilitado;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "dfecha_alta")
+    private Date dfecha_alta;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "dfecha_baja")
     private Date dfecha_baja;
+    
+
+    public carreras(){};
     
     public carreras(int IntIdCarrera, String StrCarrera, boolean BoolHabilitado, Date DateFechaAlta, Date DateFechaBaja)
     {
