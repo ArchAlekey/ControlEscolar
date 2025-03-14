@@ -1,10 +1,12 @@
 package com.tramp.controlescolar.models.catalogos;
 
+import lombok.*;
 import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "cat_carreras")
+@Data
 public class carreras {
 /*     private int nid_carrera;
     private String ccarrera;
@@ -31,7 +33,7 @@ public class carreras {
     private Date dfecha_baja;
     
 
-    public carreras(){};
+/*     public carreras(){};
     
     public carreras(int IntIdCarrera, String StrCarrera, boolean BoolHabilitado, Date DateFechaAlta, Date DateFechaBaja)
     {
@@ -40,10 +42,10 @@ public class carreras {
         this.bhabilitado = BoolHabilitado;
         this.dfecha_alta = DateFechaAlta;
         this.dfecha_baja = DateFechaBaja;
-    }
+    } */
 
     //Getters y Setters
-    public Integer getIdCarrera(){return nid_carrera;}
+/*     public Integer getIdCarrera(){return nid_carrera;}
     public void setIdCarrera(Integer IntIdCarrera){this.nid_carrera = IntIdCarrera;}
 
     public String getCarrera(){return ccarrera;}
@@ -56,5 +58,5 @@ public class carreras {
     public void setFechaAlta(Date DateFechaAlta){this.dfecha_alta = DateFechaAlta;}
 
     public Date getFechaBaja(){return dfecha_baja;}
-    public void setFechaBaja(Date DateFechaBaja){this.dfecha_baja = DateFechaBaja;}
+    public void setFechaBaja(Date DateFechaBaja){this.dfecha_baja = DateFechaBaja;} */
 }
