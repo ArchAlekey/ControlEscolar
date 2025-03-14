@@ -1,4 +1,4 @@
--- Active: 1739329630699@@127.0.0.1@3306@aca_vendes
+-- Active: 1741838627681@@127.0.0.1@3306
 /* DROP DATABASE db_onepiece; */
 CREATE DATABASE db_onepiece;
 Use db_onepiece;
@@ -143,6 +143,7 @@ CREATE TABLE `tbl_usuarios` (
 
 CREATE TABLE `tbl_horario_materias` (
   `nid_horario_materia` int AUTO_INCREMENT PRIMARY KEY,
+  `nid_carrera` INT not NULL,
   `nid_periodo` int NOT NULL,
   `nid_semestre` int NOT NULL,
   `nid_grupo` int NOT NULL,
