@@ -1,4 +1,4 @@
--- Active: 1737221727660@@127.0.0.1@3306@el_milagro
+-- Active: 1741838627681@@127.0.0.1@3306
 /* DROP DATABASE db_onepiece; */
 CREATE DATABASE db_onepiece;
 Use db_onepiece;
@@ -90,7 +90,7 @@ CREATE TABLE `tbl_academicos_alumnos` (
   `nid_persona` int NOT NULL,
   `nid_categoria` int NOT NULL,
   `nid_carrera` int NOT NULL,
-  `cnumero_cuenta` varchar(9) UNIQUE NOT NULL,
+  `cnumero_cuenta` varchar(12) UNIQUE NOT NULL,
   `ccorreo_institucional` varchar(50) NOT NULL,
   `bhabilitado` bit NOT NULL,
   `dfecha_alta` date NOT NULL,
@@ -105,7 +105,7 @@ CREATE TABLE `tbl_academicos_profesores` (
   `nid_persona` int NOT NULL,
   `nid_categoria` int NOT NULL,
   `nid_carrera` int NOT NULL,
-  `cnumero_cuenta` varchar(9) UNIQUE NOT NULL,
+  `cnumero_cuenta` varchar(12) UNIQUE NOT NULL,
   `ccorreo_institucional` varchar(50) NOT NULL,
   `bhabilitado` bit NOT NULL,
   `dfecha_alta` date NOT NULL,
@@ -120,7 +120,7 @@ CREATE TABLE `tbl_academicos_admin` (
   `nid_persona` int NOT NULL,
   `nid_categoria` int NOT NULL,
   `nid_carrera` int NOT NULL,
-  `cnumero_cuenta` varchar(9) UNIQUE NOT NULL,
+  `cnumero_cuenta` varchar(12) UNIQUE NOT NULL,
   `ccorreo_institucional` varchar(50) NOT NULL,
   `bhabilitado` bit NOT NULL,
   `dfecha_alta` date NOT NULL,

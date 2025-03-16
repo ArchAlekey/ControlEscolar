@@ -43,6 +43,7 @@ body{
     height: 45vh;
     border: 2px solid white;
 }
+
 .input__form{
     display: flex;
     justify-content: center;

@@ -1,5 +1,5 @@
 -- Active: 1737221727660@@127.0.0.1@3306@db_onepiece
-
+Use db_onepiece;
 -- Inserta personas que son profesores de MAC
 INSERT INTO tbl_personas (cnombre, capellidos, bsexo, nedad, dfecha_nacimiento, cCURP, cRFC, cnumero_celular, bhabilitado, dfecha_alta)
 VALUES  

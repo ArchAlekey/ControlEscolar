@@ -1,4 +1,4 @@
--- Active: 1737221727660@@127.0.0.1@3306@db_onepiece
+-- Active: 1741838627681@@127.0.0.1@3306@db_onepiece
 
 INSERT INTO cat_carreras(ccarrera, bhabilitado, dfecha_alta)
 VALUES  ('Matemáticas Aplicadas y Computación', 1, NOW()),
