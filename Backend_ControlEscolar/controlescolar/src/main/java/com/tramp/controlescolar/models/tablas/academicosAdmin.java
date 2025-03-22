@@ -15,33 +15,33 @@ public class academicosAdmin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "nid_academico_admin")
-    private Integer nidAcademicoAdmin;
+    private Integer nid_academico_admin;
 
     @Column(name = "nid_persona", nullable = false)
-    private Integer nidPersona;
+    private Integer nid_persona;
 
     @Column(name = "nid_categoria", nullable = false)
-    private Integer niCategoria;
+    private Integer nid_categoria;
 
     @Column(name = "nid_carrera", nullable = false)
-    private Integer nidCarrera;
+    private Integer nid_carrera;
 
     @Column(name = "cnumero_cuenta", unique = true, length = 9, nullable = false)
-    private String numeroCuenta;
+    private String cnumero_cuenta;
 
     @Column(name = "ccorreo_institucional", unique = true, length = 50, nullable = false)
-    private String correoInstitucional;
+    private String ccorreo_institucional;
 
     @Column(name = "bhabilitado", nullable = false)
-    private Boolean habilitado;
+    private Boolean bhabilitado;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "dfecha_alta")
-    private Date fechaAlta;
+    private Date dfecha_alta;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "dfecha_baja")
-    private Date fechaBaja;
+    private Date dfecha_baja;
 
 
 }

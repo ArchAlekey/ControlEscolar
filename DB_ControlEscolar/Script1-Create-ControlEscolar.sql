@@ -1,7 +1,7 @@
--- Active: 1741838627681@@127.0.0.1@3306
+-- Active: 1742539437960@@bnowsdq3ly9belvfnnac-mysql.services.clever-cloud.com@3306@bnowsdq3ly9belvfnnac
 /* DROP DATABASE db_onepiece; */
-CREATE DATABASE db_onepiece;
-Use db_onepiece;
+-- CREATE DATABASE db_onepiece;
+Use bnowsdq3ly9belvfnnac;
 
 -- Aquí comienzan las tablas de tipos catálogo
 CREATE TABLE `cat_carreras` (
@@ -74,7 +74,7 @@ CREATE TABLE `tbl_personas` (
   `nid_persona` int AUTO_INCREMENT PRIMARY KEY,
   `cnombre` varchar(50) NOT NULL,
   `capellidos` varchar(50) NOT NULL,
-  `bsexo` numeric NOT NULL,
+  `bsexo` BIT NOT NULL,
   `nedad` int NOT NULL,
   `dfecha_nacimiento` date NOT NULL,
   `cCURP` varchar(18) NOT NULL,
@@ -133,8 +133,8 @@ CREATE TABLE `tbl_academicos_admin` (
 CREATE TABLE `tbl_usuarios` (
   `nid_usuario` int AUTO_INCREMENT PRIMARY KEY,
   `nid_persona` int NOT NULL,
-  `cusuario` varchar(9) NOT NULL,
-  `ccontraseña` varchar(50) NOT NULL,
+  `cusuario` varchar(12) NOT NULL,
+  `ccontrasenia` varchar(100) NOT NULL,
   `bhabilitado` bit NOT NULL,
   `dfecha_alta` date NOT NULL,
   `dfecha_baja` date,

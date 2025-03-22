@@ -1,5 +1,7 @@
--- Active: 1741838627681@@127.0.0.1@3306@db_onepiece
+-- Active: 1739329630699@@127.0.0.1@3306@db_onepiece
 
+
+-- Academicos profesores de MAC
 INSERT INTO tbl_academicos_profesores (nid_persona, nid_categoria, nid_carrera, cnumero_cuenta, ccorreo_institucional, bhabilitado, dfecha_alta)
 VALUES
 (1, 2, 1, '20GOPC79031', '20GOPC79031@controlescolar.com', 1, NOW()),
@@ -15,6 +17,7 @@ VALUES
 (11, 2, 1, '20ROLM78071', '20ROLM78071@controlescolar.com', 1, NOW()),
 (12, 2, 1, '20HETV84091', '20HETV84091@controlescolar.com', 1, NOW());
 
+-- Academicos profesores de Filosofía
 INSERT INTO tbl_academicos_profesores (nid_persona, nid_categoria, nid_carrera, cnumero_cuenta, ccorreo_institucional, bhabilitado, dfecha_alta)
 VALUES
 (13, 2, 2, '20ALCM74021', '20ALCM74021@controlescolar.com', 1, NOW()),

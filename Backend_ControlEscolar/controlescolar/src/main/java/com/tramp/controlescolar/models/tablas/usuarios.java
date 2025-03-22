@@ -12,27 +12,27 @@ public class usuarios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "nid_usuario")
-    private Integer nidUsuario;
+    private Integer nid_usuario;
 
     @Column(name = "nid_persona", nullable = false)
-    private Integer nidPersona;
+    private Integer nid_persona;
 
 
-    @Column(name = "cusuario", unique = true, length = 9, nullable = false)
-    private String usuario;
+    @Column(name = "cusuario", unique = true, length = 12, nullable = false)
+    private String cusuario;
 
     //Corregir en la base de datos
-    @Column(name = "contrasenia", length = 50, nullable = false)
+    @Column(name = "contrasenia", length = 100, nullable = false)
     private String contrasenia;
 
     @Column(name = "bhabilitado", nullable = false)
-    private Boolean habilitado;
+    private Boolean bhabilitado;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "dfecha_alta")
-    private Date fechaAlta;
+    private Date dfecha_alta;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "dfecha_baja")
-    private Date fechaBaja;
+    private Date dfecha_baja;
 }
