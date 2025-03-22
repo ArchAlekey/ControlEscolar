@@ -1,5 +1,4 @@
--- Active: 1737221727660@@127.0.0.1@3306@db_onepiece
-
+-- Active: 1742539437960@@bnowsdq3ly9belvfnnac-mysql.services.clever-cloud.com@3306@bnowsdq3ly9belvfnnac
 -- Inserta personas que son profesores de MAC
 INSERT INTO tbl_personas (cnombre, capellidos, bsexo, nedad, dfecha_nacimiento, cCURP, cRFC, cnumero_celular, bhabilitado, dfecha_alta)
 VALUES  
@@ -33,7 +32,7 @@ VALUES
 ('Patricia', 'Fuentes Moreno', 0, 41, '1983-04-19', 'FUMP830419MDFTRP12', 'FUMP830419', '5534567891', 1, NOW());
 
 -- Inserta para Arquitectura
-INSERT INTO tbl_personas (cnombre, capellidos, bsexo, nedad, dfecha_nacimiento, cCURP, cRFC, cnumero_celular, bhabilitado, dfecha_alta)
+/* INSERT INTO tbl_personas (cnombre, capellidos, bsexo, nedad, dfecha_nacimiento, cCURP, cRFC, cnumero_celular, bhabilitado, dfecha_alta)
 VALUES  
 ('Juan', 'Torres Méndez', 1, 52, '1972-03-15', 'TOMJ720315HDFTRN01', 'TOMJ720315', '5543216789', 1, NOW()),
 ('María', 'López Ramírez', 0, 45, '1979-07-23', 'LORM790723MDFTRC02', 'LORM790723', '5556789234', 1, NOW()),
@@ -46,10 +45,10 @@ VALUES
 ('Andrés', 'Hernández Salinas', 1, 49, '1975-01-29', 'HESA750129HDFTRA09', 'HESA750129', '5567898723', 1, NOW()),
 ('Paula', 'Ortega Velázquez', 0, 37, '1987-06-19', 'ORVP870619MDFTRP10', 'ORVP870619', '5520986548', 1, NOW()),
 ('David', 'Suárez Moreno', 1, 44, '1980-10-25', 'SUMD801025HDFTRE11', 'SUMD801025', '5545678912', 1, NOW()),
-('Rosa', 'Fuentes Torres', 0, 41, '1983-02-08', 'FUTR830208MDFTRR12', 'FUTR830208', '5534567895', 1, NOW());
+('Rosa', 'Fuentes Torres', 0, 41, '1983-02-08', 'FUTR830208MDFTRR12', 'FUTR830208', '5534567895', 1, NOW()); */
 
 -- Inserta para medicina
-INSERT INTO tbl_personas (cnombre, capellidos, bsexo, nedad, dfecha_nacimiento, cCURP, cRFC, cnumero_celular, bhabilitado, dfecha_alta)
+/* INSERT INTO tbl_personas (cnombre, capellidos, bsexo, nedad, dfecha_nacimiento, cCURP, cRFC, cnumero_celular, bhabilitado, dfecha_alta)
 VALUES  
 ('Alberto', 'Ramírez González', 1, 55, '1969-02-17', 'RAGA690217HDFTLA01', 'RAGA690217', '5541239876', 1, NOW()),
 ('Marta', 'Sánchez López', 0, 50, '1974-06-12', 'SALO740612MDFTRM02', 'SALO740612', '5557896543', 1, NOW()),
@@ -62,7 +61,7 @@ VALUES
 ('Alejandro', 'Hernández Salinas', 1, 54, '1970-07-09', 'HESA700709HDFTRA09', 'HESA700709', '5567895632', 1, NOW()),
 ('Patricia', 'Ortega Velázquez', 0, 42, '1982-01-29', 'ORVP820129MDFTRP10', 'ORVP820129', '5520987456', 1, NOW()),
 ('Héctor', 'Suárez Moreno', 1, 47, '1977-10-14', 'SUMH771014HDFTRE11', 'SUMH771014', '5545672389', 1, NOW()),
-('Rosa', 'Fuentes Domínguez', 0, 44, '1980-04-05', 'FUDO800405MDFTRR12', 'FUDO800405', '5534567123', 1, NOW());
+('Rosa', 'Fuentes Domínguez', 0, 44, '1980-04-05', 'FUDO800405MDFTRR12', 'FUDO800405', '5534567123', 1, NOW()); */
 
 -- Insert para personas
 /* INSERT INTO tbl_personas(cnombre, capellidos, bsexo, nedad, dfecha_nacimiento, `cCURP`, `cRFC`, cnumero_celular, bhabilitado, dfecha_alta)

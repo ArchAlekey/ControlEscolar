@@ -14,31 +14,31 @@ public class horarioMaterias {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "nid_horario_materia")
-    private Integer nidHorarioMateria;
+    private Integer nid_horario_materia;
 
     @Column(name = "nid_periodo", nullable = false)
-    private Integer nidPeriodo;
+    private Integer nid_periodo;
 
     @Column(name = "nid_semestre", nullable = false)
-    private Integer nidSemestre;
+    private Integer nid_semestre;
 
     @Column(name = "nid_grupo", nullable = false)
-    private Integer nidGrupo;
+    private Integer nid_grupo;
 
     @Column(name = "nid_academico_profesor", nullable = false)
-    private Integer nidAcademicoProfesor;
+    private Integer nid_academico_profesor;
 
     @Column(name = "nid_materia", nullable = false)
-    private Integer nidMateria;
+    private Integer nid_materia;
 
     @Column(name = "bhabilitado", nullable = false)
-    private Boolean habilitado;
+    private Boolean bhabilitado;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "dfecha_alta")
-    private Date fechaAlta;
+    private Date dfecha_alta;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "dfecha_baja")
-    private Date fechaBaja;
+    private Date dfecha_baja;
 }

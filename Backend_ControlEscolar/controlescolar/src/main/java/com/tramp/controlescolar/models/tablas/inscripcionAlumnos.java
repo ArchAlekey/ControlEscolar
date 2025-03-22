@@ -15,27 +15,27 @@ public class inscripcionAlumnos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "nid_insc_alumno")
-    private Integer nidInscripcionAlumno;
+    private Integer nid_insc_alumno;
 
     @Column(name = "nid_horario_materia", nullable = false)
-    private Integer nidHorarioMateria;
+    private Integer nid_horario_materia;
 
     @Column(name = "nid_usuario", nullable = false)
-    private Integer nidUsuario;
+    private Integer nid_usuario;
 
     //Corregir en la base de datos
     @Column(name = "ncalificacion", precision = 2, scale = 2, nullable = false)
-    private BigDecimal calificacion;
+    private BigDecimal ncalificacion;
 
     @Column(name = "bhabilitado", nullable = false)
-    private Boolean habilitado;
+    private Boolean bhabilitado;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "dfecha_alta")
-    private Date fechaAlta;
+    private Date dfecha_alta;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "dfecha_baja")
-    private Date fechaBaja;
+    private Date dfecha_baja;
 
 }

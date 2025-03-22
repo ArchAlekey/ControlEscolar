@@ -1,4 +1,4 @@
--- Active: 1737221727660@@127.0.0.1@3306@db_onepiece
+-- Active: 1742539437960@@bnowsdq3ly9belvfnnac-mysql.services.clever-cloud.com@3306@bnowsdq3ly9belvfnnac
 
 INSERT INTO cat_carreras(ccarrera, bhabilitado, dfecha_alta)
 VALUES  ('Matemáticas Aplicadas y Computación', 1, NOW()),
