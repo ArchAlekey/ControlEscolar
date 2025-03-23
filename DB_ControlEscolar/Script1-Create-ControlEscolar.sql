@@ -167,7 +167,7 @@ CREATE TABLE `tbl_insc_alumnos`(
   nid_horario_materia INT NOT NULL,
   nid_usuario int NOT NULL,
   ncalificación DECIMAL(2,2) NULL,
-    `bhabilitado` bit NOT NULL,
+  `bhabilitado` bit NOT NULL,
   `dfecha_alta` date NOT NULL,
   `dfecha_baja` date,
 

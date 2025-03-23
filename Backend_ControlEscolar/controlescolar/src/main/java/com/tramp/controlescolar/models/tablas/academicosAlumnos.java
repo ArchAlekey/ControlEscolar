@@ -1,11 +1,16 @@
 package com.tramp.controlescolar.models.tablas;
 
 import jakarta.persistence.*;
+import lombok.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "academicos_alumnos")
-public class academicosAlumnos {
+@Table(name = "tbl_academicos_alumnos")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class AcademicosAlumnos {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,9 +44,9 @@ public class academicosAlumnos {
     private Date dfecha_baja;
 
     // Constructor vacío requerido por JPA
-    public academicosAlumnos() {}
+/*     public AcademicosAlumnos() {}
 
-    public academicosAlumnos(Integer IntIdAcademicoAlumno, Integer IntIdPersona, Integer IntIdCategoria, Integer IntIdCarrera, String StrNumeroCuenta, String StrCorreoInstitucional, boolean BoolHabilitado, Date DateFechaAlta, Date DateFechaBaja) {
+    public AcademicosAlumnos(Integer IntIdAcademicoAlumno, Integer IntIdPersona, Integer IntIdCategoria, Integer IntIdCarrera, String StrNumeroCuenta, String StrCorreoInstitucional, boolean BoolHabilitado, Date DateFechaAlta, Date DateFechaBaja) {
         this.nid_academico_alumno = IntIdAcademicoAlumno;
         this.nid_persona = IntIdPersona;
         this.nid_categoria = IntIdCategoria;
@@ -79,5 +84,5 @@ public class academicosAlumnos {
     public void setFechaAlta(Date DateFechaAlta) { this.dfecha_alta = DateFechaAlta; }
 
     public Date getFechaBaja() { return dfecha_baja; }
-    public void setFechaBaja(Date DateFechaBaja) { this.dfecha_baja = DateFechaBaja; }
+    public void setFechaBaja(Date DateFechaBaja) { this.dfecha_baja = DateFechaBaja; } */
 }

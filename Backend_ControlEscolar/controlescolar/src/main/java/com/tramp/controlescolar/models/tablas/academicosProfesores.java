@@ -1,16 +1,17 @@
 package com.tramp.controlescolar.models.tablas;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Date;
 
-@Getter
-@Setter
 @Entity
 @Table(name = "tbl_academicos_profesores")
-public class academicosProfesores {
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class AcademicosProfesores {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "nid_academico_profesor")

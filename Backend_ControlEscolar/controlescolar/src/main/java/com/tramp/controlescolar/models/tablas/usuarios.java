@@ -1,14 +1,16 @@
 package com.tramp.controlescolar.models.tablas;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import java.util.Date;
-@Getter
-@Setter
+
 @Entity
 @Table(name = "tbl_usuarios")
-public class usuarios {
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class Usuarios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "nid_usuario")
@@ -22,7 +24,7 @@ public class usuarios {
     private String cusuario;
 
     //Corregir en la base de datos
-    @Column(name = "contrasenia", length = 100, nullable = false)
+    @Column(name = "ccontrasenia", length = 100, nullable = false)
     private String contrasenia;
 
     @Column(name = "bhabilitado", nullable = false)
