@@ -1,11 +1,16 @@
 package com.tramp.controlescolar.models.catalogos;
 
 import jakarta.persistence.*;
+import lombok.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "cat_grupos")
-public class grupos {
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class Grupos {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,15 +32,15 @@ public class grupos {
     private Date dfecha_baja;
 
     // Constructor vacío requerido por JPA
-    public grupos() {}
+/*     public Grupos() {}
 
-    public grupos(Integer IntIdGrupo, String StrGrupo, Boolean BoolHabilitado, Date DateFechaAlta, Date DateFechaBaja) {
+    public Grupos(Integer IntIdGrupo, String StrGrupo, Boolean BoolHabilitado, Date DateFechaAlta, Date DateFechaBaja) {
         this.nid_grupo = IntIdGrupo;
         this.cgrupo = StrGrupo;
         this.bhabilitado = BoolHabilitado;
         this.dfecha_alta = DateFechaAlta;
         this.dfecha_baja = DateFechaBaja;
-    }
+    } */
 
     // Getters y Setters
     public Integer getIdGrupo() { return nid_grupo; }

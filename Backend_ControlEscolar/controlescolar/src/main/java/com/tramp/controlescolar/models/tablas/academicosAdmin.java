@@ -1,17 +1,18 @@
 package com.tramp.controlescolar.models.tablas;
 
-import com.tramp.controlescolar.models.catalogos.categorias;
+/* import com.tramp.controlescolar.models.catalogos.categorias; */
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Date;
 
 @Entity
+@Table(name = "tbl_academicos_admin")
 @Getter
 @Setter
-@Table(name = "tbl_academicos_admin")
-public class academicosAdmin {
+@NoArgsConstructor
+@AllArgsConstructor
+public class AcademicosAdmin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "nid_academico_admin")

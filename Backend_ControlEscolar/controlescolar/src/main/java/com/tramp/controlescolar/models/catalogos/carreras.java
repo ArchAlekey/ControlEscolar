@@ -1,17 +1,17 @@
 package com.tramp.controlescolar.models.catalogos;
 
-import lombok.*;
+/* import lombok.*; */
 import jakarta.persistence.*;
+import lombok.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "cat_carreras")
-public class carreras {
-/*     private int nid_carrera;
-    private String ccarrera;
-    private boolean bhabilitado;
-    private Date dfecha_alta;
-    private Date dfecha_baja; */
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class Carreras {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "nid_carrera")
@@ -24,7 +24,7 @@ public class carreras {
     private boolean bhabilitado;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "dfecha_alta")
+    @Column(name = "dfecha_alta")   
     private Date dfecha_alta;
 
     @Temporal(TemporalType.TIMESTAMP)
@@ -32,9 +32,9 @@ public class carreras {
     private Date dfecha_baja;
     
 
-    public carreras(){};
+/*     public Carreras(){};
     
-    public carreras(int IntIdCarrera, String StrCarrera, boolean BoolHabilitado, Date DateFechaAlta, Date DateFechaBaja)
+    public Carreras(int IntIdCarrera, String StrCarrera, boolean BoolHabilitado, Date DateFechaAlta, Date DateFechaBaja)
     {
         this.nid_carrera = IntIdCarrera;
         this.ccarrera = StrCarrera;
@@ -57,5 +57,5 @@ public class carreras {
     public void setFechaAlta(Date DateFechaAlta){this.dfecha_alta = DateFechaAlta;}
 
     public Date getFechaBaja(){return dfecha_baja;}
-    public void setFechaBaja(Date DateFechaBaja){this.dfecha_baja = DateFechaBaja;}
+    public void setFechaBaja(Date DateFechaBaja){this.dfecha_baja = DateFechaBaja;} */
 }

@@ -1,11 +1,16 @@
 package com.tramp.controlescolar.models.catalogos;
 
 import jakarta.persistence.*;
+import lombok.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "cat_semestres")
-public class semestres {
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class Semestres {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,9 +35,9 @@ public class semestres {
     private Date dfecha_baja;
 
     // Constructor vacío requerido por JPA
-    public semestres() {}
+   /*  public Semestres() {}
 
-    public semestres(Integer IntIdSemestre, Integer IntSemestre, boolean BoolParImpar, boolean BoolHabilitado, Date DateFechaAlta, Date DateFechaBaja) {
+    public Semestres(Integer IntIdSemestre, Integer IntSemestre, boolean BoolParImpar, boolean BoolHabilitado, Date DateFechaAlta, Date DateFechaBaja) {
         this.nid_semestre = IntIdSemestre;
         this.nsemestre = IntSemestre;
         this.bpar_impar = BoolParImpar;
@@ -58,5 +63,5 @@ public class semestres {
     public void setFechaAlta(Date DateFechaAlta) { this.dfecha_alta = DateFechaAlta; }
 
     public Date getFechaBaja() { return dfecha_baja; }
-    public void setFechaBaja(Date DateFechaBaja) { this.dfecha_baja = DateFechaBaja; }
+    public void setFechaBaja(Date DateFechaBaja) { this.dfecha_baja = DateFechaBaja; } */
 }
