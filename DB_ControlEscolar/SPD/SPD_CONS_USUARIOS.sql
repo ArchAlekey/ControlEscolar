@@ -1,6 +1,6 @@
 DELIMITER $$
 
-CREATE PROCEDURE SPD_CONSULTA_USUARIO
+CREATE PROCEDURE SPD_CONS_USUARIO
 (
     IN StrUsuario VARCHAR(12),
     IN StrContrasenia VARCHAR(16)
@@ -16,11 +16,11 @@ BEGIN
     AND ccontrasenia = @StrContrasenia COLLATE utf8mb4_unicode_ci;
 
     -- Si el SELECT no devuelve resultados, el usuario o la contraseña no son correctos
-    IF (ROW_COUNT() = 0) THEN
+/*     IF (ROW_COUNT() = 0) THEN
         SELECT 0 AS mensaje;
     ELSE
         SELECT 1 AS mensaje;
-    END IF;
+    END IF; */
 
 END $$
 
