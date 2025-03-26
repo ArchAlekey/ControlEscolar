@@ -1,6 +1,6 @@
-
+use bnowsdq3ly9belvfnnac;
 -- Usuarios profesores de MAC
-INSERT INTO tbl_usuarios (nid_persona, cusuario, ccontraseña, bhabilitado, dfecha_alta)
+INSERT INTO tbl_usuarios (nid_persona, cusuario, ccontrasenia, bhabilitado, dfecha_alta)
 VALUES
 (1, '20GOPC79031', SHA2('20GOPC79031', 256), 1, NOW()),
 (2, '20LORM86072', SHA2('20LORM86072', 256), 1, NOW()),
@@ -17,7 +17,7 @@ VALUES
 
 
 -- Usuarios profesores de Filosofía
-INSERT INTO tbl_usuarios (nid_persona, cusuario, ccontraseña, bhabilitado, dfecha_alta)
+INSERT INTO tbl_usuarios (nid_persona, cusuario, ccontrasenia, bhabilitado, dfecha_alta)
 VALUES
 (13, '20ALCM74021', SHA2('20ALCM74021', 256), 1, NOW()),
 (14, '20CAMB85062', SHA2('20CAMB85062', 256), 1, NOW()),
