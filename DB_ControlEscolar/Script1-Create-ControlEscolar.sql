@@ -1,9 +1,10 @@
--- Active: 1742539437960@@bnowsdq3ly9belvfnnac-mysql.services.clever-cloud.com@3306@bnowsdq3ly9belvfnnac
+-- Active: 1741838627681@@127.0.0.1@3306
 /* DROP DATABASE db_onepiece; */
--- CREATE DATABASE db_onepiece;
-Use bnowsdq3ly9belvfnnac;
-
+CREATE DATABASE db_onepiece;
+-- Use bnowsdq3ly9belvfnnac;
+Use db_onepiece;
 -- Aquí comienzan las tablas de tipos catálogo
+
 CREATE TABLE `cat_carreras` (
   `nid_carrera` int AUTO_INCREMENT PRIMARY KEY,
   `ccarrera` varchar(50) NOT NULL,

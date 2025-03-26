@@ -1,4 +1,6 @@
--- Active: 1742539437960@@bnowsdq3ly9belvfnnac-mysql.services.clever-cloud.com@3306@bnowsdq3ly9belvfnnac
+-- Active: 1741838627681@@127.0.0.1@3306@db_onepiece
+USE bnowsdq3ly9belvfnnac;
+
 -- Inserta personas que son profesores de MAC
 INSERT INTO tbl_personas (cnombre, capellidos, bsexo, nedad, dfecha_nacimiento, cCURP, cRFC, cnumero_celular, bhabilitado, dfecha_alta)
 VALUES  

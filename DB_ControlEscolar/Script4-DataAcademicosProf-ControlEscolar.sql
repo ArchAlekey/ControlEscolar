@@ -1,5 +1,5 @@
--- Active: 1739329630699@@127.0.0.1@3306@db_onepiece
-
+-- Active: 1741838627681@@127.0.0.1@3306@db_onepiece
+use bnowsdq3ly9belvfnnac;
 
 -- Academicos profesores de MAC
 INSERT INTO tbl_academicos_profesores (nid_persona, nid_categoria, nid_carrera, cnumero_cuenta, ccorreo_institucional, bhabilitado, dfecha_alta)

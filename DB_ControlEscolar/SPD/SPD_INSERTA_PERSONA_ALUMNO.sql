@@ -29,9 +29,10 @@ BEGIN
     VALUES
     (@nid_persona , 1, IntIdCarrera, @NumCuenta , CONCAT(@NumCuenta , '@controlescolar.com'), 1, NOW());
 
-    INSERT INTO tbl_usuarios(nid_persona, cusuario, ccontraseña, bhabilitado, dfecha_alta)
+    INSERT INTO tbl_usuarios(nid_persona, cusuario, ccontrasenia, bhabilitado, dfecha_alta)
     VALUES
     (@nid_persona , @NumCuenta , SHA2(StrContrasenia, 256), 1, NOW());
 END $$
 
 DELIMITER ;
+
