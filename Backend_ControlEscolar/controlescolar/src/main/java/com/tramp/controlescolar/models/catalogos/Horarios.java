@@ -1,15 +1,10 @@
 package com.tramp.controlescolar.models.catalogos;
 
 import jakarta.persistence.*;
-import lombok.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "cat_horarios")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class Horarios {
 
     @Id
@@ -32,7 +27,7 @@ public class Horarios {
     private Date dfecha_baja;
 
     // Constructor vacío requerido por JPA
-/*     public Horarios() {}
+     public Horarios() {}
 
     public Horarios(Integer IntIdHorario, String StrHorario, Boolean BoolHabilitado, Date DateFechaAlta, Date DateFechaBaja) {
         this.nid_horario = IntIdHorario;
@@ -40,7 +35,7 @@ public class Horarios {
         this.bhabilitado = BoolHabilitado;
         this.dfecha_alta = DateFechaAlta;
         this.dfecha_baja = DateFechaBaja;
-    } */
+    }
 
     // Getters y Setters
     public Integer getIdHorario() { return nid_horario; }

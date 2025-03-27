@@ -2,15 +2,10 @@ package com.tramp.controlescolar.models.catalogos;
 
 /* import lombok.*; */
 import jakarta.persistence.*;
-import lombok.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "cat_carreras")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class Carreras {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,7 +27,7 @@ public class Carreras {
     private Date dfecha_baja;
     
 
-/*     public Carreras(){};
+    public Carreras(){};
     
     public Carreras(int IntIdCarrera, String StrCarrera, boolean BoolHabilitado, Date DateFechaAlta, Date DateFechaBaja)
     {
@@ -57,5 +52,5 @@ public class Carreras {
     public void setFechaAlta(Date DateFechaAlta){this.dfecha_alta = DateFechaAlta;}
 
     public Date getFechaBaja(){return dfecha_baja;}
-    public void setFechaBaja(Date DateFechaBaja){this.dfecha_baja = DateFechaBaja;} */
+    public void setFechaBaja(Date DateFechaBaja){this.dfecha_baja = DateFechaBaja;}
 }

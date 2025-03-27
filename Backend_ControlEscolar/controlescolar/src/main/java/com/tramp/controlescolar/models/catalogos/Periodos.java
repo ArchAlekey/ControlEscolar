@@ -1,15 +1,10 @@
 package com.tramp.controlescolar.models.catalogos;
 
 import jakarta.persistence.*;
-import lombok.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "cat_periodos")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class Periodos {
 
     @Id
@@ -35,7 +30,7 @@ public class Periodos {
     private Date dfecha_baja;
 
     // Constructor vacío requerido por JPA
-/*     public Periodos() {}
+    public Periodos() {}
 
     public Periodos(Integer IntIdPeriodo, String StrPeriodo, String StrAnio, Boolean BoolHabilitado, Date DateFechaAlta, Date DateFechaBaja) {
         this.nid_periodo = IntIdPeriodo;
@@ -44,7 +39,7 @@ public class Periodos {
         this.bhabilitado = BoolHabilitado;
         this.dfecha_alta = DateFechaAlta;
         this.dfecha_baja = DateFechaBaja;
-    } */
+    }
 
     // Getters y Setters
     public Integer getIdPeriodo() { return nid_periodo; }
