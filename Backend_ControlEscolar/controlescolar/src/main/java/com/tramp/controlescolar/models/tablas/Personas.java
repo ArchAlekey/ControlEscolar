@@ -2,14 +2,9 @@ package com.tramp.controlescolar.models.tablas;
 
 import jakarta.persistence.*;
 import java.util.Date;
-import lombok.*;
 
 @Entity
 @Table(name = "tbl_personas")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class Personas {
 
     @Id
@@ -54,7 +49,7 @@ public class Personas {
     private Date dfecha_baja;
 
     // Constructor vacío requerido por JPA
-/*     public Personas() {}
+    public Personas() {}
 
     public Personas(Integer IntIdPersona,
                     String StrNombre,
@@ -117,5 +112,5 @@ public class Personas {
     public void setFechaAlta(Date DateFechaAlta) { this.dfecha_alta = DateFechaAlta; }
 
     public Date getFechaBaja() { return dfecha_baja; }
-    public void setFechaBaja(Date DateFechaBaja) { this.dfecha_baja = DateFechaBaja; } */
+    public void setFechaBaja(Date DateFechaBaja) { this.dfecha_baja = DateFechaBaja; }
 }

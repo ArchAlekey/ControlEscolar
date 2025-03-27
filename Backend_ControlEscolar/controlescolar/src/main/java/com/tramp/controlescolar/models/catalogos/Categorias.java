@@ -2,20 +2,12 @@ package com.tramp.controlescolar.models.catalogos;
 
 import jakarta.persistence.*;
 import java.util.Date;
-import lombok.*;
+
 
 @Entity
 @Table(name = "cat_categorias")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class Categorias {
-/*     private Integer nid_categoria;
-    private String ccategoria;
-    private boolean bhabilitado;
-    private Date dfecha_alta;
-    private Date dfecha_baja; */
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,7 +28,7 @@ public class Categorias {
     @Column(name = "dfecha_baja")
     private Date dfecha_baja;
 
-/*     public Categorias(){};
+    public Categorias(){};
 
     // Constructor
     public Categorias(Integer IntIdCategoria, String StrCategoria, boolean BoolHabilitado, Date DateFechaAlta, Date DateFechaBaja) {
@@ -45,10 +37,10 @@ public class Categorias {
         this.bhabilitado = BoolHabilitado;
         this.dfecha_alta = DateFechaAlta;
         this.dfecha_baja = DateFechaBaja;
-    } */
+    }
 
     // Getters y setters
-/*     public Integer getIdCategoria() {return nid_categoria;}
+    public Integer getIdCategoria() {return nid_categoria;}
     public void setIdCategoria(Integer IntIdCategoria) {this.nid_categoria = IntIdCategoria;}
 
     public String getCategoria() {return ccategoria;}
@@ -61,5 +53,5 @@ public class Categorias {
     public void setFechaAlta(Date DateFechaAlta) {this.dfecha_alta = DateFechaAlta;}
 
     public Date getFechaBaja() {return dfecha_baja;}
-    public void setFechaBaja(Date DateFechaBaja) {this.dfecha_baja = DateFechaBaja;} */
+    public void setFechaBaja(Date DateFechaBaja) {this.dfecha_baja = DateFechaBaja;}
 }

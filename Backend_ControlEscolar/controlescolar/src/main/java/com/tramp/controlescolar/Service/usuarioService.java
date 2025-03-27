@@ -11,7 +11,7 @@ public class usuarioService {
     @Autowired
     private usuarioRepositorio _usuarioRepositorio;
 
-    public List<Usuarios> validateUsuarios(String cusario, String ccontrasenia){
-        return _usuarioRepositorio.validateUsuarios(cusario, ccontrasenia);
+    public Optional<Usuarios> validateUsuarios(String cusuario, String ccontrasenia){
+        return _usuarioRepositorio.validateUsuarios(cusuario, ccontrasenia);
     }
 }
