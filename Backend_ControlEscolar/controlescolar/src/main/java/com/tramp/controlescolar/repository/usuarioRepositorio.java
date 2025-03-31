@@ -1,7 +1,6 @@
-package com.tramp.controlescolar.repository;
+ package com.tramp.controlescolar.repository;
 
-/* import java.util.List; */
-import java.util.Optional;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.query.Procedure;
@@ -10,9 +9,14 @@ import org.springframework.stereotype.Repository;
 
 import com.tramp.controlescolar.models.tablas.Usuarios;
 
-@Repository
-public interface usuarioRepositorio extends JpaRepository<Usuarios, Integer> {
+import org.springframework.transaction.annotation.Transactional;  // ✅ IMPORTACIÓN CORRECTA
 
-    @Procedure(name = "SPD_CONS_USUARIO")
-    Optional<Usuarios> validateUsuarios(@Param("StrUsuario") String cusuario, @Param("StrContrasenia") String ccontrasenia);
+
+
+@Repository
+public interface UsuarioRepositorio extends JpaRepository<Usuarios, Integer>{
+        
+        @Transactional
+        @Procedure(procedureName = "SPD_CONS_USUARIO")
+        List<Usuarios> validarUsuario(@Param("StrUsuario") String usuario, @Param("StrContrasenia") String contrasenia); 
 }
