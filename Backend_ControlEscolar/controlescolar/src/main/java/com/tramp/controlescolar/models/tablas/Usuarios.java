@@ -9,62 +9,62 @@ public class Usuarios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "nid_usuario")
-    private Integer nid_usuario;
+    private Integer idUsuario;
 
     @Column(name = "nid_persona", nullable = false)
-    private Integer nid_persona;
+    private Integer idPersona;
 
 
     @Column(name = "cusuario", unique = true, length = 12, nullable = false)
-    private String cusuario;
+    private String usuario;
 
     //Corregir en la base de datos
     @Column(name = "ccontrasenia", length = 100, nullable = false)
     private String contrasenia;
 
     @Column(name = "bhabilitado", nullable = false)
-    private Boolean bhabilitado;
+    private Boolean habilitado;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "dfecha_alta")
-    private Date dfecha_alta;
+    private Date fechaAlta;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "dfecha_baja")
-    private Date dfecha_baja;
+    private Date fechaBaja;
 
     // Constructor vacío requerido por JPA
     public Usuarios() {}
 
     public Usuarios(Integer IntIdUsuario, Integer IntIdPersona, String StrUsuario, String StrContrasenia, Boolean BoolHabilitado, Date DateFechaAlta, Date DateFechaBaja) {
-        this.nid_usuario = IntIdUsuario;
-        this.nid_persona = IntIdPersona;
-        this.cusuario = StrUsuario;
+        this.idUsuario = IntIdUsuario;
+        this.idPersona = IntIdPersona;
+        this.usuario = StrUsuario;
         this.contrasenia = StrContrasenia;
-        this.bhabilitado = BoolHabilitado;
-        this.dfecha_alta = DateFechaAlta;
-        this.dfecha_baja = DateFechaBaja;
+        this.habilitado = BoolHabilitado;
+        this.fechaAlta = DateFechaAlta;   
+        this.fechaBaja = DateFechaBaja;
     }
 
     // Getters y Setters
-    public Integer getIdUsuario() { return nid_usuario; }
-    public void setIdUsuario(Integer IntIdUsuario) { this.nid_usuario = IntIdUsuario; }
+    public Integer getIdUsuario() { return idUsuario; }
+    public void setIdUsuario(Integer IntIdUsuario) { this.idUsuario = IntIdUsuario; }
 
-    public Integer getIdPersona() { return nid_persona; }
-    public void setIdPersona(Integer IntIdPersona) { this.nid_persona = IntIdPersona; }
+    public Integer getIdPersona() { return idPersona; }
+    public void setIdPersona(Integer IntIdPersona) { this.idPersona = IntIdPersona; }
 
-    public String getUsuario() { return cusuario; }
-    public void setUsuario(String StrUsuario) { this.cusuario = StrUsuario; }
+    public String getUsuario() { return usuario; }
+    public void setUsuario(String StrUsuario) { this.usuario = StrUsuario; }
 
     public String getContrasenia() { return contrasenia; }
-    public void setContrasenia(String StrContrasenia) { this.contrasenia = StrContrasenia; }
+    public void setContrasenia(String StrContrasenia) { this.contrasenia= StrContrasenia; }
 
-    public Boolean getHabilitado() { return bhabilitado; }
-    public void setHabilitado(Boolean BoolHabilitado) { this.bhabilitado = BoolHabilitado; }
+    public Boolean getHabilitado() { return habilitado; }
+    public void setHabilitado(Boolean BoolHabilitado) { this.habilitado = BoolHabilitado; }
 
-    public Date getFechaAlta() { return dfecha_alta; }
-    public void setFechaAlta(Date DateFechaAlta) { this.dfecha_alta = DateFechaAlta; }
+    public Date getFechaAlta() { return fechaAlta; }
+    public void setFechaAlta(Date DateFechaAlta) { this.fechaAlta = DateFechaAlta; }
 
-    public Date getFechaBaja() { return dfecha_baja; }
-    public void setFechaBaja(Date DateFechaBaja) { this.dfecha_baja = DateFechaBaja; }
+    public Date getFechaBaja() { return fechaBaja; }
+    public void setFechaBaja(Date DateFechaBaja) { this.fechaBaja = DateFechaBaja; }
 }

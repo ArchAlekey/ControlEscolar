@@ -1,38 +1,34 @@
-package com.tramp.controlescolar.Controllers;
+ package com.tramp.controlescolar.controllers;
 
-/* import java.util.List; */
-import java.util.Optional;
+
+import org.json.JSONObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tramp.controlescolar.Service.usuarioService;
-import com.tramp.controlescolar.models.tablas.Usuarios;
+import com.tramp.controlescolar.service.UsuarioService;
+
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
-@RequestMapping("/login")  // Cambiado a una ruta más descriptiva
+@RequestMapping("/usuario")
 public class UsuarioController {
 
-    private final UsuarioService usuarioService;
-
     @Autowired
-    public UsuarioController(UsuarioService usuarioService) {
-        this.usuarioService = usuarioService;
-    }
+    private UsuarioService _usuarioService;
 
-    @PostMapping
-    public ResponseEntity<?> validateUsuario(@RequestBody LoginRequest loginRequest) {
-        Optional<Usuarios> usuario = usuarioService.validateUsuarios(loginRequest.getCusuario(), loginRequest.getCcontrasenia());
-        if (usuario.isPresent()) {
-            return ResponseEntity.ok(usuario.get());  // Devolver directamente el objeto Usuario
-        } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciales inválidas");
-        }
+    @PostMapping("/valida")
+    public String validarUsuario(@RequestBody String body){
+        JSONObject request = new JSONObject(body);
+
+        String usuario = request.getString("usuario");
+        String contrasenia = request.getString("contrasenia");
+
+        JSONObject respuesta = _usuarioService.validaUsuario(usuario, contrasenia);
+
+        return respuesta.toString();
     }
 }
