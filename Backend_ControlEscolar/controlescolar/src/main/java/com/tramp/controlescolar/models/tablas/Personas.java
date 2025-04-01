@@ -48,69 +48,99 @@ public class Personas {
     @Column(name = "dfecha_baja")
     private Date dfecha_baja;
 
-    // Constructor vacío requerido por JPA
-    public Personas() {}
-
-    public Personas(Integer IntIdPersona,
-                    String StrNombre,
-                    String StrApellidos,
-                    Boolean BoolSexo,
-                    Integer IntEdad,
-                    Date DateFechaNacimiento,
-                    String StrCURP,
-                    String StrRFC, 
-                    String StrNumeroCelular,
-                    Boolean BoolHabilitado, 
-                    Date DateFechaAlta, 
-                    Date DateFechaBaja) {
-        this.nid_persona = IntIdPersona;
-        this.cnombre = StrNombre;
-        this.capellidos = StrApellidos;
-        this.bsexo = BoolSexo;
-        this.nedad = IntEdad;
-        this.dfecha_nacimiento = DateFechaNacimiento;
-        this.cCURP = StrCURP;
-        this.cRFC = StrRFC;
-        this.cnumero_celular = StrNumeroCelular;
-        this.bhabilitado = BoolHabilitado;
-        this.dfecha_alta = DateFechaAlta;
-        this.dfecha_baja = DateFechaBaja;
+    public Integer getNid_persona() {
+        return nid_persona;
     }
 
-    // Getters y Setters
-    public Integer getIdPersona() { return nid_persona; }
-    public void setIdPersona(Integer IntIdPersona) { this.nid_persona = IntIdPersona; }
+    public String getCnombre() {
+        return cnombre;
+    }
 
-    public String getNombre() { return cnombre; }
-    public void setNombre(String StrNombre) { this.cnombre = StrNombre; }
+    public String getCapellidos() {
+        return capellidos;
+    }
 
-    public String getApellidos() { return capellidos; }
-    public void setApellidos(String StrApellidos) { this.capellidos = StrApellidos; }
+    public Boolean getBsexo() {
+        return bsexo;
+    }
 
-    public Boolean getSexo() { return bsexo; }
-    public void setSexo(Boolean BoolSexo) { this.bsexo = BoolSexo; }
+    public Integer getNedad() {
+        return nedad;
+    }
 
-    public Integer getEdad() { return nedad; }
-    public void setEdad(Integer IntEdad) { this.nedad = IntEdad; }
+    public Date getDfecha_nacimiento() {
+        return dfecha_nacimiento;
+    }
 
-    public Date getFechaNacimiento() { return dfecha_nacimiento; }
-    public void setFechaNacimiento(Date DateFechaNacimiento) { this.dfecha_nacimiento = DateFechaNacimiento; }
+    public String getcCURP() {
+        return cCURP;
+    }
 
-    public String getCURP() { return cCURP; }
-    public void setCURP(String StrCURP) { this.cCURP = StrCURP; }
+    public String getcRFC() {
+        return cRFC;
+    }
 
-    public String getRFC() { return cRFC; }
-    public void setRFC(String StrRFC) { this.cRFC = StrRFC; }
+    public String getCnumero_celular() {
+        return cnumero_celular;
+    }
 
-    public String getNumeroCelular() { return cnumero_celular; }
-    public void setNumeroCelular(String StrNumeroCelular) { this.cnumero_celular = StrNumeroCelular; }
+    public Boolean getBhabilitado() {
+        return bhabilitado;
+    }
 
-    public Boolean getHabilitado() { return bhabilitado; }
-    public void setHabilitado(Boolean BoolHabilitado) { this.bhabilitado = BoolHabilitado; }
+    public Date getDfecha_alta() {
+        return dfecha_alta;
+    }
 
-    public Date getFechaAlta() { return dfecha_alta; }
-    public void setFechaAlta(Date DateFechaAlta) { this.dfecha_alta = DateFechaAlta; }
+    public Date getDfecha_baja() {
+        return dfecha_baja;
+    }
 
-    public Date getFechaBaja() { return dfecha_baja; }
-    public void setFechaBaja(Date DateFechaBaja) { this.dfecha_baja = DateFechaBaja; }
+    public void setNid_persona(Integer nid_persona) {
+        this.nid_persona = nid_persona;
+    }
+
+    public void setCnombre(String cnombre) {
+        this.cnombre = cnombre;
+    }
+
+    public void setCapellidos(String capellidos) {
+        this.capellidos = capellidos;
+    }
+
+    public void setBsexo(Boolean bsexo) {
+        this.bsexo = bsexo;
+    }
+
+    public void setNedad(Integer nedad) {
+        this.nedad = nedad;
+    }
+
+    public void setDfecha_nacimiento(Date dfecha_nacimiento) {
+        this.dfecha_nacimiento = dfecha_nacimiento;
+    }
+
+    public void setcCURP(String cCURP) {
+        this.cCURP = cCURP;
+    }
+
+    public void setcRFC(String cRFC) {
+        this.cRFC = cRFC;
+    }
+
+    public void setCnumero_celular(String cnumero_celular) {
+        this.cnumero_celular = cnumero_celular;
+    }
+
+    public void setBhabilitado(Boolean bhabilitado) {
+        this.bhabilitado = bhabilitado;
+    }
+
+    public void setDfecha_alta(Date dfecha_alta) {
+        this.dfecha_alta = dfecha_alta;
+    }
+
+    public void setDfecha_baja(Date dfecha_baja) {
+        this.dfecha_baja = dfecha_baja;
+    }
 }

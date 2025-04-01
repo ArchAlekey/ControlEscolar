@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;  // ✅ IMPORTA
 
 
 @Repository
-public interface UsuarioRepositorio extends JpaRepository<Usuarios, Integer>{
+public interface UsuarioRepository extends JpaRepository<Usuarios, Integer>{
         
         @Transactional
         @Procedure(procedureName = "SPD_CONS_USUARIO")
