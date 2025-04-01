@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tramp.controlescolar.service.UsuarioService;
+import com.tramp.controlescolar.services.UsuarioService;
 
 
 import org.springframework.web.bind.annotation.PostMapping;
