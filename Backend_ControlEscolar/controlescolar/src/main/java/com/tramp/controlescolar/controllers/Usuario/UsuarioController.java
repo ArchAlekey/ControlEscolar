@@ -1,4 +1,4 @@
- package com.tramp.controlescolar.controllers;
+ package com.tramp.controlescolar.controllers.Usuario;
 
 
 import org.json.JSONObject;
