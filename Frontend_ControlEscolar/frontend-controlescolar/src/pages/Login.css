@@ -1,0 +1,34 @@
+input{
+    margin: 2vh;
+    font-size: 150%;
+}
+
+label{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 250%;
+    display: inline-block;
+}
+
+.login-container{
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    margin: 50vh auto;
+    border: 2px solid #fff;
+    border-radius: 2rem;
+    width: 100%;
+    height: 60vh;
+}
+
+.title-login{
+    text-align: center;
+    margin: 5vh auto;
+    font-size: 350%;
+}
+
+.input-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
