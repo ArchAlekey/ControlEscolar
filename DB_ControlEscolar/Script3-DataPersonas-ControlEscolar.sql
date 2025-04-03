@@ -1,4 +1,4 @@
--- Active: 1741838627681@@127.0.0.1@3306@db_onepiece
+
 USE bnowsdq3ly9belvfnnac;
 
 -- Inserta personas que son profesores de MAC
