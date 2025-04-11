@@ -1,4 +1,5 @@
 import { use, useState } from "react";
+import BotonLogin from '../components/IniciarSesion.jsx';
 import './Login.css'
 
 function Login(){
@@ -24,6 +25,7 @@ function Login(){
                 setMensaje(`Error: ${data.error}`);
             } else {
                 setMensaje("Login exitoso");
+                console.log(setMensaje);
             }
         } catch(error){
             setMensaje("Error al conectar con el servidor");
@@ -35,24 +37,28 @@ function Login(){
             <h2 className="title-login">Iniciar Sesión</h2>
             <form onSubmit={handleLogin}>
                 <div className="input-login">
-                    <label htmlFor="">Usuario:</label>
                     <input 
                         type="text"
                         value={usuario}
                         onChange={(e)=> setUsuario(e.target.value)}
                         required
+                        placeholder="Usuario"
                     />
                 </div>
                 <div className="input-login">
-                    <label htmlFor="">Contraseña:</label>
                     <input 
                         type="password"
                         value={contrasenia}
                         onChange={(e)=> setContrasenia(e.target.value)}
                         required
+                        placeholder="Contraseña"
                     />
                 </div>
-                <button type="submit">Ingresar</button>
+                <div className="input-login">
+                    <>
+                    <BotonLogin />
+                    </>
+                </div>
             </form>
         </div>
     );

@@ -10,18 +10,55 @@ BEGIN
     SET @StrContrasenia = SHA2(StrContrasenia, 256);
 
     -- Validar si el usuario y la contraseña coinciden
-    SELECT * 
-    FROM tbl_usuarios
-    WHERE cusuario = CONVERT(StrUsuario USING utf8mb4)
-    AND ccontrasenia = @StrContrasenia COLLATE utf8mb4_unicode_ci;
+    SELECT
+        cusuario,
+        -- ccontrasenia,
+        nid_categoria
+    FROM(
+        SELECT 
+            tu.cusuario,
+            tu.ccontrasenia,
+            caca.nid_categoria
+        FROM tbl_personas as tp
+        inner join tbl_usuarios as tu on tp.nid_persona = tu.nid_persona
+        inner join tbl_academicos_admin as taad on tp.nid_persona = taad.nid_persona
+        inner join cat_categorias as caca on taad.nid_categoria = caca.nid_categoria
 
-    -- Si el SELECT no devuelve resultados, el usuario o la contraseña no son correctos
-/*     IF (ROW_COUNT() = 0) THEN
-        SELECT 0 AS mensaje;
-    ELSE
-        SELECT 1 AS mensaje;
-    END IF; */
+        UNION ALL
+
+        SELECT 
+            tu.cusuario,
+            tu.ccontrasenia,
+            caca.nid_categoria
+        FROM tbl_personas as tp
+        inner join tbl_usuarios as tu on tp.nid_persona = tu.nid_persona
+        inner join tbl_academicos_alumnos as taal on tp.nid_persona = taal.nid_persona
+        inner join cat_categorias as caca on taal.nid_categoria = caca.nid_categoria
+
+        UNION ALL
+
+        SELECT 
+            tu.cusuario,
+            tu.ccontrasenia,
+            caca.nid_categoria
+        FROM tbl_personas as tp
+        inner join tbl_usuarios as tu on tp.nid_persona = tu.nid_persona
+        inner join tbl_academicos_profesores as tapr on tp.nid_persona = tapr.nid_persona
+        inner join cat_categorias as caca on tapr.nid_categoria = caca.nid_categoria
+    ) as login
+    WHERE cusuario = CONVERT(StrUsuario USING utf8mb4)
+    and ccontrasenia = @StrContrasenia COLLATE utf8mb4_unicode_ci;
+ 
 
 END $$
 
 DELIMITER ;
+
+
+
+/* SELECT
+    cusuario,
+    ccontrasenia
+FROM tbl_usuarios
+WHERE cusuario = CONVERT(StrUsuario USING utf8mb4)
+AND ccontrasenia = @StrContrasenia COLLATE utf8mb4_unicode_ci; */
