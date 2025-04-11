@@ -19,12 +19,12 @@ BEGIN
     AND ccontrasenia = @StrContrasenia COLLATE utf8mb4_unicode_ci;
 
     -- Si el SELECT no devuelve resultados, el usuario o la contraseña no son correctos
-   IF (ROW_COUNT() = 0) THEN
+/*    IF (ROW_COUNT() = 0) THEN
         SET IntValidación  = 0; -- Resultado Incorrecto
     ELSE
         SET IntValidación = 1; -- Resultado Correcto
     END IF;
-
+ */
 END $$
 
 DELIMITER ;
