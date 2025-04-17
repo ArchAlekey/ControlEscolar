@@ -1,24 +1,25 @@
--- Active: 1741838627681@@127.0.0.1@3306@db_onepiece
+-- Active: 1737221727660@@127.0.0.1@3306@db_onepiece
 use bnowsdq3ly9belvfnnac;
 
 -- Academicos profesores de MAC
-INSERT INTO tbl_academicos_profesores (nid_persona, nid_categoria, nid_carrera, cnumero_cuenta, ccorreo_institucional, bhabilitado, dfecha_alta)
+INSERT INTO tbl_academicos_profesores (nid_persona, nid_categoria, nid_carrera, cnumero_cuenta, ccorreo_institucional, ccorreo_personal, bhabilitado, dfecha_alta)
 VALUES
-(1, 2, 1, '20GOPC79031', '20GOPC79031@controlescolar.com', 1, NOW()),
-(2, 2, 1, '20LORM86072', '20LORM86072@controlescolar.com', 1, NOW()),
-(3, 2, 1, '20MATJ74011', '20MATJ74011@controlescolar.com', 1, NOW()),
-(4, 2, 1, '20RUCF83091', '20RUCF83091@controlescolar.com', 1, NOW()),
-(5, 2, 1, '20HESA89052', '20HESA89052@controlescolar.com', 1, NOW()),
-(6, 2, 1, '20DIHS82081', '20DIHS82081@controlescolar.com', 1, NOW()),
-(7, 2, 1, '20PEGI76110', '20PEGI76110@controlescolar.com', 1, NOW()),
-(8, 2, 1, '20GAMA85043', '20GAMA85043@controlescolar.com', 1, NOW()),
-(9, 2, 1, '20NAFJ87062', '20NAFJ87062@controlescolar.com', 1, NOW()),
-(10, 2, 1, '20ORVP90120', '20ORVP90120@controlescolar.com', 1, NOW()),
-(11, 2, 1, '20ROLM78071', '20ROLM78071@controlescolar.com', 1, NOW()),
-(12, 2, 1, '20HETV84091', '20HETV84091@controlescolar.com', 1, NOW());
+(1, 2, 1, '20GOPC79031', '20GOPC79031@controlescolar.com', 'profesor1@email.com', 1, NOW()),
+(2, 2, 1, '20LORM86072', '20LORM86072@controlescolar.com', 'profesor2@email.com', 1, NOW()),
+(3, 2, 1, '20MATJ74011', '20MATJ74011@controlescolar.com', 'profesor3@email.com', 1, NOW()),
+(4, 2, 1, '20RUCF83091', '20RUCF83091@controlescolar.com', 'profesor4@email.com', 1, NOW()),
+(5, 2, 1, '20HESA89052', '20HESA89052@controlescolar.com', 'profesor5@email.com', 1, NOW()),
+(6, 2, 1, '20DIHS82081', '20DIHS82081@controlescolar.com', 'profesor6@email.com', 1, NOW()),
+(7, 2, 1, '20PEGI76110', '20PEGI76110@controlescolar.com', 'profesor7@email.com', 1, NOW()),
+(8, 2, 1, '20GAMA85043', '20GAMA85043@controlescolar.com', 'profesor8@email.com', 1, NOW()),
+(9, 2, 1, '20NAFJ87062', '20NAFJ87062@controlescolar.com', 'profesor9@email.com', 1, NOW()),
+(10, 2, 1, '20ORVP90120', '20ORVP90120@controlescolar.com', 'profesor10@email.com', 1, NOW()),
+(11, 2, 1, '20ROLM78071', '20ROLM78071@controlescolar.com', 'profesor11@email.com', 1, NOW()),
+(12, 2, 1, '20HETV84091', '20HETV84091@controlescolar.com', 'profesor12@email.com', 1, NOW());
+
 
 -- Academicos profesores de Filosofía
-INSERT INTO tbl_academicos_profesores (nid_persona, nid_categoria, nid_carrera, cnumero_cuenta, ccorreo_institucional, bhabilitado, dfecha_alta)
+/* INSERT INTO tbl_academicos_profesores (nid_persona, nid_categoria, nid_carrera, cnumero_cuenta, ccorreo_institucional, bhabilitado, dfecha_alta)
 VALUES
 (13, 2, 2, '20ALCM74021', '20ALCM74021@controlescolar.com', 1, NOW()),
 (14, 2, 2, '20CAMB85062', '20CAMB85062@controlescolar.com', 1, NOW()),
@@ -31,7 +32,7 @@ VALUES
 (21, 2, 2, '20SAHA75051', '20SAHA75051@controlescolar.com', 1, NOW()),
 (22, 2, 2, '20VETG87120', '20VETG87120@controlescolar.com', 1, NOW()),
 (23, 2, 2, '20NASU80071', '20NASU80071@controlescolar.com', 1, NOW()),
-(24, 2, 2, '20FUMP83041', '20FUMP83041@controlescolar.com', 1, NOW());
+(24, 2, 2, '20FUMP83041', '20FUMP83041@controlescolar.com', 1, NOW()); */
 
 
 
