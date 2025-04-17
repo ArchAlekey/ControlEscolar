@@ -1,4 +1,4 @@
--- Active: 1741838627681@@127.0.0.1@3306
+-- Active: 1737221727660@@127.0.0.1@3306@el_milagro
 /* DROP DATABASE db_onepiece; */
 CREATE DATABASE db_onepiece;
 -- Use bnowsdq3ly9belvfnnac;
@@ -93,6 +93,7 @@ CREATE TABLE `tbl_academicos_alumnos` (
   `nid_carrera` int NOT NULL,
   `cnumero_cuenta` varchar(12) UNIQUE NOT NULL,
   `ccorreo_institucional` varchar(50) NOT NULL,
+  `ccorreo_personal` VARCHAR(50) NOT NULL,
   `bhabilitado` bit NOT NULL,
   `dfecha_alta` date NOT NULL,
   `dfecha_baja` date,
@@ -108,6 +109,7 @@ CREATE TABLE `tbl_academicos_profesores` (
   `nid_carrera` int NOT NULL,
   `cnumero_cuenta` varchar(12) UNIQUE NOT NULL,
   `ccorreo_institucional` varchar(50) NOT NULL,
+  `ccorreo_personal` VARCHAR(50) NOT NULL,
   `bhabilitado` bit NOT NULL,
   `dfecha_alta` date NOT NULL,
   `dfecha_baja` date,
@@ -123,6 +125,7 @@ CREATE TABLE `tbl_academicos_admin` (
   `nid_carrera` int NOT NULL,
   `cnumero_cuenta` varchar(12) UNIQUE NOT NULL,
   `ccorreo_institucional` varchar(50) NOT NULL,
+  `ccorreo_personal` VARCHAR(50) NOT NULL,
   `bhabilitado` bit NOT NULL,
   `dfecha_alta` date NOT NULL,
   `dfecha_baja` date,
@@ -167,7 +170,7 @@ CREATE TABLE `tbl_insc_alumnos`(
   nid_insc_alumno INT AUTO_INCREMENT PRIMARY KEY,
   nid_horario_materia INT NOT NULL,
   nid_usuario int NOT NULL,
-  ncalificación DECIMAL(2,2) NULL,
+  ncalificación FLOAT NULL DEFAULT 0,
   `bhabilitado` bit NOT NULL,
   `dfecha_alta` date NOT NULL,
   `dfecha_baja` date,

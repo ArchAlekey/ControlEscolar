@@ -7,7 +7,7 @@ CREATE PROCEDURE SPD_CONSULTA_HORARIO
     IN IntGrupo Int -- Para organizar los grupos de manera asecendente o descendente
 )
 BEGIN
-    IF IntGrupo = 1 THEN
+    IF IntGrupo = 1 THEN /* Organiza los grupos de forma Asencente */
 
         SELECT
             thm.nid_horario_materia,
@@ -33,7 +33,7 @@ BEGIN
         WHERE thm.nid_carrera = IntCarrera
         ORDER BY cgr.cgrupo ASC;
     
-    ELSEIF IntGrupo = 2 THEN
+    ELSEIF IntGrupo = 2 THEN /* Oraganiza los grupos de forma desendente */
 
         SELECT
             thm.nid_horario_materia,
