@@ -14,23 +14,13 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("registrar")
-public class PersonasController {
+public class PersonasController {   
 
     @Autowired
     private PersonasService personasService;
 
-    @Autowired 
-    private CarrerasRepository carrerasRepository;
-
-
-    @GetMapping("carreras")
-    public List<Carreras> mostrarCarreras() {
-        List<Carreras> listaCarreras = carrerasRepository.findAll();
-        return listaCarreras;
-    }
-
     //Ingresa al procedimiento almacenado SPD_INSERTA_PERSONA_ADMIN
-    @PostMapping("admnistrador")
+    @PostMapping("administrador")
     public ResponseEntity<String> crearAdministrador(@RequestBody PersonaUsuarioRequest request){
         try {
             personasService.insertarAdministrador(request);
