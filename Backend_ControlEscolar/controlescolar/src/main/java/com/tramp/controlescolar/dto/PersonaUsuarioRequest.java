@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class PersonaUsuarioRequest {
 
+    private Integer nid_persona;
     private String cnombre;
     private String capellidos;
     private Boolean bsexo;
@@ -16,6 +17,14 @@ public class PersonaUsuarioRequest {
     private Integer nid_carrera;
 
     private String contrasenia;
+
+    public Integer getNid_persona() {
+        return nid_persona;
+    }
+
+    public void setNid_persona(Integer nid_persona) {
+        this.nid_persona = nid_persona;
+    }
 
     public String getCnombre() {
         return cnombre;
