@@ -1,6 +1,7 @@
  package com.tramp.controlescolar.controllers.Usuario;
 
 
+import com.tramp.controlescolar.models.tablas.Usuarios;
 import org.json.JSONObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,16 @@ public class UsuarioController {
             return ResponseEntity.ok(respuesta.toString());
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(respuesta.toString());
+        }
+    }
+
+    @PostMapping("/cambiarContrasenia")
+    public ResponseEntity<String> actualizarContrasenia(@RequestBody Usuarios usuario){
+        try{
+            _usuarioService.actualizarContrasenia(usuario.getIdUsuario(), usuario.getContrasenia());
+            return ResponseEntity.ok("Contraseña actualiza correctamente");
+        } catch (Exception e){
+            return ResponseEntity.status(500).body("Error al cambiar contraseña: " + e.getMessage());
         }
     }
 }
