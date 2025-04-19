@@ -68,4 +68,22 @@ public interface PersonasRepository extends JpaRepository<Personas, Integer> {
         );
 
 
+        //Procedimiento SPD_ACTUALIZA_DATOS_PERSONAL
+        @Procedure(procedureName ="SPD_ACTUALIZA_DATOS_PERSONAL")
+        void actualizaDatosPersonale(
+                @Param("IntIdPersona") Integer nid_persona,
+                @Param("StrNombre") String cnombre,
+                @Param("StrApellidos") String capellidos,
+                @Param("BitSexo") Boolean bsexo,
+                @Param("IntEdad") Integer nedad,
+                @Param("DateFechaNacimiento") Date dfecha_nacimiento,
+                @Param("StrCURP") String cCURP, 
+                @Param("StrRFC") String cRFC,
+                @Param("StrNumeroCelular") String cnumero_celular
+        );
+        
+
+
+
+
 }
