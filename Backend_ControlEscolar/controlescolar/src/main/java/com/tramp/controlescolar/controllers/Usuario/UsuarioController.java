@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.tramp.controlescolar.security.jwt.jwtUtil;
 import com.tramp.controlescolar.services.UsuarioService;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,6 +24,8 @@ public class UsuarioController {
 
     @Autowired
     private UsuarioService _usuarioService;
+    @Autowired
+    private jwtUtil _jwt;
 
     @PostMapping("/valida")
     public ResponseEntity<?> validarUsuario(@RequestBody String body){
@@ -34,6 +37,15 @@ public class UsuarioController {
         JSONObject respuesta = _usuarioService.validaUsuario(usuario, contrasenia);
 
         if(respuesta.getBoolean("success")){
+
+            Integer id = respuesta.getInt("id");
+            /* String user = respuesta.getString("usuario"); */
+            Integer categoria = respuesta.getInt("idcategoria");
+
+            String Token = _jwt.generaToken(id, usuario, categoria);
+
+            respuesta.put("token", Token);
+
             return ResponseEntity.ok(respuesta.toString());
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(respuesta.toString());
