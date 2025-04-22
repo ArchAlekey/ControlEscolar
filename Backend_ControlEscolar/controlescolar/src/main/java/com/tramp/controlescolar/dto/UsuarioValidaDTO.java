@@ -2,7 +2,8 @@ package com.tramp.controlescolar.dto;
 
 
 public interface UsuarioValidaDTO {
+    Integer getIdUsuario();
     String getusuario();
-    String getcontrasenia();
+    /* S    tring getcontrasenia(); */
     Integer getnid_categoria();
 }

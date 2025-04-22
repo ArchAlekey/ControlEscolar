@@ -1,0 +1,19 @@
+.contenedor_menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 150%;
+    background-color: #9ba8ab;
+    border: solid 2px #000;
+    border-radius: 30px;
+    cursor: pointer;
+}
+.contenedor_menu:hover{
+    background-color: #ccd0cf;
+    transform: scale(1,1.05);
+}
+.contenedor_menu:first-child{
+    grid-row-start: 1;
+    grid-row-end: 3;
+}

@@ -3,5 +3,7 @@ body {
   padding: 0;
   display: grid;
   grid-template-columns: 1fr;
-  background-color: #4a5c6a;
+  background-image: url(./assets/1168619.png);
+  background-size: auto;
+  background-repeat: no-repeat;
 }
