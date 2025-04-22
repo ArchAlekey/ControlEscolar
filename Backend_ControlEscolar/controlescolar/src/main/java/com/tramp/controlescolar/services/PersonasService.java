@@ -60,5 +60,22 @@ public class PersonasService {
                 request.getContrasenia()
         );
     }
+
+    @Transactional 
+    public void actualizaPersona(PersonaUsuarioRequest request) {
+        personasRepository.actualizaDatosPersonale(
+            request.getNid_persona(),
+            request.getCnombre(),
+            request.getCapellidos(),
+            request.getBsexo(),
+            request.getNedad(),
+            request.getDfecha_nacimiento(),
+            request.getcCURP(),
+            request.getcRFC(),
+            request.getCnumero_celular()
+        );
+    }
+
+
     
 }

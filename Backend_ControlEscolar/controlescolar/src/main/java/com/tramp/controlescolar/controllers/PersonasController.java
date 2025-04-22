@@ -13,24 +13,13 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("registrar")
-public class PersonasController {
+public class PersonasController {   
 
     @Autowired
     private PersonasService personasService;
 
-    @Autowired 
-    private CarrerasRepository carrerasRepository;
-
-
-    @GetMapping("carreras")
-    public List<Carreras> mostrarCarreras() {
-        List<Carreras> listaCarreras = carrerasRepository.findAll();
-        return listaCarreras;
-    }
-
     //Ingresa al procedimiento almacenado SPD_INSERTA_PERSONA_ADMIN
-    @PostMapping("admnistrador")
+    @PostMapping("registrar/administrador")
     public ResponseEntity<String> crearAdministrador(@RequestBody PersonaUsuarioRequest request){
         try {
             personasService.insertarAdministrador(request);
@@ -42,7 +31,7 @@ public class PersonasController {
     }
 
     //Ingresa al procedimiento almacenado SPD_INSERTA_PERSONA_ALUMNO
-    @PostMapping("profesor")
+    @PostMapping("registrar/profesor")
     public ResponseEntity<String> crearProfesor(@RequestBody PersonaUsuarioRequest request){
         try {
             personasService.insertarProfesor(request);
@@ -53,7 +42,7 @@ public class PersonasController {
         }
     }
 
-    @PostMapping("alumno")
+    @PostMapping("registrar/alumno")
     public ResponseEntity<String> crearAlumno(@RequestBody PersonaUsuarioRequest request){
         try {
             personasService.insertarAlumno(request);
@@ -61,6 +50,17 @@ public class PersonasController {
         } catch (Exception e) {
             return  ResponseEntity.status(500).body("Error al registrar alumno: " + e.getMessage());
 
+        }
+    }
+
+    @PostMapping("actualiza/persona")
+    public ResponseEntity<String> actualizarPersona(@RequestBody PersonaUsuarioRequest request){
+        try {
+            personasService.actualizaPersona(request);
+            return ResponseEntity.ok("Persona actualizada correctamente");
+
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Error al actualizar persona: " + e.getMessage());
         }
     }
 
