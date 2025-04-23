@@ -1,0 +1,15 @@
+.btnLogin{
+    border: none;
+    width: 9rem;
+    height: 4rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 150%;
+    border-radius: 1rem;
+    background-color: #557f9f;
+    cursor: pointer;
+}
+
+.btnLogin:hover{
+    border: solid #fff 2px;
+    background-color: #8bbfe6;
+}

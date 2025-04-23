@@ -31,7 +31,10 @@ public class UsuarioService {
             UsuarioValidaDTO usuarioEncontrado = user.get(0);
             respuesta.put("success", true);
             respuesta.put("message", "Usuario Valido");
+            /* Datos para el Token */
+            respuesta.put("id", usuarioEncontrado.getIdUsuario());
             respuesta.put("usuario", usuarioEncontrado.getusuario());
+            respuesta.put("idcategoria", usuarioEncontrado.getnid_categoria());
         }
 
         return respuesta;
