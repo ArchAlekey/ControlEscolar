@@ -27,6 +27,11 @@ public class AcademicosAlumnos {
     @Column(name = "ccorreo_institucional", unique = true, nullable = false, length = 100)
     private String ccorreo_institucional;
 
+    //Se agrego ccorreo_personal
+    
+    @Column(name = "ccorreo_personal", unique = true, nullable = false, length = 100)
+    private String ccorreo_personal;
+
     @Column(name = "bhabilitado", nullable = false)
     private Boolean bhabilitado;
 
@@ -71,6 +76,10 @@ public class AcademicosAlumnos {
 
     public String getCorreoInstitucional() { return ccorreo_institucional; }
     public void setCorreoInstitucional(String StrCorreoInstitucional) { this.ccorreo_institucional = StrCorreoInstitucional; }
+
+    //Se agrego ccorreo_personal
+    public String getCorreoPersonal() { return ccorreo_personal; }
+    public void setCorreoPersonal(String StrCorreoPersonal) { this.ccorreo_personal = StrCorreoPersonal; }
 
     public Boolean getHabilitado() { return bhabilitado; }
     public void setHabilitado(Boolean BoolHabilitado) { this.bhabilitado = BoolHabilitado; }

@@ -1,0 +1,39 @@
+package com.tramp.controlescolar.services;
+
+import com.tramp.controlescolar.repository.ProfesoresRepository;
+import jakarta.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+@Service
+public class ProfesoresService {
+
+    @Autowired
+    private ProfesoresRepository profesoresRepository;
+    @Transactional
+    public List<Map<String, Object>> consultaGruposAsignados(Integer nid_academico_profesor){
+        List<Object[]> resultados = profesoresRepository.consultaGruposAsignados(nid_academico_profesor);
+        List<Map<String, Object>> grupos = new ArrayList<>();
+
+        //Iteramos sobre los resultados devueltos en el procedimiento
+        for(Object[] fila: resultados){
+            //Asignamos cada columna del resultado a su respectivo campo en el mapa
+            Map<String, Object> grupo = new HashMap<>();
+            grupo.put("cgrupo", fila[0]);
+            grupo.put("cnombre_materia", fila[1]);
+            grupo.put("cclave_materia", fila[2]);
+            grupo.put("cperiodo", fila[3]);
+            grupo.put("chorario", fila[4]);
+
+            //Agregamos el objecto calificacion a la lista de resultados
+            grupos.add(grupo);
+        }
+        return grupos;
+    }
+
+}

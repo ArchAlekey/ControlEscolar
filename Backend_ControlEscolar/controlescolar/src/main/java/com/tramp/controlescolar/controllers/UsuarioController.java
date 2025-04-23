@@ -1,4 +1,4 @@
- package com.tramp.controlescolar.controllers.Usuario;
+ package com.tramp.controlescolar.controllers;
 
 
 import com.tramp.controlescolar.models.tablas.Usuarios;

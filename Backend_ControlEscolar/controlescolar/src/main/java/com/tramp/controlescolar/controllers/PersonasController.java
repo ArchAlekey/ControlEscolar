@@ -2,6 +2,7 @@ package com.tramp.controlescolar.controllers;
 
 import com.tramp.controlescolar.models.catalogos.Carreras;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.tramp.controlescolar.dto.PersonaUsuarioRequest;
@@ -9,6 +10,7 @@ import com.tramp.controlescolar.services.PersonasService;
 import com.tramp.controlescolar.repository.CarrerasRepository;
 
 import java.util.List;
+import java.util.Map;
 
 
 @RestController
@@ -63,6 +65,23 @@ public class PersonasController {
             return ResponseEntity.status(500).body("Error al actualizar persona: " + e.getMessage());
         }
     }
+
+    @GetMapping("/consulta/datosPersonales")
+    public ResponseEntity<?> consultarDatosPersonales(
+            @RequestParam Integer nid_persona
+    ){
+        try{
+            List<Map<String, Object>> datos = personasService.consultarDatosPersonales(nid_persona);
+            return ResponseEntity.ok(datos);
+        }
+        catch(Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error al consultar datos personales" + e.getMessage());
+
+        }
+    }
+
+
 
     
 }

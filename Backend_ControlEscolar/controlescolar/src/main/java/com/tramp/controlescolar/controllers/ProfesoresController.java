@@ -1,7 +1,8 @@
 package com.tramp.controlescolar.controllers;
 
-import com.tramp.controlescolar.services.HorariosService;
+import com.tramp.controlescolar.services.ProfesoresService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,24 +14,23 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/horarios")
-public class HorariosController {
+@RequestMapping("/profesores")
+public class ProfesoresController {
     @Autowired
-    private HorariosService horariosService;
+    private ProfesoresService profesoresService;
 
-    @GetMapping("/consulta")
-    public ResponseEntity<?> consultaHorario(
-            @RequestParam Integer nid_carrera,
-            @RequestParam Integer nid_grupo
+    @GetMapping("/consultarGruposAsignados")
+    public ResponseEntity<?> consultarGruposAsignados(
+            @RequestParam Integer nid_academico_profesor
     ) {
         try {
-            List<Map<String, Object>> horarios = horariosService.obtenerHorario(nid_carrera, nid_grupo);
-            return ResponseEntity.ok(horarios);
+            List<Map<String, Object>> grupos = profesoresService.consultaGruposAsignados((nid_academico_profesor));
+            return ResponseEntity.ok(grupos);
         }
         catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Error al consultar horarios " + e.getMessage());
+                    .body("Error al consultar grupos asignados: " + e.getMessage());
         }
-    }
 
+    }
 }

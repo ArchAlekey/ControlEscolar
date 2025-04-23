@@ -6,6 +6,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import com.tramp.controlescolar.models.tablas.Personas;
 import java.util.Date;
+import java.util.List;
 
 @Repository
 public interface PersonasRepository extends JpaRepository<Personas, Integer> {
@@ -81,9 +82,10 @@ public interface PersonasRepository extends JpaRepository<Personas, Integer> {
                 @Param("StrRFC") String cRFC,
                 @Param("StrNumeroCelular") String cnumero_celular
         );
-        
 
-
-
-
+        //Procedimiento SPD_CONSULTA_DATOS_PERSONALES
+        @Procedure(procedureName = "SPD_CONSULTA_DATOS_PERSONALES")
+        List<Object[]> consultarDatosPersonales(
+                @Param("IntIdPersona") Integer nid_persona
+        );
 }
