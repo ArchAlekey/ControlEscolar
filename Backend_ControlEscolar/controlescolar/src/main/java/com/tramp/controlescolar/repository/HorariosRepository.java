@@ -9,5 +9,9 @@ import java.util.List;
 
 public interface HorariosRepository extends JpaRepository<Horarios, Integer> {
     @Procedure(procedureName = "SPD_CONSULTA_HORARIO")
-    List<Object[]> consultaHorario(@Param("IntCarrera") Integer carrera, @Param("IntGrupo") Integer grupo);
+    List<Object[]> consultaHorario(
+            @Param("IntCarrera") Integer carrera,
+            @Param("IntGrupo") Integer grupo);
+
+
 }

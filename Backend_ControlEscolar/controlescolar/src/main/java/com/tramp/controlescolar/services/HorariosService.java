@@ -31,11 +31,6 @@ public class HorariosService {
             horario.put("periodo", fila[4]);
             horario.put("semestre", fila[5]);
             horario.put("grupo", fila[6]);
-            horario.put("profesor", fila[7]);
-            horario.put("numero_cuenta", fila[8]);
-            horario.put("correo_institucional", fila[9]);
-            horario.put("horario", fila[10]);
-
             //Agregamos el objeto horario a la lista de resultados
             horarios.add(horario);
         }
