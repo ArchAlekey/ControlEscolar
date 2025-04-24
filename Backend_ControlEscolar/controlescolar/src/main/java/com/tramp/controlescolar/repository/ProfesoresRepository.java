@@ -15,5 +15,16 @@ public interface ProfesoresRepository extends JpaRepository<AcademicosProfesores
     );
 
     //Procedimiento SPD_INSERTA_CALIFICACION
+    @Procedure(procedureName = "SPD_INSERTA_CALIFICACION")
+    void insertaCalificaciones(
+            @Param("IntIdMateria") Integer nid_materia,
+            @Param("IntIdUsuario") Integer nid_usuario, 
+            @Param("FloatCalificacion") Float ncalificacion
+    );
 
+    //Procedimiento SPD_CONSULTA_ALUMNOS_INSCRITOS
+    @Procedure(procedureName = "SPD_CONSULTA_ALUMNOS_INSCRITOS")
+    List<Object[]> consultaAlumnosIns(
+            @Param("IntIdGrupo") Integer nid_grupo
+    );
 }

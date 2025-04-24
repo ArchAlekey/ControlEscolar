@@ -36,4 +36,29 @@ public class ProfesoresService {
         return grupos;
     }
 
+    @Transactional 
+    public void insertaCalificaciones(Integer nid_materia, Integer nid_usuario, Float ncalificacion){
+        profesoresRepository.insertaCalificaciones(nid_materia, nid_usuario, ncalificacion);
+    }
+
+    @Transactional 
+    public List<Map<String, Object>> consultarAlumnosInscritos(Integer nid_grupo){
+        List<Object[]> resultados = profesoresRepository.consultaAlumnosIns(nid_grupo);
+        List<Map<String, Object>> alumnos = new ArrayList<>();
+
+        //Iteramos sobre los resultados devueltos en el procedimiento
+        for(Object[] fila: resultados){
+            //Asignamos cada columna del resultado a su respectivo campo en el mapa
+            Map<String, Object> alumno = new HashMap<>();
+            alumno.put("Nombre", fila[0]);
+            alumno.put("cnumero_cuenta", fila[1]);
+            alumno.put("ccorreo_institucional", fila[2]);
+            alumno.put("ccorreo_personal", fila[3]); //Falta agregar al modelo (models) !!!
+
+            //Agregamos el objecto alumno a la lista de resultados 
+            alumnos.add(alumno);
+        }
+        return alumnos;
+    }
+
 }

@@ -1,9 +1,8 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { useState } from "react";
 import { useAuth } from "../Auth/AuthProvider";
 
 
-const RutaProtegida = ({ children, idcategoria }) => {
+const RutaProtegida = ({idcategoria }) => {
     const { auth } = useAuth();
 
     if(!auth.token){
