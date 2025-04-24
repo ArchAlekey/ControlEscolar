@@ -1,17 +1,36 @@
 import React from "react";
 import './LayoutAlumno.css';
 import BotonDashBoard from '../../components/BotonesDashBoard/BotonDashBoard';
+import { useAuth } from "../../components/Auth/AuthProvider";
+import { Link, useNavigate } from "react-router-dom";
 
 function LayoutAlumno(){
+
+        /* Navegación */
+        const { logout } = useAuth();
+        const navigate = useNavigate();
+
+        const handleLogout = () => {
+            logout();
+            navigate("/");
+        }
 
     return(
         <div className="contenedor_layout">
             <header>
-                
+                <div className="contenedor_botones_header">
+                    <i className="fa-solid fa-house"></i>
+                </div>
+                <div className="contenedor_botones_header">
+
+                </div>
+                <div className="contenedor_botones_header" >
+                    <i onClick={handleLogout} className="fa-solid fa-right-from-bracket"></i>
+                </div>
             </header>
             <main>
                 <div className="contenedor-menus">
-                    <BotonDashBoard titulo="Datos Personales"/>
+                    <BotonDashBoard titulo="Datos Personales"><Link to="Datos-Personales"></Link></BotonDashBoard>
                     <BotonDashBoard titulo="Consulta horarios" />
                     <BotonDashBoard titulo="Inscripcion" />
                     <BotonDashBoard titulo="Consulta Inscripcion" />

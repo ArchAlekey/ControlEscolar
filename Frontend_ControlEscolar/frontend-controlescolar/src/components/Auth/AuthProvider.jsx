@@ -10,6 +10,8 @@ export function AuthProvider({ children }){
         id: null
     });
 
+    const [loading, setLoading] = useState(true);
+
     useEffect(()=>{
         const token = localStorage.getItem("token");
         const idcategoria = localStorage.getItem("idcategoria");
@@ -19,10 +21,25 @@ export function AuthProvider({ children }){
         if(token && idcategoria){
             setAuth({token, idcategoria: Number(idcategoria), usuario, id});
         };
+        setLoading(false);
     },[]);
 
+    const logout = () => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("idcategoria");
+        localStorage.removeItem("usuario");
+        localStorage.removeItem("id");
+
+        setAuth({
+            token: null,
+            idcategoria: null,
+            usuario: null,
+            id: null
+        });
+    };
+
     return (
-        <AuthContext.Provider value={{auth, setAuth}}>
+        <AuthContext.Provider value={{auth, setAuth, loading, logout}}>
             {children}
         </AuthContext.Provider>
     );

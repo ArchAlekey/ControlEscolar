@@ -4,7 +4,11 @@ import { useAuth } from "../Auth/AuthProvider";
 
 
 const RutaProtegida = ({ children, idcategoria }) => {
-    const { auth } = useAuth();
+    const { auth, loading } = useAuth();
+
+    if (loading){
+        return <div>Cargando...</div>
+    }
 
     if(!auth.token){
         return <Navigate to = "/" />
