@@ -5,6 +5,7 @@ import './index.css';
 import Login from './pages/Login/Login.jsx';
 import LayoutAlumno from './layouts/LayoutAlumno/LayoutAlumno.jsx';
 import LayoutProfesor from './layouts/LayoutProfesor/LayoutProfesor.jsx';
+import LayoutAdministrador from './layouts/LayoutAdministrador/LayoutAdministrador.jsx';
 import RutaProtegida from './components/RutaProtegida/RutaProtegida.jsx';
 import { AuthProvider } from './components/Auth/AuthProvider.jsx';
 import DatosPersonales from './pages/Alumno/DatosPersonales.jsx';
@@ -36,6 +37,16 @@ const router = createBrowserRouter([
       {
         path: "Datos-Personales",
         element: <DatosPersonales />
+      }
+    ]
+  }, 
+  {
+    path: "/Administrador",
+    element: <RutaProtegida idcategoria={3} />,
+    children:[
+      {
+        index: true,
+        element: <LayoutAdministrador/>
       }
     ]
   }

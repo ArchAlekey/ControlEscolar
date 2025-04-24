@@ -22,18 +22,18 @@ public class AlumnosController {
     @PostMapping("/insertaInscripcion")
     public ResponseEntity<?> insertarInscripcion(@RequestBody Map<String, Object> body){
 
-        System.out.println("Datos recibidos: " + body);
+        // System.out.println("Datos recibidos: " + body);
 
-        if (!body.containsKey("nid_usuario") || !body.containsKey("nid_grupo")) {
-            return ResponseEntity.badRequest().body("Faltan parámetros en la petición");
-        }
+        // if (!body.containsKey("nid_usuario") || !body.containsKey("nid_grupo")) {
+        //     return ResponseEntity.badRequest().body("Faltan parámetros en la petición");
+        // }
 
         Integer nid_usuario = Integer.valueOf(body.get("nid_usuario").toString());
         Integer nid_grupo = Integer.valueOf((body.get("nid_grupo").toString()));
 
 
         try{
-            alumnosService.insertaInscripcion(nid_usuario, nid_usuario);
+            alumnosService.insertaInscripcion(nid_usuario, nid_grupo);
 
             return ResponseEntity.ok("Inscripción exitosa");
         } catch (Exception e) {
@@ -41,20 +41,6 @@ public class AlumnosController {
                     .body("Error al insertar inscripción: " + e.getMessage());
         }
 
-    }
-    @GetMapping("/consultaAlumnosInscritos")
-    public ResponseEntity<?> consultaAlumnosInscritos(
-            @RequestParam Integer nid_grupo
-    ){
-        try{
-            List<Map<String, Object>> alumnos = alumnosService.consultarAlumnosInscritos(nid_grupo);
-            return ResponseEntity.ok(alumnos);
-        }
-        catch(Exception e){
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Error al consultar horarios " + e.getMessage());
-
-        }
     }
 
     @GetMapping("/consultaCalificaciones")
@@ -68,6 +54,21 @@ public class AlumnosController {
         catch(Exception e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Error al consultar calificaciones" + e.getMessage());
+
+        }
+    }
+
+    @GetMapping("/consultaInscripcion")
+    public ResponseEntity<?> consultaInscripcion(
+            @RequestParam Integer nid_usuario
+    ){
+        try{
+            List<Map<String, Object>> inscripcion = alumnosService.consultaInscripcion(nid_usuario);
+            return ResponseEntity.ok(inscripcion);
+        }
+        catch(Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error al consultar inscripción" + e.getMessage());
 
         }
     }
