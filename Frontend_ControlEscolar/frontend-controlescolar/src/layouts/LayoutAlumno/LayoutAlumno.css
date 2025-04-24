@@ -14,11 +14,20 @@ body{
 
 header{
     display: grid;
+    grid-template-columns: repeat(3, 1fr);
     place-items: center;
     width: 100%;
     height: 15vh;
     background-color: #11212d;
     border-bottom: solid #fff 2px;    
+}
+.contenedor_botones_header{
+    font-size: 200%;
+    color: rgb(93, 93, 93);
+    cursor: pointer;
+}
+.contenedor_botones_header:hover{
+    color: #fff;
 }
 img{
     width: 30vh;
@@ -29,7 +38,7 @@ img{
 main{
     background-color: #4a5c6a;
     margin: 0;
-    padding: 0;
+    padding: 0 5vh;
 }
 .contenedor-menus{
     display: grid;

@@ -7,6 +7,7 @@ import LayoutAlumno from './layouts/LayoutAlumno/LayoutAlumno.jsx';
 import LayoutProfesor from './layouts/LayoutProfesor/LayoutProfesor.jsx';
 import RutaProtegida from './components/RutaProtegida/RutaProtegida.jsx';
 import { AuthProvider } from './components/Auth/AuthProvider.jsx';
+import DatosPersonales from './pages/Alumno/DatosPersonales.jsx';
 
 
 const router = createBrowserRouter([
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <LayoutProfesor />
+      },
+      {
+        path: "Datos-Personales",
+        element: <DatosPersonales />
       }
     ]
   }
