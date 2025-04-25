@@ -1,0 +1,21 @@
+.contenedor-datos-personales label{
+    display: block;
+    border: solid #000000 2px;
+    margin: 20px auto;
+    width: 300px;
+    height: 30px;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.contenedor-datos-personales ul{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+h1, h2{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
