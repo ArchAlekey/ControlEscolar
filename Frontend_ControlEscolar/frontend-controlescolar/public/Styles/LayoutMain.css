@@ -53,8 +53,8 @@ main{
     );
     min-height: 100%;
     /* border: 2px solid #000; */
-    padding: 25px 20vh;
-    gap: 30px 70px;
+    padding: 25px 30vh;
+    gap: 30px 90px;
 }
 
 .contenedor-dinamico{

@@ -4,24 +4,32 @@ function DatosPersonales(){
 
     return (
         <div class="contenedor-datos-personales">
-            <h1>Datos Personales</h1>
-                <ul>
-                    <label for="">Nombre</label>
-                    <label for="">Apellidos</label>
-                    <label for="">Genero</label>
-                    <label for="">Edad</label>
-                    <label for="">Fecha de nacimiento</label>
-                    <label for="">CURP</label>
-                    <label for="">RFC</label>
-                    <label for="">Usuario</label>
-                    <label for="">Número de cuenta</label>
-                </ul>
-            <h2>Contactos</h2>
-                <ul>
-                    <label for="">Telefono</label>
-                    <label for="">Correo Personal</label>
-                    <label for="">Correo Institucional</label>
-                </ul>                  
+            <form action="">
+                <h1>Datos Personales</h1>
+                <label>Nombre</label>
+                <input className="input-datos-personales" disabled></input>
+                <label>Apellidos</label>
+                <input className="input-datos-personales" disabled></input>
+                <label>Nombre</label>
+                <input className="input-datos-personales" disabled></input>
+                <label>Genero</label>
+                <input className="input-datos-personales" disabled></input>
+                <label>Edad</label>
+                <input className="input-datos-personales" disabled></input>
+                <label>Fecha de nacimiento</label>
+                <input className="input-datos-personales" disabled></input>
+                <label>CURP</label>
+                <input className="input-datos-personales" disabled></input>
+                <label>RFC</label>
+                <input className="input-datos-personales" disabled></input>
+                <h1>Contacto</h1>
+                <label>Celular</label>
+                <input className="input-datos-personales" disabled></input>
+                <label>Correo Personal</label>
+                <input className="input-datos-personales" disabled></input>
+                <label>Correo Institucional</label>
+                <input className="input-datos-personales" disabled></input>
+            </form>              
         </div>
     );
 }

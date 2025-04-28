@@ -4,6 +4,7 @@ import BotonLogin from '../../components/boton/boton';
 import './Login.css';
 import Swal from 'sweetalert2';
 import { useAuth } from "../../components/Auth/AuthProvider";
+import { Endpoints } from "../../api/ApiEndpoints";
 
 function Login({ setLogeado }){
     const [usuario, setUsuario] = useState('');
@@ -27,7 +28,7 @@ function Login({ setLogeado }){
         })
 
         try{
-            const respone = await fetch("http://localhost:8082/usuario/valida",{
+            const respone = await fetch(Endpoints.login,{
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({usuario, contrasenia}),
@@ -97,7 +98,7 @@ function Login({ setLogeado }){
     return (
         <div className="login-container">
             <h2 className="title-login">Iniciar Sesión</h2>
-            <form onSubmit={handleLogin}>
+            <form className="form-login" onSubmit={handleLogin}>
                 <div className="input-login">
                     <input 
                         type="text"
@@ -105,6 +106,7 @@ function Login({ setLogeado }){
                         onChange={(e)=> setUsuario(e.target.value)}
                         required
                         placeholder="Usuario"
+                        className="input-log"
                     />
                 </div>
                 <div className="input-login">
@@ -114,6 +116,7 @@ function Login({ setLogeado }){
                         onChange={(e)=> setContrasenia(e.target.value)}
                         required
                         placeholder="Contraseña"
+                        className="input-log"
                     />
                 </div>
                 <div className="input-login">
