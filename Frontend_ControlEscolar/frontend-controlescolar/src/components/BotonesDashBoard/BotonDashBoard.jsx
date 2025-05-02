@@ -1,5 +1,5 @@
 import React from "react";
-import './BotonDashBoard.css';
+import './BotonDashboard.css';
 
 function BotonDashBoard({ titulo, onClick }){
 

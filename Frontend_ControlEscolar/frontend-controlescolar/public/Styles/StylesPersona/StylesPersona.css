@@ -1,8 +1,37 @@
 .contenedor-datos-personales{
     display: grid;
     justify-content: center;
+    margin-bottom: 5vb;
+}
+.contenedor-1{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px 25px;
 }
 
-.input-datos-personales input{
-    background-color: aliceblue;
+.h1-DP{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 200%;
+    text-align: center;
+}
+.label-datos-personales{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 180%;
+    padding-top: 10px;
+}
+.input-datos-personales{
+    background-color: #d2d2d2;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 125%;
+    width: 45vh;
+    height: 5vh;
+    border-radius: 10px;
+    cursor: no-drop;
+}
+
+.contenedor-campo{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px 5px;
 }

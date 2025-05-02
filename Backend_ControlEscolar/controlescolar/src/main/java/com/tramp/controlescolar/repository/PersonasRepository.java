@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
 import com.tramp.controlescolar.models.tablas.Personas;
 import java.util.Date;
 import java.util.List;
@@ -47,7 +48,7 @@ public interface PersonasRepository extends JpaRepository<Personas, Integer> {
             @Param("IntIdCarrera") Integer nid_carrera,
             //Usuarios
             @Param("StrContrasenia") String contrasenia
-    );
+        );
 
         //Procedimiento SPD_INSERTA_PERSONA_ALUMNO
         @Procedure(procedureName = "SPD_INSERTA_PERSONA_ALUMNO")

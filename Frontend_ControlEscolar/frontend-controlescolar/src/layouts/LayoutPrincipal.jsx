@@ -34,11 +34,20 @@ function LayoutPrincipal(){
             }
         };
 
+        const btnHome = () => {
+            switch(idcat){
+                case 1: return "/Alumno";
+                case 2: return "/Profesor";
+                case 3: return "/Administrador";
+                default: return "/NaN";
+            }
+        }
+
     return(
         <div className="contenedor_layout">
             <header className={`${switchBG()}`}>
                 <div className="contenedor_botones_header">
-                    <i onClick={()=>navigate('/Alumno')} className="fa-solid fa-house"></i>
+                    <i onClick={()=>navigate(`${btnHome()}`)} className="fa-solid fa-house"></i>
                 </div>
                 <div className="contenedor_botones_header">
 
@@ -59,11 +68,11 @@ function LayoutPrincipal(){
                     </div>
                 )}
 
-                {idcat === 2 && (
+                {idcat === 2 && rutaPadre &&(
                     <div className="contenedor-menus">
-                        <BotonDashBoard titulo = "Datos Personales"/>
-                        <BotonDashBoard titulo = "Consulta Grupos Asignados"/>
-                        <BotonDashBoard titulo = "Calificar Alumnos"/>
+                        <BotonDashBoard titulo = "Datos Personales" onClick={() => navigate('datos')}/>
+                        <BotonDashBoard titulo = "Consulta Grupos Asignados" onClick={() => navigate('gruposAsignados')}/>
+                        <BotonDashBoard titulo = "Calificar Alumnos" onClick={() => navigate('calificarAlumnos')}/>
                     </div>
                 )}
                 {idcat === 3 && (

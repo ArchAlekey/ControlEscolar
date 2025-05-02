@@ -1,7 +1,9 @@
 package com.tramp.controlescolar.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import java.util.Date;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class PersonaUsuarioRequest {
 
     private Integer nid_persona;
@@ -16,7 +18,8 @@ public class PersonaUsuarioRequest {
 
     private Integer nid_carrera;
 
-    private String contrasenia;
+    private String ccorreo_institucional;
+    private String ccorreo_personal;
 
     public Integer getNid_persona() {
         return nid_persona;
@@ -98,12 +101,18 @@ public class PersonaUsuarioRequest {
         this.nid_carrera = nid_carrera;
     }
 
-    public String getContrasenia() {
-        return contrasenia;
+    public String getCcorreo_institucional() {
+        return ccorreo_institucional;
+    }
+    public void setCcorreo_institucional(String ccorreo_institucional) {
+        this.ccorreo_institucional = ccorreo_institucional;
     }
 
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
+    public String getCcorreo_personal() {
+        return ccorreo_personal;
+    }
+    public void setCcorreo_personal(String ccorreo_personal) {
+        this.ccorreo_personal = ccorreo_personal;
     }
     
 }
