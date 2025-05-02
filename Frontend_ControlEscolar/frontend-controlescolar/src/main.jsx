@@ -12,6 +12,8 @@ import Inscripcion from './pages/Alumno/Inscripcion.jsx';
 import ConsultaInscripcion from './pages/Alumno/ConsultaInscripcion.jsx';
 import ConsultaCalificaciones from './pages/Alumno/ConsultaCalificaciones.jsx';
 import ConsultaHistorial from './pages/Alumno/ConsultaHistorial.jsx';
+import GruposAsignados from './pages/Profesor/GruposAsignados.jsx';
+import CalificarAlumnos from './pages/Profesor/CalificarAlumnos.jsx';
 
 
 const router = createBrowserRouter([
@@ -43,8 +45,13 @@ const router = createBrowserRouter([
     element: <RutaProtegida idcategoria={2} />,
     children:[
       {
-        index: true,
-        element: <LayoutPrincipal />
+        path: "",
+        element: <LayoutPrincipal />,
+        children: [
+          {path: "datos", element: <DatosPersonales />},
+          {path: "gruposAsignados", element: <GruposAsignados />},
+          {path: "calificarAlumnos", element: <CalificarAlumnos />},
+        ]
       },
     ]
   }, 
@@ -61,9 +68,12 @@ const router = createBrowserRouter([
 ]);
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+/*   <StrictMode>
     <AuthProvider>
       <RouterProvider router={router}/>
     </AuthProvider>
-  </StrictMode>,
+  </StrictMode>, */
+  <AuthProvider>
+    <RouterProvider router={router}/>
+  </AuthProvider>
 );

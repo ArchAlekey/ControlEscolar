@@ -21,8 +21,10 @@ public interface UsuarioRepository extends JpaRepository<Usuarios, Integer>{
         @Procedure(procedureName = "SPD_CONS_USUARIO")
         List<UsuarioValidaDTO> validarUsuario(
                 @Param("StrUsuario") String usuario,
-                @Param("StrContrasenia") String contrasenia);
+                @Param("StrContrasenia") String contrasenia
+        );
 
+        
         @Transactional
         @Procedure(procedureName = "SPD_CAMBIA_CONTRASENIA")
         void actualizaContrasenia(

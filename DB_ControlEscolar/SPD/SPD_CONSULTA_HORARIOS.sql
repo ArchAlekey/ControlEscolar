@@ -1,7 +1,7 @@
 
 DELIMITER $$
 
-CREATE PROCEDURE SPD_CONSULTA_HORARIO
+CREATE PROCEDURE SPD_CONSULTA_HORARIOS
 (
     IN IntCarrera Int,
     IN IntGrupo Int -- Para organizar los grupos de manera asecendente o descendente

@@ -3,24 +3,21 @@ package com.tramp.controlescolar.services;
 import org.springframework.stereotype.Service;
 
 import com.tramp.controlescolar.repository.PersonasRepository;
+import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import jakarta.transaction.Transactional;
 import com.tramp.controlescolar.dto.PersonaUsuarioRequest;
-
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class PersonasService {
 
     @Autowired
-    private PersonasRepository personasRepository;
+    private PersonasRepository _personasRepository;
 
     @Transactional
     public void insertarAdministrador(PersonaUsuarioRequest request){
-        personasRepository.insertaPersonaAdministrador(
+        _personasRepository.insertaPersonaAdministrador(
                 request.getCnombre(),
                 request.getCapellidos(),
                 request.getBsexo(),
@@ -30,13 +27,13 @@ public class PersonasService {
                 request.getcRFC(),
                 request.getCnumero_celular(),
                 request.getNid_carrera(),
-                request.getContrasenia()
+                request.getCcorreo_personal()
         );
 
     }
     @Transactional
     public void insertarProfesor(PersonaUsuarioRequest request) {
-        personasRepository.insertaPersonaProfesor(
+        _personasRepository.insertaPersonaProfesor(
                 request.getCnombre(),
                 request.getCapellidos(),
                 request.getBsexo(),
@@ -46,13 +43,13 @@ public class PersonasService {
                 request.getcRFC(),
                 request.getCnumero_celular(),
                 request.getNid_carrera(),
-                request.getContrasenia()
+                request.getCcorreo_personal()
         );
     }
 
     @Transactional
     public void insertarAlumno(PersonaUsuarioRequest request) {
-        personasRepository.insertaPersonaAlumno(
+        _personasRepository.insertaPersonaAlumno(
                 request.getCnombre(),
                 request.getCapellidos(),
                 request.getBsexo(),
@@ -62,13 +59,13 @@ public class PersonasService {
                 request.getcRFC(),
                 request.getCnumero_celular(),
                 request.getNid_carrera(),
-                request.getContrasenia()
+                request.getCcorreo_personal()
         );
     }
 
     @Transactional 
     public void actualizaPersona(PersonaUsuarioRequest request) {
-        personasRepository.actualizaDatosPersonale(
+        _personasRepository.actualizaDatosPersonale(
             request.getNid_persona(),
             request.getCnombre(),
             request.getCapellidos(),
@@ -82,26 +79,29 @@ public class PersonasService {
     }
 
     @Transactional
-    public List<Map<String, Object>> consultarDatosPersonales(Integer nid_persona){
-        List<Object[]> resultados = personasRepository.consultarDatosPersonales(nid_persona);
-        List<Map<String, Object>> datos = new ArrayList<>();
-
-        //Iteramos sobre los resultados devueltos en el procedimiento
-        for(Object[] fila: resultados){
-            //Asignamos cada columna del resultado a su respectivo campo en el mapa
-            Map<String, Object> dato = new HashMap<>();
-            dato.put("cnombre_materia", fila[0]);
-            dato.put("cclave_materia", fila[1]);
-            dato.put("ncalificación", fila[2]);
-            dato.put("cperiodo", fila[3]);
-            dato.put("cgrupo", fila[4]);
-
-            //Agregamos el objecto calificacion a la lista de resultados
-            datos.add(dato);
+    public PersonaUsuarioRequest consultaDatosPersonales(Integer nid_persona){
+        List<Object[]> resultados = _personasRepository.consultarDatosPersonales(nid_persona);
+    
+        if(resultados == null || resultados.isEmpty()){
+            return null;
         }
-        return datos;
+    
+        Object[] fila = resultados.get(0);
+        
+        PersonaUsuarioRequest dto = new PersonaUsuarioRequest();
+        dto.setNid_persona((Integer) fila[0]);
+        dto.setCnombre((String) fila[1]);
+        dto.setCapellidos((String) fila[2]);
+        dto.setBsexo((Boolean) fila[3]);
+        dto.setNedad((Integer) fila[4]);
+        dto.setDfecha_nacimiento((Date) fila[5]);
+        dto.setcCURP((String) fila[6]);
+        dto.setcRFC((String) fila[7]);
+        dto.setCnumero_celular((String) fila[8]);
+        dto.setCcorreo_institucional((String) fila[9]);
+        dto.setCcorreo_personal((String) fila[10]);
+    
+        return dto;
     }
-
-
     
 }

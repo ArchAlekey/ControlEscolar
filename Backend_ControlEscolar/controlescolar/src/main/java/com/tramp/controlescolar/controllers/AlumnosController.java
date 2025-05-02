@@ -1,12 +1,11 @@
 package com.tramp.controlescolar.controllers;
 
-import com.sendgrid.Request;
+/* import com.sendgrid.Request;
 import com.sendgrid.Response;
+import org.json.JSONObject; */
 import com.tramp.controlescolar.services.AlumnosService;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
