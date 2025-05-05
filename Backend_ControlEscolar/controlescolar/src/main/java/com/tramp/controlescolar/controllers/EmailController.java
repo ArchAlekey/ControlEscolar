@@ -22,8 +22,10 @@ public class    EmailController {
             @RequestParam String contenido
     ) {
          try {
+            // Se llama al servicio de correo para enviar el correo
              return emailService.enviarCorreo(destinatario,asunto, contenido);
          } catch (Exception e) {
+            // En caso de error, se captura la excepción y se retorna un mensaje de error
              return "Error: " + e.getMessage();
          }
     }
