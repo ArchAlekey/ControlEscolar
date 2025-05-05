@@ -74,6 +74,25 @@ BEGIN
         inner join tbl_usuarios as tu on tp.nid_persona = tu.nid_persona
         inner join tbl_academicos_profesores as tapr on tp.nid_persona = tapr.nid_persona
         inner join cat_categorias as caca on tapr.nid_categoria = caca.nid_categoria
+
+        UNION ALL
+
+        SELECT 
+            tp.nid_persona,
+            tp.cnombre,
+            tp.capellidos,
+            tp.bsexo,
+            tp.nedad,
+            tp.dfecha_nacimiento,
+            tp.`cCURP`,
+            tp.`cRFC`,
+            tp.cnumero_celular,
+            tasu.ccorreo_institucional,
+            tasu.ccorreo_personal
+        FROM tbl_personas as tp
+        inner join tbl_usuarios as tu on tp.nid_persona = tu.nid_persona
+        inner join tbl_academicos_super_us as tasu on tp.nid_persona = tasu.nid_persona
+        inner join cat_categorias as caca on tasu.nid_categoria = caca.nid_categoria
     ) as DatosPersonales
     WHERE nid_persona = IntIdPersona;
 

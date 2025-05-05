@@ -64,6 +64,24 @@ const router = createBrowserRouter([
         element: <LayoutPrincipal/>
       }
     ]
+  },
+  {
+    path: "/SuperUs",
+    element: <RutaProtegida idcategoria={4} />,
+    children:[
+      {
+        path: "/SuperUs",
+        element: <LayoutPrincipal/>,
+        children:[
+          {path: "horarios", element: <ConsultaHorario />},
+          {path: "inscripcion", element: <Inscripcion />},
+          {path: "consulta-inscripcion", element: <ConsultaInscripcion />},
+          {path: "consulta-calificaciones", element: <ConsultaCalificaciones />},
+          {path: "consulta-historial", element: <ConsultaHistorial />},
+          {path: "datos", element: <DatosPersonales />},
+        ]
+      }
+    ]
   }
 ]);
 

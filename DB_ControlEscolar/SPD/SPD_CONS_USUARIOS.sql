@@ -49,6 +49,18 @@ BEGIN
         inner join tbl_usuarios as tu on tp.nid_persona = tu.nid_persona
         inner join tbl_academicos_profesores as tapr on tp.nid_persona = tapr.nid_persona
         inner join cat_categorias as caca on tapr.nid_categoria = caca.nid_categoria
+
+        UNION ALL
+
+        SELECT 
+            tu.nid_usuario,
+            tu.cusuario,
+            tu.ccontrasenia,
+            caca.nid_categoria
+        FROM tbl_personas as tp
+        inner join tbl_usuarios as tu on tp.nid_persona = tu.nid_persona
+        inner join tbl_academicos_super_us as tasu on tp.nid_persona = tasu.nid_persona
+        inner join cat_categorias as caca on tasu.nid_categoria = caca.nid_categoria
     ) as login
     WHERE cusuario = CONVERT(StrUsuario USING utf8mb4)
     and ccontrasenia = @StrContrasenia COLLATE utf8mb4_unicode_ci;

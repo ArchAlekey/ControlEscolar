@@ -8,7 +8,7 @@ export default defineConfig({
     allowedHosts: [
       'localhost',
       '127.0.0.1',
-      '7e46-132-248-180-172.ngrok-free.app' // <-- agrega tu URL de ngrok aquí
+      'a5ef-189-167-88-206.ngrok-free.app' // <-- agrega tu URL de ngrok aquí
   ],
     proxy: {
       '/api': {

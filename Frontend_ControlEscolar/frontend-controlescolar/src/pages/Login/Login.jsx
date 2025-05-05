@@ -67,6 +67,8 @@ function Login({ setLogeado }){
                         navigate("/Profesor");
                     } else if( data.idcategoria === 3){
                         navigate("/Administrador");
+                    } else if( data.idcategoria === 4){
+                        navigate("/SuperUs");
                     } else {
                         setMensaje("No encontrado");
                     }

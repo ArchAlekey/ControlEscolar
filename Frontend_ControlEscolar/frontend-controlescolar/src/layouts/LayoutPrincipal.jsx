@@ -10,7 +10,7 @@ function LayoutPrincipal(){
         const navigate = useNavigate();
         const idcat = Number(localStorage.getItem("idcategoria"));
         const posicion = useLocation();
-        const rutaPadre = posicion.pathname === '/Alumno' || posicion.pathname === '/Profesor' || posicion.pathname === '/Administrador';        
+        const rutaPadre = posicion.pathname === '/Alumno' || posicion.pathname === '/Profesor' || posicion.pathname === '/Administrador' || posicion.pathname === '/SuperUs';        
 
         const handleLogout = () => {
             logout();
@@ -22,6 +22,7 @@ function LayoutPrincipal(){
                 case 1: return "color-bg-alumno";
                 case 2: return "color-bg-profesor";
                 case 3: return "color-bg-admin";
+                case 4: return "color-bg-superus"
                 default: return "color-default";
             }
         };
@@ -30,6 +31,7 @@ function LayoutPrincipal(){
                 case 1: return "color-main-alumno";
                 case 2: return "color-main-profesor";
                 case 3: return "color-main-admin";
+                case 4: return "color-main-superus";
                 default: return "color-main";
             }
         };
@@ -39,6 +41,7 @@ function LayoutPrincipal(){
                 case 1: return "/Alumno";
                 case 2: return "/Profesor";
                 case 3: return "/Administrador";
+                case 4: return "/SuperUs";
                 default: return "/NaN";
             }
         }
@@ -75,7 +78,7 @@ function LayoutPrincipal(){
                         <BotonDashBoard titulo = "Calificar Alumnos" onClick={() => navigate('calificarAlumnos')}/>
                     </div>
                 )}
-                {idcat === 3 && (
+                {idcat === 3 && rutaPadre &&(
                     <div className="contenedor-menus">
                         <BotonDashBoard titulo = "Administrar Usuarios"/>
                         <BotonDashBoard titulo = "Administrar Grupos"/>
@@ -84,13 +87,13 @@ function LayoutPrincipal(){
                         <BotonDashBoard titulo = "Datos Personales"/>
                     </div>
                 )}
-                {idcat === 4 && (
+                {idcat === 4 && rutaPadre &&(
                     <div className="contenedor-menus">
                         <BotonDashBoard titulo = "Administrar Usuarios"/>
                         <BotonDashBoard titulo = "Administrar Grupos"/>
                         <BotonDashBoard titulo = "Administrar Periodos"/>
                         <BotonDashBoard titulo = "Administrar Materias"/>
-                        <BotonDashBoard titulo = "Datos Personales"/>
+                        <BotonDashBoard titulo = "Datos Personales" onClick={() => navigate('datos')}/>
                     </div>
                 )}
                 <div className="contenedor_dinamico">
