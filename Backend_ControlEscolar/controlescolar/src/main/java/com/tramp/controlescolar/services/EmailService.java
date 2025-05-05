@@ -17,8 +17,9 @@ public class EmailService {
     
     //Recibe los datos del correo
     public String enviarCorreo(String destinatario, String asunto, String contenido) throws IOException{
+        // Se crea el objeto Email con la dirección de correo del remitente
         Email from = new Email("agaviocarlos@gmail.com");
-
+        // Se crea el objeto Email con la dirección de correo del destinatario
         Email to = new Email(destinatario);
 
         //Contenido del correo
@@ -38,7 +39,7 @@ public class EmailService {
             request.setEndpoint("mail/send");
             request.setBody(mail.build());
             Response response = sg.api(request);
-
+            // Retrorna el código de respuesta HTTP
             return "Código de respuesta: " + response.getStatusCode();
         } catch (IOException ex) {
             throw new IOException("Error al enviar el correo: " + ex.getMessage());
