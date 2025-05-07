@@ -1,4 +1,4 @@
--- Active: 1741838627681@@127.0.0.1@3306@db_onepiece
+-- Active: 1739329630699@@127.0.0.1@3306@db_onepiece
 
 INSERT INTO cat_carreras(ccarrera, bhabilitado, dfecha_alta)
 VALUES  ('Matemáticas Aplicadas y Computación', 1, NOW()),
@@ -352,7 +352,8 @@ VALUES
 INSERT INTO cat_categorias(ccategoria, bhabilitado, dfecha_alta)
 VALUES  ('Alunmo', 1, NOW()),
         ('Profesor', 1, NOW()),
-        ('Administrador', 1, NOW());
+        ('Administrador', 1, NOW()),
+        ('SuperUs', 1, now());
 
 INSERT into cat_grupos(cgrupo, bhabilitado, dfecha_alta)
 VALUES

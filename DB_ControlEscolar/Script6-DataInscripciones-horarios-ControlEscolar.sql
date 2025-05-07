@@ -27,7 +27,7 @@ VALUES
 (1, 1, 1, 4, 12, 4, 4, 1, NOW());
 
 
-SELECT
+/* SELECT
     thm.nid_horario_materia,
     cma.cnombre_materia,
     cma.cclave_materia,
@@ -47,6 +47,6 @@ inner join cat_grupos as cgr on thm.nid_grupo = cgr.nid_grupo
 INNER JOIN tbl_academicos_profesores as tap on thm.nid_academico_profesor = tap.nid_academico_profesor
 inner join tbl_personas as tp on tap.nid_persona = tp.nid_persona
 INNER JOIN cat_horarios as cho on thm.nid_horario = cho.nid_horario
-inner join cat_materias as cma on thm.nid_materia = cma.nid_materia;
+inner join cat_materias as cma on thm.nid_materia = cma.nid_materia; */
 
 

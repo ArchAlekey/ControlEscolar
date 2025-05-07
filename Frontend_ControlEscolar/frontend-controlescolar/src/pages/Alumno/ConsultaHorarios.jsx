@@ -36,26 +36,28 @@ function ConsultaHorario(){
       <div className="contenedor-tbl">
       {!MostrarTabla ? (
         <form onSubmit={handleSubmit} className="form-filtro">
-          <h2>Consultar horarios</h2>
-          <div>
-            <label htmlFor="carrera">Carrera:</label>
+          <h1 className="h1-DP">Consultar horarios</h1>
+          <div className="contenedor-input-select">
+            <label htmlFor="carrera" className="label-form-horarios">Carrera:</label>
             <select
               id="carrera"
               value={Carrera}
               onChange={(e) => setCarrera(e.target.value)}
               required
+              className="input-select"
             >
               <option value="">-- Selecciona una carrera --</option>
               <option value="1">MAC</option>
               {/* Agrega más carreras según tu sistema */}
             </select>
           </div>
-          <div>
-            <label htmlFor="orden">Orden:</label>
+          <div className="contenedor-input-select">
+            <label htmlFor="orden" className="label-form-horarios">Orden:</label>
             <select
               id="orden"
               value={Orden}
               onChange={(e) => setOrden(e.target.value)}
+              className="input-select"
             >
               <option value="1">Ascendente</option>
               <option value="2">Descendente</option>

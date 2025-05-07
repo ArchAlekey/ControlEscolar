@@ -1,6 +1,4 @@
 
-USE bnowsdq3ly9belvfnnac;
-
 -- Inserta personas que son profesores de MAC
 INSERT INTO tbl_personas (cnombre, capellidos, bsexo, nedad, dfecha_nacimiento, cCURP, cRFC, cnumero_celular, bhabilitado, dfecha_alta)
 VALUES  
@@ -18,7 +16,7 @@ VALUES
 ('Valeria', 'Hernández Tovar', 0, 40, '1984-09-19', 'HETV840919MDFTRL12', 'HETV840919', '5534567890', 1, NOW());
 
 -- Inserta para Filosofía 
-INSERT INTO tbl_personas (cnombre, capellidos, bsexo, nedad, dfecha_nacimiento, cCURP, cRFC, cnumero_celular, bhabilitado, dfecha_alta)
+/* INSERT INTO tbl_personas (cnombre, capellidos, bsexo, nedad, dfecha_nacimiento, cCURP, cRFC, cnumero_celular, bhabilitado, dfecha_alta)
 VALUES  
 ('Miguel', 'Álvarez Cervantes', 1, 50, '1974-02-10', 'ALCM740210HDFTRN01', 'ALCM740210', '5541122233', 1, NOW()),
 ('Beatriz', 'Campos Morales', 0, 39, '1985-06-22', 'CAMB850622MDFTRC02', 'CAMB850622', '5556677889', 1, NOW()),
@@ -31,7 +29,7 @@ VALUES
 ('Alfredo', 'Salinas Herrera', 1, 49, '1975-05-18', 'SAHA750518HDFTRA09', 'SAHA750518', '5567898765', 1, NOW()),
 ('Gloria', 'Velázquez Torres', 0, 37, '1987-12-08', 'VETG871208MDFTRG10', 'VETG871208', '5520986543', 1, NOW()),
 ('Eduardo', 'Navarro Suárez', 1, 44, '1980-07-11', 'NASU800711HDFTRE11', 'NASU800711', '5545678903', 1, NOW()),
-('Patricia', 'Fuentes Moreno', 0, 41, '1983-04-19', 'FUMP830419MDFTRP12', 'FUMP830419', '5534567891', 1, NOW());
+('Patricia', 'Fuentes Moreno', 0, 41, '1983-04-19', 'FUMP830419MDFTRP12', 'FUMP830419', '5534567891', 1, NOW()); */
 
 -- Inserta para Arquitectura
 /* INSERT INTO tbl_personas (cnombre, capellidos, bsexo, nedad, dfecha_nacimiento, cCURP, cRFC, cnumero_celular, bhabilitado, dfecha_alta)

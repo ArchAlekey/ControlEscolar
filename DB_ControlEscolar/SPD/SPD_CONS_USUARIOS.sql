@@ -11,12 +11,14 @@ BEGIN
 
     -- Validar si el usuario y la contraseña coinciden
     SELECT
+        nid_persona,
         nid_usuario,
         cusuario,
         -- ccontrasenia,
         nid_categoria
     FROM(
         SELECT
+            tp.nid_persona,
             tu.nid_usuario,
             tu.cusuario,
             tu.ccontrasenia,
@@ -28,7 +30,8 @@ BEGIN
 
         UNION ALL
 
-        SELECT 
+        SELECT
+            tp.nid_persona, 
             tu.nid_usuario,
             tu.cusuario,
             tu.ccontrasenia,
@@ -40,7 +43,8 @@ BEGIN
 
         UNION ALL
 
-        SELECT 
+        SELECT
+            tp.nid_persona, 
             tu.nid_usuario,
             tu.cusuario,
             tu.ccontrasenia,
@@ -52,7 +56,8 @@ BEGIN
 
         UNION ALL
 
-        SELECT 
+        SELECT
+            tp.nid_persona, 
             tu.nid_usuario,
             tu.cusuario,
             tu.ccontrasenia,

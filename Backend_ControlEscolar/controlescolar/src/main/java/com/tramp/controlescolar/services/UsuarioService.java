@@ -7,6 +7,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 import com.tramp.controlescolar.repository.UsuarioRepository;
+
+import io.swagger.v3.core.util.Json;
+
 import com.tramp.controlescolar.dto.UsuarioValidaDTO;
 //import com.tramp.controlescolar.models.tablas.Usuarios;
 import org.json.JSONObject ;
@@ -32,6 +35,7 @@ public class UsuarioService {
             respuesta.put("success", true);
             respuesta.put("message", "Usuario Valido");
             /* Datos para el Token */
+            respuesta.put("idPersona", usuarioEncontrado.getIdPersona());
             respuesta.put("id", usuarioEncontrado.getIdUsuario());
             respuesta.put("usuario", usuarioEncontrado.getusuario());
             respuesta.put("idcategoria", usuarioEncontrado.getnid_categoria());
