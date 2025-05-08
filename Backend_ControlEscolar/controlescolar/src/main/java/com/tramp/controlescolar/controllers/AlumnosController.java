@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -21,21 +22,18 @@ public class AlumnosController {
     @PostMapping("/insertaInscripcion")
     public ResponseEntity<?> insertarInscripcion(@RequestBody Map<String, Object> body){
 
-        // System.out.println("Datos recibidos: " + body);
-
-        // if (!body.containsKey("nid_usuario") || !body.containsKey("nid_grupo")) {
-        //     return ResponseEntity.badRequest().body("Faltan parámetros en la petición");
-        // }
-
         Integer nid_usuario = Integer.valueOf(body.get("nid_usuario").toString());
         Integer nid_grupo = Integer.valueOf((body.get("nid_grupo").toString()));
 
 
         try{
             alumnosService.insertaInscripcion(nid_usuario, nid_grupo);
+            Map<String, Object> response = new HashMap<>();
+            response.put("message", "Inscripción Exitosa");
+            return ResponseEntity.ok(response);
 
-            return ResponseEntity.ok("Inscripción exitosa");
         } catch (Exception e) {
+            
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Error al insertar inscripción: " + e.getMessage());
         }

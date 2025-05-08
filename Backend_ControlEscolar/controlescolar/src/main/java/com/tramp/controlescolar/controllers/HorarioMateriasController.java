@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.tramp.controlescolar.dto.HorarioMateriasDTO;
+import com.tramp.controlescolar.dto.HorariosMateriasInscDTO;
 import com.tramp.controlescolar.services.HorarioMateriasService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,6 +30,18 @@ public class HorarioMateriasController {
         response.put("success", true);
         response.put("message", "Consulta exitosa");
         response.put("data", resultados);
+
+        return ResponseEntity.ok(response);
+    };
+
+    @GetMapping("/inscripcion")
+    public ResponseEntity<Map<String, Object>> ConsultaHorariosInsc(){
+        List<HorariosMateriasInscDTO> horariosResultados = horarioMateriasService.ConsultaHorariosInsc();
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("success", true);
+        response.put("message", "Consulta exitosa");
+        response.put("data", horariosResultados);
 
         return ResponseEntity.ok(response);
     }
