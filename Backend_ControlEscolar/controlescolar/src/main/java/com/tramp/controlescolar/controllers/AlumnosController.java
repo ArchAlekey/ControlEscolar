@@ -1,8 +1,5 @@
 package com.tramp.controlescolar.controllers;
 
-/* import com.sendgrid.Request;
-import com.sendgrid.Response;
-import org.json.JSONObject; */
 import com.tramp.controlescolar.services.AlumnosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,8 +21,6 @@ public class AlumnosController {
 
         Integer nid_usuario = Integer.valueOf(body.get("nid_usuario").toString());
         Integer nid_grupo = Integer.valueOf((body.get("nid_grupo").toString()));
-
-
         try{
             alumnosService.insertaInscripcion(nid_usuario, nid_grupo);
             Map<String, Object> response = new HashMap<>();
@@ -41,9 +36,7 @@ public class AlumnosController {
     }
 
     @GetMapping("/consultaCalificaciones")
-    public ResponseEntity<?> consultarCalificaciones(
-            @RequestParam Integer nid_usuario
-    ){
+    public ResponseEntity<?> consultarCalificaciones(@RequestParam Integer nid_usuario){
         try{
             List<Map<String, Object>> calificaciones = alumnosService.consultarCalificaciones(nid_usuario);
             return ResponseEntity.ok(calificaciones);
@@ -56,9 +49,7 @@ public class AlumnosController {
     }
 
     @GetMapping("/consultaInscripcion")
-    public ResponseEntity<?> consultaInscripcion(
-            @RequestParam Integer nid_usuario
-    ){
+    public ResponseEntity<?> consultaInscripcion(@RequestParam Integer nid_usuario){
         try{
             List<Map<String, Object>> inscripcion = alumnosService.consultaInscripcion(nid_usuario);
             return ResponseEntity.ok(inscripcion);

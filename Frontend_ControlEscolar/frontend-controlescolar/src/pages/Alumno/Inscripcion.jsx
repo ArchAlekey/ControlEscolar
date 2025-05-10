@@ -2,14 +2,18 @@ import React, { useEffect, useState } from "react";
 import { Endpoints } from "../../api/ApiEndpoints";
 import Swal from "sweetalert2";
 import Boton from "../../components/boton/boton"
+import { useNavigate } from "react-router-dom";
 
 function Inscripcion() {
   const [opciones, setOpciones] = useState([]);
   const [seleccion, setSeleccion] = useState("");
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
   const [mostrarDialogo, setMostrarDialogo] = useState(false);
+  const [mostrarInsc, setMostrarInsc] = useState(false);
+  const navigate = useNavigate();
 
   const nid_usuario = localStorage.getItem("id");
+  const idcat = Number(localStorage.getItem("idcategoria"));
 
   useEffect(() => {
     const fetchOpciones = async () => {
@@ -60,6 +64,10 @@ function Inscripcion() {
         showConfirmButton: false,
       });
     }
+    /* setMostrarDialogo(false); */
+/*     setMostrarFormulario(false);
+    setMostrarInsc(false); */
+    
   };
 
   const finalizar = () => {
@@ -67,6 +75,16 @@ function Inscripcion() {
     setMostrarFormulario(false);
     setSeleccion("");
   };
+
+  const home = () =>{
+    switch(idcat){
+      case 1: return "/Alumno";
+      case 2: return "/Profesor";
+      case 3: return "/Administrador";
+      case 4: return "/SuperUs";
+      default: return "/NaN";
+    }
+  }
 
   return (
     <div className="contenedor-main">
@@ -85,25 +103,28 @@ function Inscripcion() {
       </div>
 
       <div className={`contenedor-insc-form ${!mostrarFormulario ? "hidden" : ""}`}>
-        <div className="elemento-insc-form">
-          <h2 className="h1-DP">Selecciona un grupo</h2>
-          <select value={seleccion} onChange={(e) => setSeleccion(e.target.value)}>
-            <option value="" disabled>-- Selecciona un grupo --</option>
-            {opciones.map((grupo) => (<option key={grupo.idGrupo} value={grupo.idGrupo}>
-                {grupo.strGrupo}
-              </option>
-            ))}
-          </select>
-          <Boton titulo="Inscribirme" onClick={handleInscribirse} />
-        </div>
+      <div className="elemento-insc-form-label"><h2 className="h1-DP">Selecciona un grupo</h2></div>
+          <div className="elemento-insc-form-select">
+            <select value={seleccion} onChange={(e) => setSeleccion(e.target.value)} className="select-form">
+              <option value="" disabled>-- Selecciona un grupo --</option>
+              {opciones.map((grupo) => (<option key={grupo.idGrupo} value={grupo.idGrupo}>
+                  {grupo.strGrupo}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="elemento-insc-form-btn">
+              <Boton titulo="Inscribirme" onClick={handleInscribirse} />
+              <Boton titulo="Cancelar" onClick={() => navigate(home())}/>
+          </div>
       </div>
 
       {mostrarDialogo && (
         <div className="contenedor-modal">
           <dialog open className="dialog-insc">
-            <h1>Felicidades</h1>
-            <p>Haz concluido tu inscripción</p>
-            <Boton titulo="Finalizar" onClick={finalizar} />
+            <h1 className="h1-DP">Felicidades</h1>
+            <div className="elemento-dialog"><p>Haz concluido tu inscripción</p></div>
+            <div className="elemento-dialog"><Boton titulo="Finalizar" onClick={() => navigate(home())} /></div>
           </dialog>
         </div>
       )}

@@ -21,10 +21,10 @@ public class ProfesoresController {
 
     @GetMapping("/consultarGruposAsignados")
     public ResponseEntity<?> consultarGruposAsignados(
-            @RequestParam Integer nid_academico_profesor
+            @RequestParam Integer nid_persona
     ) {
         try {
-            List<Map<String, Object>> grupos = profesoresService.consultaGruposAsignados((nid_academico_profesor));
+            List<Map<String, Object>> grupos = profesoresService.consultaGruposAsignados((nid_persona));
             return ResponseEntity.ok(grupos);
         }
         catch (Exception e) {

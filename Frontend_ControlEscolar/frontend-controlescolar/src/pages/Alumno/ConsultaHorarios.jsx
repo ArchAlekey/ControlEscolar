@@ -75,32 +75,32 @@ function ConsultaHorario(){
           ) : horarios.length > 0 ? (
             <table className="tbl-horarios">
               <thead>
-                <tr className="r-head">
-                  <th className="h-table">Materia</th>
-                  <th className="h-table">Clave</th>
-                  <th className="h-table">Carrera</th>
-                  <th className="h-table">Periodo</th>
-                  <th className="h-table">Semestre</th>
-                  <th className="h-table">Grupo</th>
-                  <th className="h-table">Profesor</th>
-                  <th className="h-table">Número de cuenta</th>
-                  <th className="h-table">Correo</th>
-                  <th className="h-table">Horario</th>
+                <tr className="h-table">
+                  <th>Materia</th>
+                  <th>Clave</th>
+                  <th>Carrera</th>
+                  <th>Periodo</th>
+                  <th>Semestre</th>
+                  <th>Grupo</th>
+                  <th>Profesor</th>
+                  <th>Número de cuenta</th>
+                  <th>Correo</th>
+                  <th>Horario</th>
                 </tr>
               </thead>
               <tbody>
                 {horarios.map((horario, index) => (
-                  <tr key={index} className="r-tbl">
-                    <td className="c-tbl">{horario.cnombre_materia}</td>
-                    <td className="c-tbl">{horario.cclave_materia}</td>
-                    <td className="c-tbl">{horario.ccarrera}</td>
-                    <td className="c-tbl">{horario.cperiodo}</td>
-                    <td className="c-tbl">{horario.nsemestre}</td>
-                    <td className="c-tbl">{horario.cgrupo}</td>
-                    <td className="c-tbl">{horario.profesor}</td>
-                    <td className="c-tbl">{horario.cnumero_cuenta}</td>
-                    <td className="c-tbl">{horario.ccorreo_institucional}</td>
-                    <td className="c-tbl">{horario.chorario}</td>
+                  <tr key={index} className="c-tbl">
+                    <td>{horario.cnombre_materia}</td>
+                    <td>{horario.cclave_materia}</td>
+                    <td>{horario.ccarrera}</td>
+                    <td>{horario.cperiodo}</td>
+                    <td>{horario.nsemestre}</td>
+                    <td>{horario.cgrupo}</td>
+                    <td>{horario.profesor}</td>
+                    <td>{horario.cnumero_cuenta}</td>
+                    <td>{horario.ccorreo_institucional}</td>
+                    <td>{horario.chorario}</td>
                   </tr>
                 ))}
               </tbody>
