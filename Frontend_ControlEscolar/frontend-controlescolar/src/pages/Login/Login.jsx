@@ -51,6 +51,7 @@ function Login({ setLogeado }){
 
                     localStorage.setItem("token", data.token);
                     localStorage.setItem("usuario", data.usuario);
+                    localStorage.setItem("idPersona", data.idPersona);
                     localStorage.setItem("id", data.id);
                     localStorage.setItem("idcategoria", data.idcategoria);
 
@@ -58,7 +59,8 @@ function Login({ setLogeado }){
                         token: data.token,
                         idcategoria: data.idcategoria,
                         usuario: data.usuario,
-                        id: data.id
+                        id: data.id,
+                        idPersona: data.idPersona
                     })
     
                     if (data.idcategoria === 1){
@@ -67,6 +69,8 @@ function Login({ setLogeado }){
                         navigate("/Profesor");
                     } else if( data.idcategoria === 3){
                         navigate("/Administrador");
+                    } else if( data.idcategoria === 4){
+                        navigate("/SuperUs");
                     } else {
                         setMensaje("No encontrado");
                     }

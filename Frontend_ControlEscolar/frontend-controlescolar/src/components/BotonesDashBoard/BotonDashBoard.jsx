@@ -1,11 +1,12 @@
 import React from "react";
 import './BotonDashboard.css';
 
-function BotonDashBoard({ titulo, onClick }){
+function BotonDashBoard({ titulo, onClick, icon }){
 
     return (
         <div className="contenedor_menu" onClick={onClick}>
-            {titulo}
+            <span className="title-btn">{titulo}</span>
+            {icon && <span className="icon-btn">{icon}</span>}
         </div>
     )
 }

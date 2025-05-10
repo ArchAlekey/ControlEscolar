@@ -1,4 +1,4 @@
--- Active: 1737221727660@@127.0.0.1@3306@el_milagro
+-- Active: 1739329630699@@127.0.0.1@3306@aca_vendes
 /* DROP DATABASE db_onepiece; */
 CREATE DATABASE db_onepiece;
 -- Use bnowsdq3ly9belvfnnac;
@@ -118,6 +118,22 @@ CREATE TABLE `tbl_academicos_profesores` (
   Foreign Key (nid_carrera) REFERENCES cat_carreras(`nid_carrera`)
 );
 
+CREATE TABLE `tbl_academicos_super_us` (
+  `nid_academico_super_us` int auto_increment PRIMARY KEY,
+  `nid_persona` int NOT NULL,
+  `nid_categoria` int NOT NULL,
+  `nid_carrera` int NOT NULL,
+  `cnumero_cuenta` varchar(12) UNIQUE NOT NULL,
+  `ccorreo_institucional` varchar(50) NOT NULL,
+  `ccorreo_personal` varchar(50) NOT NULL,
+  `bhabilitado` bit NOT NULL,
+  `dfecha_alta` date NOT NULL,
+  `dfecha_baja` date,
+  Foreign Key (nid_persona) REFERENCES tbl_personas(`nid_persona`),
+  Foreign Key (nid_categoria) REFERENCES cat_categorias(`nid_categoria`),
+  Foreign Key (nid_carrera) REFERENCES cat_carreras(`nid_carrera`)
+) 
+
 CREATE TABLE `tbl_academicos_admin` (
   `nid_academico_admin` int AUTO_INCREMENT PRIMARY KEY,
   `nid_persona` int NOT NULL,
@@ -139,6 +155,7 @@ CREATE TABLE `tbl_usuarios` (
   `nid_persona` int NOT NULL,
   `cusuario` varchar(12) NOT NULL,
   `ccontrasenia` varchar(100) NOT NULL,
+  `bstatus_contrasenia` BIT DEFAULT 0,
   `bhabilitado` bit NOT NULL,
   `dfecha_alta` date NOT NULL,
   `dfecha_baja` date,

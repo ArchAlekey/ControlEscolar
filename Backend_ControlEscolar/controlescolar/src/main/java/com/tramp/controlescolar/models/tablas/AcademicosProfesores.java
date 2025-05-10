@@ -51,6 +51,9 @@ public class AcademicosProfesores {
         this.bhabilitado = BoolHabilitado;
         this.dfecha_alta = DateFechaAlta;
         this.dfecha_baja = DateFechaBaja;
+    };
+    public AcademicosProfesores(Integer IntIdAcademicoProfesor){
+        this.nid_academico_profesor = IntIdAcademicoProfesor;
     }
 
     // Getters y Setters

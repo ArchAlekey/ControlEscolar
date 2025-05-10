@@ -10,7 +10,7 @@ function LayoutPrincipal(){
         const navigate = useNavigate();
         const idcat = Number(localStorage.getItem("idcategoria"));
         const posicion = useLocation();
-        const rutaPadre = posicion.pathname === '/Alumno' || posicion.pathname === '/Profesor' || posicion.pathname === '/Administrador';        
+        const rutaPadre = posicion.pathname === '/Alumno' || posicion.pathname === '/Profesor' || posicion.pathname === '/Administrador' || posicion.pathname === '/SuperUs';        
 
         const handleLogout = () => {
             logout();
@@ -22,6 +22,7 @@ function LayoutPrincipal(){
                 case 1: return "color-bg-alumno";
                 case 2: return "color-bg-profesor";
                 case 3: return "color-bg-admin";
+                case 4: return "color-bg-superus"
                 default: return "color-default";
             }
         };
@@ -30,6 +31,7 @@ function LayoutPrincipal(){
                 case 1: return "color-main-alumno";
                 case 2: return "color-main-profesor";
                 case 3: return "color-main-admin";
+                case 4: return "color-main-superus";
                 default: return "color-main";
             }
         };
@@ -39,6 +41,7 @@ function LayoutPrincipal(){
                 case 1: return "/Alumno";
                 case 2: return "/Profesor";
                 case 3: return "/Administrador";
+                case 4: return "/SuperUs";
                 default: return "/NaN";
             }
         }
@@ -57,40 +60,64 @@ function LayoutPrincipal(){
                 </div>
             </header>
             <main className = {`${switchMain()}`}>
-                {idcat === 1 && rutaPadre &&(
+                    {idcat === 1 && rutaPadre &&(
                     <div className="contenedor-menus">
-                        <BotonDashBoard titulo = "Datos Personales" onClick={() => navigate('datos')}/>
-                        <BotonDashBoard titulo = "Consulta Horario" onClick={() => navigate('horarios')}/>
-                        <BotonDashBoard titulo = "Inscripcion" onClick={() => navigate('inscripcion')}/>
-                        <BotonDashBoard titulo = "Consulta Inscripcion" onClick={()=> navigate('consulta-inscripcion')}/>
-                        <BotonDashBoard titulo = "Consulta Calificaciones" onClick={()=> navigate('consulta-calificaciones')}/>
-                        <BotonDashBoard titulo = "Consulta Historial" onClick={()=> navigate('consulta-historial')}/>
+                        <div className="contenedor-presetacion">
+                            <p className="h1-DP">Bienvenido al sistema de</p>
+                            <h1 className="h1-DP">Control Escolar</h1>
+                        </div>
+                        <div className="contenedor-btns">
+                            <BotonDashBoard titulo = "Datos Personales" icon={<i className="fa-solid fa-user"></i>} onClick={() => navigate('datos')} />
+                            <BotonDashBoard titulo = "Consulta Horario" icon={<i className="fa-solid fa-clock"></i>} onClick={() => navigate('horarios')}/>
+                            <BotonDashBoard titulo = "Inscripcion" icon={<i className="fa-solid fa-school"></i>} onClick={() => navigate('inscripcion')}/>
+                            <BotonDashBoard titulo = "Consulta Inscripcion" icon={<i className="fa-solid fa-table-list"></i>} onClick={()=> navigate('consulta-inscripcion')}/>
+                            <BotonDashBoard titulo = "Consulta Calificaciones" icon={<i className="fa-solid fa-trophy"></i>} onClick={()=> navigate('consulta-calificaciones')}/>
+                            <BotonDashBoard titulo = "Consulta Historial" icon={<i className="fa-solid fa-book-skull"></i>} onClick={()=> navigate('consulta-historial')}/>
+                        </div>
                     </div>
                 )}
 
                 {idcat === 2 && rutaPadre &&(
                     <div className="contenedor-menus">
-                        <BotonDashBoard titulo = "Datos Personales" onClick={() => navigate('datos')}/>
-                        <BotonDashBoard titulo = "Consulta Grupos Asignados" onClick={() => navigate('gruposAsignados')}/>
-                        <BotonDashBoard titulo = "Calificar Alumnos" onClick={() => navigate('calificarAlumnos')}/>
+                        <div className="contenedor-presentacion">
+                            <p className="h1-DP">Bienvenido al sistema de</p>
+                            <h1 className="h1-DP">Control Escolar</h1>
+                        </div>
+                        <div className="contenedor-btns">
+                            <BotonDashBoard titulo = "Datos Personales" icon={<i className="fa-solid fa-graduation-cap"></i>} onClick={() => navigate('datos')}/>
+                            <BotonDashBoard titulo = "Consulta Grupos Asignados" icon={<i className="fas fa-list"></i>} onClick={() => navigate('gruposAsignados')}/>
+                            <BotonDashBoard titulo = "Calificar Alumnos" icon={<i className="fa-solid fa-pencil"></i>} onClick={() => navigate('calificarAlumnos')}/>
+                        </div>
                     </div>
                 )}
-                {idcat === 3 && (
+                {idcat === 3 && rutaPadre &&(
                     <div className="contenedor-menus">
-                        <BotonDashBoard titulo = "Administrar Usuarios"/>
-                        <BotonDashBoard titulo = "Administrar Grupos"/>
-                        <BotonDashBoard titulo = "Administrar Periodos"/>
-                        <BotonDashBoard titulo = "Administrar Materias"/>
-                        <BotonDashBoard titulo = "Datos Personales"/>
+                        <div className="contenedor-presentacion">
+                            <p className="h1-DP">Bienvenido al sistema de</p>
+                            <h1 className="h1-DP">Control Escolar</h1>
+                        </div>
+                        <div className="contenedor-btns">
+                            <BotonDashBoard titulo = "Administrar Usuarios"/>
+                            <BotonDashBoard titulo = "Administrar Grupos"/>
+                            <BotonDashBoard titulo = "Administrar Periodos"/>
+                            <BotonDashBoard titulo = "Administrar Materias"/>
+                            <BotonDashBoard titulo = "Datos Personales"/>
+                        </div>
                     </div>
                 )}
-                {idcat === 4 && (
+                {idcat === 4 && rutaPadre &&(
                     <div className="contenedor-menus">
-                        <BotonDashBoard titulo = "Administrar Usuarios"/>
-                        <BotonDashBoard titulo = "Administrar Grupos"/>
-                        <BotonDashBoard titulo = "Administrar Periodos"/>
-                        <BotonDashBoard titulo = "Administrar Materias"/>
-                        <BotonDashBoard titulo = "Datos Personales"/>
+                        <div className="contenedor-presentacion">
+                            <p className="h1-DP">Bienvenido al sistema de</p>
+                            <h1 className="h1-DP">Control Escolar</h1>
+                        </div>
+                        <div className="contenedor-btns">
+                            <BotonDashBoard titulo = "Administrar Usuarios" icon={<i className="fa-solid fa-user-group"></i>}/>
+                            <BotonDashBoard titulo = "Administrar Grupos"/>
+                            <BotonDashBoard titulo = "Administrar Periodos"/>
+                            <BotonDashBoard titulo = "Administrar Materias"/>
+                            <BotonDashBoard titulo = "Datos Personales" icon={<i className="fa-solid fa-user-gear"></i>} onClick={() => navigate('datos')}/>
+                        </div>
                     </div>
                 )}
                 <div className="contenedor_dinamico">
@@ -112,3 +139,4 @@ function LayoutPrincipal(){
 }
 
 export default LayoutPrincipal;
+

@@ -1,19 +1,27 @@
 .contenedor_menu{
-    display: flex;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
     justify-content: center;
     align-items: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 150%;
-    background-color: #9f9f9f;
-    border: solid 2px #000;
+    background-color: #b4b4b4;
+    border: solid 3px #000;
     border-radius: 30px;
     cursor: pointer;
 }
 .contenedor_menu:hover{
-    background-color: #ccd0cf;
+    background-color: #e7e7e7;
     transform: scale(1,1.05);
 }
-.contenedor_menu:first-child{
-    grid-row-start: 1;
-    grid-row-end: 3;
+
+.title-btn{
+    text-align: center;
+    font-size: 140%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.icon-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    font-size: 250%;
 }

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 
 import com.tramp.controlescolar.dto.HorarioMateriasDTO;
+import com.tramp.controlescolar.dto.HorariosMateriasInscDTO;
 import com.tramp.controlescolar.repository.HorarioMateriasRepository;
 
 @Service
@@ -45,5 +46,18 @@ public class HorarioMateriasService {
             ));
         }
         return lista;
+    };
+
+    public List<HorariosMateriasInscDTO> ConsultaHorariosInsc(){
+        List<Object[]> ListaInsc = _horarioMaterias.ConsultaHorariosInsc();
+        List<HorariosMateriasInscDTO> Lista = new ArrayList<>();
+
+        for(Object[] fila : ListaInsc){
+            Integer nid_grupo = (Integer) fila[0];
+            String cgrupo = (String) fila[1];
+
+            Lista.add(new HorariosMateriasInscDTO(nid_grupo, cgrupo));
+        }
+        return Lista;
     }
 }

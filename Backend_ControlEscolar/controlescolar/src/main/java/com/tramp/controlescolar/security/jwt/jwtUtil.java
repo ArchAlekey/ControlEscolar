@@ -14,10 +14,11 @@ import java.util.Map;
 public class jwtUtil {
     private final Key secretKey = Keys.secretKeyFor(SignatureAlgorithm.HS256);
 
-    private final long expirationMillis = 3600000;
+    private final long expirationMillis = 360000;
 
-    public String generaToken(Integer id, String usuario, Integer idcategoria){
+    public String generaToken(Integer idPersona, Integer id, String usuario, Integer idcategoria){
         Map<String, Object> claims = new HashMap<>();
+        claims.put("idPersona", idPersona);
         claims.put("id", id);
         claims.put("usuario", usuario);
         claims.put("idcategoria", idcategoria);

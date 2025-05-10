@@ -35,8 +35,7 @@ public class Grupos {
         this.bhabilitado = BoolHabilitado;
         this.dfecha_alta = DateFechaAlta;
         this.dfecha_baja = DateFechaBaja;
-    } 
-
+    }
     // Getters y Setters
     public Integer getIdGrupo() { return nid_grupo; }
     public void setIdGrupo(Integer IntIdGrupo) { this.nid_grupo = IntIdGrupo; }

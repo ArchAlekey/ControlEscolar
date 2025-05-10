@@ -1,3 +1,4 @@
+/* Estilos para Consulta datos personales */
 .contenedor-datos-personales{
     display: grid;
     justify-content: center;
@@ -11,7 +12,7 @@
 
 .h1-DP{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 200%;
+    font-size: 250%;
     text-align: center;
 }
 .label-datos-personales{
@@ -35,3 +36,166 @@
     grid-template-rows: 1fr 1fr;
     gap: 10px 5px;
 }
+/* Estilos para Consulta datos personales */
+
+/* Estilos para Consulta horarios */
+.contenedor-tbl{
+    display: grid;
+    justify-content: center;
+    margin-bottom: 5vh;
+  }
+.form-filtro{
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    border: solid 2px #000;
+    border-radius: 1rem;
+    margin-top: 10vh;
+    width: 70vh;
+    height: 60vh;
+    background-color: #8ca2b2;
+    align-items: center;
+    justify-content: center;
+}
+.label-form-horarios{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 200%;
+}
+.contenedor-input-select{
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    text-align: center;
+    gap: 20px;
+}
+.input-select{
+    text-decoration: none;
+    height: 150%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 150%;
+    text-align: center;
+}
+
+.tbl-horarios{
+    border: 2px solid #000;
+    width: 90vw;
+    height: auto;
+    border-collapse: collapse;
+    background-color: #8ca2b2;
+}
+
+.h-table{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: solid 1px #000;
+    color: #ffffff;
+    font-size: 170%;
+    height: 4vw;
+}
+.c-tbl{
+    text-align: center;
+    font-size: 140%;
+    height: 7vh;
+    border: solid 1px #000;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #2c2c2c;
+}
+.c-tbl:hover{
+    background-color: #067bbe;
+    color: #000 ;
+}
+/* Estilos para Consulta horarios */
+
+/* Estilos para formulario de inscripcion */
+.contenedor-main{
+    display: grid;
+    justify-content: center;
+    margin-top: 10vh;
+  }
+  .contenedor-insc{
+    border: 2px solid #000;
+    width: 50vw;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    border-radius: 2rem;
+    background-color: #8ca2b2;
+  }
+  .element-info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+  .element-info-t{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 110%;
+    color: #ff0000;
+  }
+  
+  .contenedor-insc-form{
+    background-color: #8ca2b2;
+    border: 1px solid #000000;
+    border-radius: 2rem;
+    width: 60vw;
+    height: 40vh;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    justify-content: center;
+  }
+
+  .elemento-insc-form-select{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+  .select-form{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 120%;
+    height: 5vh;
+    width: 30vw;
+    text-align: center;
+  }
+  .elemento-insc-form-btn{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+.dialog-insc{
+  border: solid 1px #000000;
+  border-radius: 2rem;
+  width: 40vh;
+  height: 20vw;
+  background-color: #8ca2b2;
+
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  justify-content: center;
+  align-items: center;
+}
+.elemento-dialog {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 100%;
+}
+.elemento-dialog{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  z-index: 100;
+}
+
+  .hidden{
+    display: none;
+  }
+/* Estilos para formulario de inscripcion */
+
+/* Estilos para consulta inscripción */
+.contenedor-tabla{
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  justify-content: center;
+}
+/* Estilos para consulta inscripción */

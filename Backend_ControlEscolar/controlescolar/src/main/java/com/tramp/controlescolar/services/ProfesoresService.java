@@ -16,7 +16,15 @@ public class ProfesoresService {
     @Autowired
     private ProfesoresRepository profesoresRepository;
     @Transactional
-    public List<Map<String, Object>> consultaGruposAsignados(Integer nid_academico_profesor){
+    public List<Map<String, Object>> consultaGruposAsignados(Integer nid_persona){
+
+        List<Object[]> resId = profesoresRepository.consultaIdAcademico(nid_persona);
+
+        if(resId.isEmpty()){
+            throw new RuntimeException("No se encontro profesor con ese id de persona");
+        }
+        Integer nid_academico_profesor = (Integer) resId.get(0)[0];
+
         List<Object[]> resultados = profesoresRepository.consultaGruposAsignados(nid_academico_profesor);
         List<Map<String, Object>> grupos = new ArrayList<>();
 
@@ -60,5 +68,4 @@ public class ProfesoresService {
         }
         return alumnos;
     }
-
 }

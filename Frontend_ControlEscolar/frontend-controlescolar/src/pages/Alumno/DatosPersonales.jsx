@@ -13,7 +13,7 @@ function DatosPersonales(){
             .then((res) => res.json())
             .then((data) => {
                 setPersona(data.data);
-                console.log(data)
+                /* console.log(data) */
             })
             .catch(err => console.log('Error al recuperar datos', err));
     }, [nid_persona]);
@@ -33,7 +33,7 @@ function DatosPersonales(){
                         </div>
                         <div className="contenedor-campo">
                             <label className="label-datos-personales">Genero</label>
-                            <input className="input-datos-personales" disabled type="text" value={persona?.bsexo || ''}></input>
+                            <input className="input-datos-personales" disabled type="text" value={persona?.bsexo ? "Masculino" : "Femenino" || ''}></input>
                         </div>
                         <div className="contenedor-campo">
                             <label className="label-datos-personales">Edad</label>

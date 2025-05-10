@@ -17,7 +17,7 @@ VALUES
 
 
 -- Usuarios profesores de Filosofía
-INSERT INTO tbl_usuarios (nid_persona, cusuario, ccontrasenia, bhabilitado, dfecha_alta)
+/* INSERT INTO tbl_usuarios (nid_persona, cusuario, ccontrasenia, bhabilitado, dfecha_alta)
 VALUES
 (13, '20ALCM74021', SHA2('20ALCM74021', 256), 1, NOW()),
 (14, '20CAMB85062', SHA2('20CAMB85062', 256), 1, NOW()),
@@ -30,4 +30,4 @@ VALUES
 (21, '20SAHA75051', SHA2('20SAHA75051', 256), 1, NOW()),
 (22, '20VETG87120', SHA2('20VETG87120', 256), 1, NOW()),
 (23, '20NASU80071', SHA2('20NASU80071', 256), 1, NOW()),
-(24, '20FUMP83041', SHA2('20FUMP83041', 256), 1, NOW());
+(24, '20FUMP83041', SHA2('20FUMP83041', 256), 1, NOW()); */
