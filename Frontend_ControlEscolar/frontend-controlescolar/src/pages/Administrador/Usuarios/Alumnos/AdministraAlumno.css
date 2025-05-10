@@ -1,0 +1,327 @@
+form {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+   /*  background-color: #f9f9f9; */
+}
+
+/* Contenedor de los botones CRUD */
+.botones-crud {
+    margin: 20px 0;
+}
+
+/* Separación entre botones */
+.botones-crud button {
+    margin-right: 20px; /* Incrementa el espacio entre los botones */
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+.botones-crud button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.botones-crud button:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+/* Botón de actualizar */
+.btn-actualizar {
+    margin-right: 20px;
+    background-color: darkgoldenrod;
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* Botón de habilitar */
+.btn-habilitar {
+    margin-right: 20px;
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+/*     cursor: pointer; */
+    border-radius: 4px;
+}
+
+/* Botón de inhabilitar */
+.btn-inhabilitar {
+    background-color: crimson;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+/*     cursor: pointer; */
+    border-radius: 4px;
+}
+
+/* Botón de regresar */
+.btn-regresar {
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: darkgrey;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-regresar:hover {
+    background-color: #0056b3;
+}
+
+/* Contenedor del formulario */
+.formulario-container {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+/*     cursor: pointer; */
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para la tabla */
+.tabla {
+    width: 100%; /* Ocupa todo el ancho de la pantalla */
+    border-collapse: collapse; /* Elimina los espacios entre bordes */
+    margin-top: 20px;
+    font-size: 18px; /* Aumenta el tamaño de la letra */
+}
+
+/* Estilo para las celdas de la tabla */
+.tabla th,
+.tabla td {
+    border: 1px solid #ccc; /* Bordes para filas y columnas */
+    padding: 10px; /* Espaciado interno */
+    text-align: left; /* Alineación del texto */
+}
+
+/* Estilo para los encabezados de la tabla */
+.tabla th {
+    /* background-color: #007bff; */ /* Fondo azul */
+    text-align: center; /* Alineación centrada */
+    color: black; /* Texto blanco */
+    font-size: 20px; /* Tamaño de letra más grande */
+    text-transform: uppercase; /* Texto en mayúsculas */
+}
+
+/* Estilo para las filas alternas */
+/* .tabla-estudiantes tr:nth-child(even) {
+    background-color: #f9f9f9; /* Fondo gris claro */
+/* } 
+
+/* Estilo para las filas al pasar el mouse */
+.tabla tr:hover {
+    background-color: #e6f7ff; /* Fondo azul claro */
+}
+
+/* Ajuste para que los botones dentro de la tabla sean consistentes */
+.tabla button {
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Botón de habilitar */
+.btn-habilitar {
+    background-color: green;
+    color: white;
+    border: none;
+}
+
+/* Botón de inhabilitar */
+.btn-inhabilitar {
+    background-color: crimson;
+    color: white;
+    border: none;
+}
+
+/* Botón de actualizar */
+.btn-actualizar {
+    background-color: darkgoldenrod;
+    color: black;
+    border: none;
+}
+
+/* Ajuste para que la tabla no se desborde en pantallas pequeñas */
+@media (max-width: 768px) {
+    .tabla {
+        font-size: 16px; /* Reduce el tamaño de la letra en pantallas pequeñas */
+    }
+
+    .tabla th,
+    .tabla td {
+        padding: 8px; /* Reduce el espaciado interno */
+    }
+}
+
+/* Contenedor de los filtros */
+.filtros-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+/* Estilo para el campo de búsqueda */
+.input-busqueda {
+    width: 60%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Estilo para el select de filtrado */
+.select-filtro {
+    width: 35%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    cursor: pointer;
+}
+
+/* Contenedor para los botones superiores */
+.botones-superiores {
+    display: flex;
+    font-size: 20px;
+    justify-content: space-between; /* Coloca los botones en extremos opuestos */
+    align-items: center; /* Alinea verticalmente */
+    margin-bottom: 20px; /* Espaciado inferior */
+}
+
+/* Botón de regresar */
+.btn-regresar {
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 28px;
+    cursor: pointer;
+}
+.btn-agregar
+{
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.btn-regresar:hover {
+    background-color: #0056b3;
+}
+
+/* Superposición que cubre toda la pantalla */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegura que esté sobre otros elementos */
+}
+
+/* Contenedor del modal */
+.modal {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 95%; /* Ocupa el 95% del ancho de la pantalla */
+    max-width: 800px; /* Ancho máximo del modal */
+    max-height: 90%; /* Limita la altura máxima al 90% de la pantalla */
+    overflow-y: auto; /* Agrega scroll vertical si el contenido excede la altura */
+    z-index: 1001;
+}
+
+/* Botón para cerrar el modal */
+.modal button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.modal button:hover {
+    background-color: #0056b3;
+}
+
+/* Ajuste para el cuerpo cuando el modal está abierto */
+body.modal-open {
+    overflow: hidden; /* Evita el scroll en el fondo */
+}
+
+/* Contenedor de una fila de campos */
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Espaciado entre los campos */
+    margin-bottom: 15px; /* Espaciado inferior entre filas */
+}
+
+/* Campos dentro de una fila */
+.form-row label {
+    flex: 1; /* Los campos ocupan el mismo espacio */
+}
+
+/* Ajuste para los inputs y selects */
+.form-row input,
+.form-row select {
+    width: 100%; /* Asegura que los campos ocupen todo el espacio disponible */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Endpoints } from "../../api/ApiEndpoints";import Boton from "../../components/boton/boton";
 import { useNavigate } from "react-router-dom";
-import html2pdf from "html2pdf.js";
+/* import html2pdf from "html2pdf.js"; */
 
 function ConsultaInscripcion(){
 
@@ -36,7 +36,7 @@ function ConsultaInscripcion(){
         }
     };
 
-    const handlePrint = () => {
+/*     const handlePrint = () => {
         const element = pdfRef.current;
         const opt = {
           margin:       0.5,
@@ -46,7 +46,7 @@ function ConsultaInscripcion(){
           jsPDF:        { unit: 'in', format: 'letter', orientation: 'landscape' }
         };
         html2pdf().set(opt).from(element).save();
-      };
+      }; */
 
     return(
         <div className="contenedor-main-insc" >
@@ -80,7 +80,7 @@ function ConsultaInscripcion(){
                     </tbody>
                 </table>
                 <div className="elemento-insc-form-btn">
-                    <Boton titulo="Imprimir" onClick={handlePrint}/>
+                    <Boton titulo="Imprimir" /* onClick={handlePrint} *//>
                     <Boton titulo="Regresar" onClick={() => navigate(home())}/>
                 </div>
             </div>
