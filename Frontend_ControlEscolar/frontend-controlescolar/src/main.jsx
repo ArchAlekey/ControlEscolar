@@ -14,6 +14,9 @@ import ConsultaCalificaciones from './pages/Alumno/ConsultaCalificaciones.jsx';
 import ConsultaHistorial from './pages/Alumno/ConsultaHistorial.jsx';
 import GruposAsignados from './pages/Profesor/GruposAsignados.jsx';
 import CalificarAlumnos from './pages/Profesor/CalificarAlumnos.jsx';
+import AdministraUsuarios from './pages/Administrador/Usuarios/AdministraUsuarios.js';
+import AdministraAlumno from './pages/Administrador/Usuarios/Alumnos/AdministraAlumno.js';
+import AdministraProfesor from './pages/Administrador/Usuarios/Profesores/AdministrarProfesor.jsx';
 
 
 const router = createBrowserRouter([
@@ -60,8 +63,25 @@ const router = createBrowserRouter([
     element: <RutaProtegida idcategoria={3} />,
     children:[
       {
-        index: true,
-        element: <LayoutPrincipal/>
+        path: "", 
+        element: <LayoutPrincipal/>,
+        children: [
+          { 
+            path: "usuario", 
+            element: <AdministraUsuarios />,
+              children: [
+                {
+                  path: "alumno",
+                  element: <AdministraAlumno/> 
+                },
+                { 
+                  path: "profesor", 
+                  element: <AdministraProfesor/>
+                }
+              ]
+          },
+        ]
+        
       }
     ]
   },
@@ -95,3 +115,4 @@ createRoot(document.getElementById('root')).render(
     <RouterProvider router={router}/>
   </AuthProvider>
 );
+

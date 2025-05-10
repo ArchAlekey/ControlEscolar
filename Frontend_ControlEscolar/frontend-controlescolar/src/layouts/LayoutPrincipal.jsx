@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React from "react";
 import BotonDashBoard from '../components/BotonesDashBoard/BotonDashBoard';
 import { useAuth } from "../components/Auth/AuthProvider";
 import { Link, Outlet, useNavigate, useLocation } from "react-router-dom";
@@ -91,17 +91,17 @@ function LayoutPrincipal(){
                     </div>
                 )}
                 {idcat === 3 && rutaPadre &&(
+                
                     <div className="contenedor-menus">
                         <div className="contenedor-presentacion">
                             <p className="h1-DP">Bienvenido al sistema de</p>
                             <h1 className="h1-DP">Control Escolar</h1>
                         </div>
                         <div className="contenedor-btns">
-                            <BotonDashBoard titulo = "Administrar Usuarios"/>
-                            <BotonDashBoard titulo = "Administrar Grupos"/>
+                            <BotonDashBoard titulo = "Datos Personales"/>|
+                            <BotonDashBoard titulo = "Administrar Usuarios" onClick={() => navigate('usuario')}/>
+                            <BotonDashBoard titulo = "Administrar Carreras" onClick={() => navigate('carrera')}/>
                             <BotonDashBoard titulo = "Administrar Periodos"/>
-                            <BotonDashBoard titulo = "Administrar Materias"/>
-                            <BotonDashBoard titulo = "Datos Personales"/>
                         </div>
                     </div>
                 )}
