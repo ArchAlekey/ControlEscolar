@@ -61,4 +61,48 @@ public class AlumnosService {
         }
         return inscripciones;
     }
+
+    @Transactional
+    public List<Map<String, Object>> obtenerAcademicosAlumnosConPersonas() {
+        List<Object[]> resultados = alumnosRepository.findAcademicosAlumnosWithPersonas();
+        List<Map<String, Object>> lista = new ArrayList<>();
+
+        for (Object[] fila : resultados) {
+            Map<String, Object> registro = new HashMap<>();
+            registro.put("nid_persona", fila[0]);
+            registro.put("nid_academico_alumno", fila[1]);
+            registro.put("cnombre", fila[2]);
+            registro.put("capellidos", fila[3]);
+            registro.put("cnumero_cuenta", fila[4]);
+            registro.put("bhabilitado", fila[5]);
+            lista.add(registro);
+        }
+
+        return lista;
+    }
+
+    @Transactional
+    public void cambiarEstadoHabilitado(Integer idAlumno, boolean habilitado) {
+        alumnosRepository.actualizarEstadoHabilitado(idAlumno, habilitado);
+    }
+
+     @Transactional
+    public List<Map<String, Object>> buscarAlumnos(String textoBusqueda) {
+        List<Object[]> resultados = alumnosRepository.buscarAlumnos(textoBusqueda);
+
+        // Convierte los resultados en una lista de mapas para facilitar su uso en el frontend
+        List<Map<String, Object>> alumnos = new ArrayList<>();
+        for (Object[] fila : resultados) {
+            Map<String, Object> alumno = new HashMap<>();
+            alumno.put("nid_academico_alumno", fila[0]);
+            alumno.put("cnombre", fila[1]);
+            alumno.put("capellidos", fila[2]);
+            alumno.put("cnumero_cuenta", fila[3]);
+            alumno.put("bhabilitado", fila[4]);
+            alumnos.add(alumno);
+        }
+        return alumnos;
+    }
+    
+
 }

@@ -1,5 +1,6 @@
 package com.tramp.controlescolar.controllers;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.tramp.controlescolar.dto.PersonaUsuarioRequest;
 import com.tramp.controlescolar.services.PersonasService;
+import org.springframework.http.HttpStatus;
 
 
 @RestController
@@ -41,24 +43,27 @@ public class PersonasController {
     }
 
     @PostMapping("registrar/alumno")
-    public ResponseEntity<String> crearAlumno(@RequestBody PersonaUsuarioRequest request){
+    public ResponseEntity<Map<String, Object>> crearAlumno(@RequestBody PersonaUsuarioRequest request){
+        // Instanciar el mapa de respuesta
+        Map<String, Object> respuesta =  new HashMap<>();        
         try {
             personasService.insertarAlumno(request);
-            return ResponseEntity.ok("Alumno registrado correctamente");
+            respuesta.put("mensaje", "Registrado correctamente");
+            return ResponseEntity.ok(respuesta);
         } catch (Exception e) {
-            return  ResponseEntity.status(500).body("Error al registrar alumno: " + e.getMessage());
-
+            respuesta.put("error", "Error al registrar alumno: " + e.getMessage());
+            return  ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(respuesta);
         }
     }
 
     @PostMapping("actualiza/persona")
-    public ResponseEntity<String> actualizarPersona(@RequestBody PersonaUsuarioRequest request){
+    public ResponseEntity<Map<String, String>> actualizarPersona(@RequestBody PersonaUsuarioRequest request){
         try {
             personasService.actualizaPersona(request);
-            return ResponseEntity.ok("Persona actualizada correctamente");
+            return ResponseEntity.ok(Map.of("mensaje", "Persona actualizada correctamente"));
 
         } catch (Exception e) {
-            return ResponseEntity.status(500).body("Error al actualizar persona: " + e.getMessage());
+            return ResponseEntity.status(500).body(Map.of("error", "Error al actualizar persona: " + e.getMessage()));
         }
     }
 
