@@ -68,4 +68,24 @@ public class ProfesoresService {
         }
         return alumnos;
     }
+
+    @Transactional
+    public List<Map<String, Object>> obtenerAcademicosProfesoresConPersonas() {
+        List<Object[]> resultados = profesoresRepository.obtenerAcademicosProfesoresConPersonas();
+        List<Map<String, Object>> datos = new ArrayList<>();
+
+        for (Object[] fila : resultados) {
+            Map<String, Object> dato = new HashMap<>();
+            dato.put("nid_persona", fila[0]);
+            dato.put("nid_academico_profesor", fila[1]);
+            dato.put("cnombre", fila[2]);
+            dato.put("capellidos", fila[3]);
+            dato.put("cnumero_cuenta", fila[4]);
+            dato.put("bhabilitado", fila[5]);
+            datos.add(dato);
+        }
+
+        return datos;
+    }
+
 }

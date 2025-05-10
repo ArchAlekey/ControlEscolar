@@ -63,4 +63,15 @@ public class ProfesoresController {
 
         }
     }
+
+    @GetMapping("/academicosProfesores")
+    public ResponseEntity<?> obtenerAcademicosProfesoresConPersonas() {
+        try {
+            List<Map<String, Object>> datos = profesoresService.obtenerAcademicosProfesoresConPersonas();
+            return ResponseEntity.ok(datos);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error al obtener datos: " + e.getMessage());
+        }
+    }
 }

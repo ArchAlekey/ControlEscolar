@@ -12,6 +12,7 @@ import java.util.List;
 @Repository
 public interface PersonasRepository extends JpaRepository<Personas, Integer> {
     //name genera un error cambiar por procedureName
+    
     //Procedimiento SPD_INSERTA_PERSONA_ADMIN
     @Procedure(procedureName = "SPD_INSERTA_PERSONA_ADMIN")
     void insertaPersonaAdministrador(
@@ -66,7 +67,7 @@ public interface PersonasRepository extends JpaRepository<Personas, Integer> {
                 //Carreras
                 @Param("IntIdCarrera") Integer nid_carrera,
                 //Usuarios
-                @Param("StrContrasenia") String contrasenia
+                @Param("StrCorreoPersonal") String ccorreo_personal
         );
 
 
