@@ -199,3 +199,30 @@
   justify-content: center;
 }
 /* Estilos para consulta inscripción */
+
+/* Sección de estilos para el modulo de profesor */
+/* Estilos para el Details */
+.container-main{
+  display: block;
+  align-items: center;
+  justify-content: center;
+}
+.container-details{
+  width: 70vh;
+  height: auto;
+  display: grid;
+  justify-content: center;
+  cursor: pointer;
+}
+.container-summary{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #ffffff;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: #ffffff solid 2px;
+  border-radius: 2rem;
+  width:70vh;
+}
+/* Estilos para el Details */

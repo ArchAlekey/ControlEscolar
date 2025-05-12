@@ -18,7 +18,7 @@ BEGIN
     inner join tbl_usuarios as tu on tia.nid_usuario = tu.nid_usuario
     inner join tbl_personas as tp on tu.nid_persona = tp.nid_persona
     inner join tbl_academicos_alumnos as taal on tp.nid_persona = taal.nid_persona
-    where nid_grupo = 1;
+    where nid_grupo = IntIdGrupo;
 
 END
 
