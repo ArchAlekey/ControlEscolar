@@ -7,7 +7,8 @@ export function AuthProvider({ children }){
         token: null,
         idcategoria: null,
         usuario: null,
-        id: null
+        idPersona: null,
+        idUsuario: null,
     });
 
     const [loading, setLoading] = useState(true);
@@ -16,10 +17,11 @@ export function AuthProvider({ children }){
         const token = localStorage.getItem("token");
         const idcategoria = localStorage.getItem("idcategoria");
         const usuario = localStorage.getItem("usuario");
-        const id = localStorage.getItem("id");
+        const idPersona = localStorage.getItem("idPersona");
+        const idUsuario = localStorage.getItem("idUsuario");
 
         if(token && idcategoria){
-            setAuth({token, idcategoria: Number(idcategoria), usuario, id});
+            setAuth({token, idcategoria: Number(idcategoria), usuario, idPersona, idUsuario});
         };
         setLoading(false);
     },[]);
@@ -28,13 +30,15 @@ export function AuthProvider({ children }){
         localStorage.removeItem("token");
         localStorage.removeItem("idcategoria");
         localStorage.removeItem("usuario");
-        localStorage.removeItem("id");
+        localStorage.removeItem("idPersona")
+        localStorage.removeItem("idUsuario");
 
         setAuth({
             token: null,
             idcategoria: null,
             usuario: null,
-            id: null
+            idPersona: null,
+            idUsuario: null
         });
     };
 

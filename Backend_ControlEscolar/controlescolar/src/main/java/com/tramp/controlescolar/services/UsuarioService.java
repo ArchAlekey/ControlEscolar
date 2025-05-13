@@ -36,7 +36,7 @@ public class UsuarioService {
             respuesta.put("message", "Usuario Valido");
             /* Datos para el Token */
             respuesta.put("idPersona", usuarioEncontrado.getIdPersona());
-            respuesta.put("id", usuarioEncontrado.getIdUsuario());
+            respuesta.put("idUsuario", usuarioEncontrado.getIdUsuario());
             respuesta.put("usuario", usuarioEncontrado.getusuario());
             respuesta.put("idcategoria", usuarioEncontrado.getnid_categoria());
         }
