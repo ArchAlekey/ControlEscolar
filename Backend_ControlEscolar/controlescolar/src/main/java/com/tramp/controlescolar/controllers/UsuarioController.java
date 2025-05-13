@@ -40,11 +40,11 @@ public class UsuarioController {
         if(respuesta.getBoolean("success")){
 
             Integer idPersona = respuesta.getInt("idPersona");
-            Integer id = respuesta.getInt("id");
+            Integer idUsuario = respuesta.getInt("idUsuario");
             /* String user = respuesta.getString("usuario"); */
             Integer categoria = respuesta.getInt("idcategoria");
 
-            String Token = _jwt.generaToken(idPersona, id, usuario, categoria);
+            String Token = _jwt.generaToken(idPersona, idUsuario, usuario, categoria);
 
             respuesta.put("token", Token);
 
