@@ -12,7 +12,7 @@ function Inscripcion() {
   const [mostrarInsc, setMostrarInsc] = useState(false);
   const navigate = useNavigate();
 
-  const nid_usuario = localStorage.getItem("id");
+  const nid_usuario = localStorage.getItem("idUsuario");
   const idcat = Number(localStorage.getItem("idcategoria"));
 
   useEffect(() => {

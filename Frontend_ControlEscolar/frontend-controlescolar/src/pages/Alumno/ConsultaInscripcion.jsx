@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 function ConsultaInscripcion(){
 
     const [inscripciones, setInscripciones] = useState([]);
-    const idUsuario = Number(localStorage.getItem("id"));
+    const idUsuario = Number(localStorage.getItem("idUsuario"));
     const usuario = localStorage.getItem("usuario");
     const navigate = useNavigate();
     const pdfRef = useRef();

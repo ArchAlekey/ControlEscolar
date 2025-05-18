@@ -52,14 +52,14 @@ function Login({ setLogeado }){
                     localStorage.setItem("token", data.token);
                     localStorage.setItem("usuario", data.usuario);
                     localStorage.setItem("idPersona", data.idPersona);
-                    localStorage.setItem("id", data.id);
+                    localStorage.setItem("idUsuario", data.idUsuario);
                     localStorage.setItem("idcategoria", data.idcategoria);
 
                     setAuth({
                         token: data.token,
                         idcategoria: data.idcategoria,
                         usuario: data.usuario,
-                        id: data.id,
+                        idUsuario: data.idUsuario,
                         idPersona: data.idPersona
                     })
     

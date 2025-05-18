@@ -35,8 +35,8 @@ function AdministraUsuarios() {
         <div>
             {isRootPath && (
                 <div className="contenedor-menus">
-                    <BotonDashBoard titulo="Alumno" onClick={() => navigate('alumno')} />
-                    <BotonDashBoard titulo="Profesor" onClick={() => navigate('profesor')} />
+                    <BotonDashBoard titulo="Alumno" icon="" onClick={() => navigate('alumno')} />
+                    <BotonDashBoard titulo="Profesor" icon="" onClick={() => navigate('profesor')} />
                 </div>
             )}
             {/* Aquí se renderizan las subrutas */}
