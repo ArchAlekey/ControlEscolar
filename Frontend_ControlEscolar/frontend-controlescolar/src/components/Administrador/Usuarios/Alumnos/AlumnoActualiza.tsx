@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { actualizarPersona } from "../../../../services/Administrador/Usuarios/Alumno/AlumnoService";
 import toastr from "toastr";
 
-function AlumnoActualiza({personaSeleccionada, setPersonaSeleccionada, mostrarFormulario, setMostrarFormulario, handleSubmitPersona, handleChangePersona }) {
+function AlumnoActualiza({personaSeleccionada, setPersonaSeleccionada, mostrarFormularioActualiza, setMostrarFormularioActualiza, handleSubmitPersona, handleChangePersona }) {
     // Define la interfaz para los datos del alumno
     interface Alumno {
         nid_persona: number;
@@ -31,7 +31,7 @@ function AlumnoActualiza({personaSeleccionada, setPersonaSeleccionada, mostrarFo
     // Maneja la selección de una persona para editar
     const seleccionarPersona = (persona: Persona) => {
         setPersonaSeleccionada(persona);
-        setMostrarFormulario(true); // Muestra el formulario de edición
+        setMostrarFormularioActualiza(true); // Muestra el formulario de edición
     };
 
     // Maneja el envío del formulario para actualizar la persona
@@ -60,7 +60,7 @@ function AlumnoActualiza({personaSeleccionada, setPersonaSeleccionada, mostrarFo
     // Reorganizar las líneas para mejorar la estructura y legibilidad
     return (
         <>
-            {mostrarFormulario && personaSeleccionada && (
+            {mostrarFormularioActualiza && personaSeleccionada && (
                 <div className="modal-overlay">
                     <div className="modal">
                         <h2>Editar Persona</h2>
@@ -146,7 +146,7 @@ function AlumnoActualiza({personaSeleccionada, setPersonaSeleccionada, mostrarFo
                                 </label>
                             </div>
                             <button type="submit">Guardar</button>
-                            <button type="button" onClick={() => setMostrarFormulario(false)}>
+                            <button type="button" onClick={() => setMostrarFormularioActualiza(false)}>
                                 Cancelar
                             </button>
                         </form>

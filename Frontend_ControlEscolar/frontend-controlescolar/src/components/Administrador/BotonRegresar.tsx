@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../pages/Administrador/Usuarios/Alumnos/AdministraAlumno.css"
 
-function BotonRegresar({ textoBoton }: { textoBoton: string}) {
+function BotonRegresar() {
     const navigate = useNavigate();
     /* const [mostrarFormulario, setMostrarFormulario] = useState(false); */
     return (

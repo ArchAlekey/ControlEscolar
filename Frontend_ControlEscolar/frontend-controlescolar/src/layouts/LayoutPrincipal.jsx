@@ -98,10 +98,10 @@ function LayoutPrincipal(){
                             <h1 className="h1-DP">Control Escolar</h1>
                         </div>
                         <div className="contenedor-btns">
-                            <BotonDashBoard titulo = "Datos Personales"/>|
-                            <BotonDashBoard titulo = "Administrar Usuarios" onClick={() => navigate('usuario')}/>
-                            <BotonDashBoard titulo = "Administrar Carreras" onClick={() => navigate('carrera')}/>
-                            <BotonDashBoard titulo = "Administrar Periodos"/>
+                            <BotonDashBoard titulo = "Datos Personales" icon={<i className="fa-solid fa-user"></i>} onClick={() => navigate('datos')}/>
+                            <BotonDashBoard titulo = "Administrar Usuarios" icon={<i class="fa-solid fa-user-group"></i>} onClick={() => navigate('usuario')}/>
+                            <BotonDashBoard titulo = "Administrar Carreras" icon={<i class="fa-solid fa-book"></i>} onClick={() => navigate('carrera')}/>
+                            <BotonDashBoard titulo = "Administrar Periodos" icon={<i className="fa-solid fa-list"></i>} onClick={() => navigate('periodos')}/>
                         </div>
                     </div>
                 )}

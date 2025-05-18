@@ -3,6 +3,7 @@ import { Endpoints } from "../../../api/ApiEndpoints";
 import BotonDashBoard from '../../../components/BotonesDashBoard/BotonDashBoard';
 import { useAuth } from "../../../components/Auth/AuthProvider";
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
+import BotonRegresar from "../../../components/Administrador/BotonRegresar"
 
 function AdministraUsuarios() {
     /* Navegación */
@@ -34,9 +35,11 @@ function AdministraUsuarios() {
     return (
         <div>
             {isRootPath && (
+                
                 <div className="contenedor-menus">
-                    <BotonDashBoard titulo="Alumno" icon="" onClick={() => navigate('alumno')} />
-                    <BotonDashBoard titulo="Profesor" icon="" onClick={() => navigate('profesor')} />
+                    <BotonRegresar />
+                    <BotonDashBoard titulo="Alumno" onClick={() => navigate('alumno')} icon={<i className="fa-solid fa-user"></i>} />
+                    <BotonDashBoard titulo="Profesor" onClick={() => navigate('profesor')} icon={<i className="fa-solid fa-chalkboard-teacher"></i>} />
                 </div>
             )}
             {/* Aquí se renderizan las subrutas */}
