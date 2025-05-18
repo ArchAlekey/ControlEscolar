@@ -19,6 +19,7 @@ function DatosPersonales(){
     }, [nid_persona]);
     
     return (
+        
         <div className="contenedor-datos-personales">
             <form action="" method="POST">
                 <h1 className="h1-DP">Datos Personales</h1>

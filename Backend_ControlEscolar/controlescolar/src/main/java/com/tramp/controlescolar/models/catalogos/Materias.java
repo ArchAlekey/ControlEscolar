@@ -5,7 +5,8 @@ import java.util.*;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "tbl_materias")
+//Se modifico de tbl_materias a cat_materias
+@Table(name = "cat_materias")
 public class Materias {
 
     @Id
@@ -35,6 +36,9 @@ public class Materias {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "dfecha_baja")
     private Date dfecha_baja;
+
+    // 👇 Constructor vacío obligatorio para JPA
+    public Materias() {}
 
     public Materias( Integer IntIdMateria, Integer IntIdCarrera, Integer IntIdSemestre, String StrNombreMateria, String StrClaveMateria, Boolean BoolHabilitado, Date DateFechaAlta, Date DateFechaBaja){
         this.nid_materia = IntIdMateria;

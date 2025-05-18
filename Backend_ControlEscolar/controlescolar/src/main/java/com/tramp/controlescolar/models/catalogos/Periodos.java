@@ -11,8 +11,8 @@ public class Periodos {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "nid_periodo")
     private Integer nid_periodo;
-
-    @Column(name = "ccperiodo", nullable = false)
+    // Se cambio name: ccperiodo - cperiodo
+    @Column(name = "cperiodo", nullable = false)
     private String ccperiodo;
 
     @Column(name = "canio", nullable = false)

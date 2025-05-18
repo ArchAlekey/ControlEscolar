@@ -88,4 +88,27 @@ public class ProfesoresService {
         return datos;
     }
 
+    @Transactional
+    public void cambiarEstadoHabilitado(Integer idProfesor, boolean habilitado) {
+        profesoresRepository.actualizarEstadoHabilitado(idProfesor, habilitado);
+    }
+
+     @Transactional
+    public List<Map<String, Object>> buscarProfesores(String textoBusqueda) {
+        List<Object[]> resultados = profesoresRepository.buscarProfesores(textoBusqueda);
+
+        // Convierte los resultados en una lista de mapas para facilitar su uso en el frontend
+        List<Map<String, Object>> profesores = new ArrayList<>();
+        for (Object[] fila : resultados) {
+            Map<String, Object> profesor = new HashMap<>();
+            profesor.put("nid_academico_profesor", fila[0]);
+            profesor.put("cnombre", fila[1]);
+            profesor.put("capellidos", fila[2]);
+            profesor.put("cnumero_cuenta", fila[3]);
+            profesor.put("bhabilitado", fila[4]);
+            profesores.add(profesor);
+        }
+        return profesores;
+    }
+
 }

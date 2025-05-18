@@ -31,4 +31,14 @@ public interface ProfesoresRepository extends JpaRepository<AcademicosProfesores
                "FROM AcademicosProfesores ap " +
                "JOIN Personas p ON ap.nid_persona = p.nid_persona")
         List<Object[]> obtenerAcademicosProfesoresConPersonas();
+
+        @Modifying
+        @Query("UPDATE AcademicosProfesores a SET a.bhabilitado = :habilitado WHERE a.nid_academico_profesor = :idProfesor")
+        void actualizarEstadoHabilitado(@Param("idProfesor") Integer idProfesor, @Param("habilitado") boolean habilitado);
+
+        //Procedimiento SPD_BUSCAR_PROFESORES
+        @Procedure(procedureName = "SPD_BUSCAR_PROFESORES")
+        List<Object[]> buscarProfesores(
+                @Param("textoBusqueda") String textoBusqueda
+        );
 }

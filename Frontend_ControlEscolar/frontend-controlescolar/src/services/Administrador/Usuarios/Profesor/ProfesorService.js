@@ -91,3 +91,74 @@ export const enviarCorreo = async (destinatario, asunto, contenido) => {
         throw error; // Lanza el error para manejarlo en el componente
     }
 };
+
+// Servicio para actualizar los datos de una persona
+export const actualizarPersona = async (datos) => {
+    const URL_ACTUALIZAR_PERSONA = "/api/actualiza/persona";
+    try {
+        const response = await fetch(URL_ACTUALIZAR_PERSONA, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(datos), // Envía los datos en el cuerpo de la solicitud
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error al actualizar persona: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        return data; // Devuelve la respuesta de la API
+    } catch (error) {
+        console.error("Error al actualizar persona:", error);
+        throw error; // Lanza el error para manejarlo en el componente
+    }
+};
+
+// Servicio para buscar profesores
+export const buscarProfesores = async (textoBusqueda) => {
+    const URL_BUSCAR = `/api/profesores/buscar?texto=${textoBusqueda}`;
+    try {
+        const response = await fetch(URL_BUSCAR, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error al buscar profesores: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        return data; // Devuelve la lista de profesores filtrados
+    } catch (error) {
+        console.error("Error al buscar profesores:", error);
+        throw error; // Lanza el error para manejarlo en el componente
+    }
+};
+
+// Servicio para cambiar el estado de habilitación de un profesor
+export const cambiarEstadoProfesor = async (idProfesor, habilitado) => {
+    const URL_CAMBIAR_ESTADO = `/api/profesores/cambiarEstado/${idProfesor}?habilitado=${habilitado}`;
+    try {
+        const response = await fetch(URL_CAMBIAR_ESTADO, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(`Error al cambiar el estado: ${errorData.message || response.statusText}`);
+        }
+        // Procesa la respuesta exitosa
+        const data = await response.json();
+        return data; // Devuelve la respuesta de la API
+    } catch (error) {
+        console.error("Error al cambiar el estado del alumno:", error);
+        throw error; // Lanza el error para manejarlo en el componente
+    }
+};
