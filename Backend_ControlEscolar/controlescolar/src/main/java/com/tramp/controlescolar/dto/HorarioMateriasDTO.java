@@ -1,20 +1,5 @@
 package com.tramp.controlescolar.dto;
-/* public interface HorarioMateriasDTO {
 
-    Integer getNid_horario_materia();
-    Integer getNid_carrera();
-    Integer getNid_grupo();
-    String getCnombre_materia();
-    String getCclave_materia();
-    String getCcarrera();
-    String getCperiodo();
-    Integer getNsemestre();
-    String getCgrupo();
-    String getProfesor();
-    String getCnumero_cuenta();
-    String getCcorreo_institucional();
-    String getChorario();
-} */
 public class HorarioMateriasDTO {
     private Integer nid_horario_materia;
     private String cnombre_materia;

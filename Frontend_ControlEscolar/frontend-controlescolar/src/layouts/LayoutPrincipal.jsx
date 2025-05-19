@@ -53,7 +53,7 @@ function LayoutPrincipal(){
                     <i onClick={()=>navigate(`${btnHome()}`)} className="fa-solid fa-house"></i>
                 </div>
                 <div className="contenedor_botones_header">
-
+                    <p><strong>Usuario: {localStorage.usuario}</strong></p>
                 </div>
                 <div className="contenedor_botones_header" >
                     <i onClick={handleLogout} className="fa-solid fa-right-from-bracket"></i>
@@ -71,7 +71,7 @@ function LayoutPrincipal(){
                             <BotonDashBoard titulo = "Consulta Horario" icon={<i className="fa-solid fa-clock"></i>} onClick={() => navigate('horarios')}/>
                             <BotonDashBoard titulo = "Inscripcion" icon={<i className="fa-solid fa-school"></i>} onClick={() => navigate('inscripcion')}/>
                             <BotonDashBoard titulo = "Consulta Inscripcion" icon={<i className="fa-solid fa-table-list"></i>} onClick={()=> navigate('consulta-inscripcion')}/>
-                            <BotonDashBoard titulo = "Consulta Calificaciones" icon={<i className="fa-solid fa-trophy"></i>} onClick={()=> navigate('consulta-calificaciones')}/>
+                            {/* <BotonDashBoard titulo = "Consulta Calificaciones" icon={<i className="fa-solid fa-trophy"></i>} onClick={()=> navigate('consulta-calificaciones')}/> */}
                             <BotonDashBoard titulo = "Consulta Historial" icon={<i className="fa-solid fa-book-skull"></i>} onClick={()=> navigate('consulta-historial')}/>
                         </div>
                     </div>
@@ -85,7 +85,7 @@ function LayoutPrincipal(){
                         </div>
                         <div className="contenedor-btns">
                             <BotonDashBoard titulo = "Datos Personales" icon={<i className="fa-solid fa-graduation-cap"></i>} onClick={() => navigate('datos')}/>
-                            <BotonDashBoard titulo = "Consulta Grupos Asignados" icon={<i className="fas fa-list"></i>} onClick={() => navigate('gruposAsignados')}/>
+                            <BotonDashBoard titulo = "Consulta Materias Asignadas" icon={<i className="fas fa-list"></i>} onClick={() => navigate('gruposAsignados')}/>
                             <BotonDashBoard titulo = "Calificar Alumnos" icon={<i className="fa-solid fa-pencil"></i>} onClick={() => navigate('calificarAlumnos')}/>
                         </div>
                     </div>
@@ -98,7 +98,7 @@ function LayoutPrincipal(){
                             <h1 className="h1-DP">Control Escolar</h1>
                         </div>
                         <div className="contenedor-btns">
-                            <BotonDashBoard titulo = "Datos Personales"/>|
+                            <BotonDashBoard titulo = "Datos Personales"/>
                             <BotonDashBoard titulo = "Administrar Usuarios" onClick={() => navigate('usuario')}/>
                             <BotonDashBoard titulo = "Administrar Carreras" onClick={() => navigate('carrera')}/>
                             <BotonDashBoard titulo = "Administrar Periodos"/>
