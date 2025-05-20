@@ -32,12 +32,16 @@ public class PersonasController {
 
     //Ingresa al procedimiento almacenado SPD_INSERTA_PERSONA_ALUMNO
     @PostMapping("registrar/profesor")
-    public ResponseEntity<String> crearProfesor(@RequestBody PersonaUsuarioRequest request){
+    public ResponseEntity<Map<String, Object>> crearProfesor(@RequestBody PersonaUsuarioRequest request){
+        Map<String, Object> respuesta = new HashMap<>();
         try {
             personasService.insertarProfesor(request);
-            return ResponseEntity.ok("Profesor registrado correctamente");
+            respuesta.put("mensaje", "Profesor registrado correctamente");
+            // Retorna una respuesta exitosa con el mensaje
+            return ResponseEntity.ok(respuesta);
         } catch (Exception e) {
-            return  ResponseEntity.status(500).body("Error al registrar profesor: " + e.getMessage());
+            respuesta.put("error", "Error al registrar profesor: " + e.getMessage());
+            return  ResponseEntity.status(500).body(respuesta);
 
         }
     }

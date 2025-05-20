@@ -16,7 +16,6 @@ import CalificarAlumnos from './pages/Profesor/CalificarAlumnos.jsx';
 import AdministraUsuarios from './pages/Administrador/Usuarios/AdministraUsuarios.js';
 import AdministraAlumno from './pages/Administrador/Usuarios/Alumnos/AdministraAlumno.js';
 import AdministraProfesor from './pages/Administrador/Usuarios/Profesores/AdministrarProfesor.jsx';
-import ConsultarHistorial from './pages/Alumno/ConsultaHistorial.jsx';
 
 
 const router = createBrowserRouter([
@@ -66,6 +65,10 @@ const router = createBrowserRouter([
         path: "", 
         element: <LayoutPrincipal/>,
         children: [
+          {
+            path: "datos",
+            element: <DatosPersonales />,
+          },
           { 
             path: "usuario", 
             element: <AdministraUsuarios />,
@@ -80,6 +83,20 @@ const router = createBrowserRouter([
                 }
               ]
           },
+          {
+            path: "carrera",
+            element: <Carreras />,
+            children: [
+            {
+              path: "carreras",
+              element: <AdministraCarrera/>
+            }
+            ]
+          },
+          {
+            path: "periodos",
+            element: < Periodos/>,
+          }
         ]
         
       }

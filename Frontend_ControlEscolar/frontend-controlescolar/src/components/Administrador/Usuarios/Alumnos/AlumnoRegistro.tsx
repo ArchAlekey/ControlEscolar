@@ -11,12 +11,12 @@ interface Carrera {
     idCarrera: number;
     carrera: string;
 }
-function AlumnoRegistro({ mostrarFormulario, setMostrarFormulario }) {
+function AlumnoRegistro({ mostrarFormulario, setMostrarFormulario, datos, setDatos }) {
 
 
 /*     const [mostrarFormulario, setMostrarFormulario] = useState(false); */
     const [carreras, setCarreras] = useState<Carrera[]>([]);
-    const [datos, setDatos] = useState({
+/*     const [datos, setDatos] = useState({
         cnombre: "",
         capellidos: "",
         bsexo: 1,
@@ -27,7 +27,7 @@ function AlumnoRegistro({ mostrarFormulario, setMostrarFormulario }) {
         cnumero_celular: "",
         nid_carrera: 0,
         ccorreo_personal: "",
-    });
+    }); */
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
@@ -63,6 +63,7 @@ function AlumnoRegistro({ mostrarFormulario, setMostrarFormulario }) {
             const datosAlumno = { ...datos, cnumero_cuenta: numeroCuenta };
 
             const respuesta = await registrarAlumno(datosAlumno);
+            console.log(respuesta);
             toastr.success("Alumno registrado correctamente", "Éxito");
 
             const asunto = "Registro exitoso";

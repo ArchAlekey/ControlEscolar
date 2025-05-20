@@ -37,7 +37,7 @@ interface Persona {
 }
     const [filtroEstado, setFiltroEstado] = useState("");
     /* const [alumnos, setAlumnos] = useState<Alumno[]>([]); */
-    const [mostrarFormulario, setMostrarFormulario] = useState(false);
+    const [mostrarFormularioRegistro, setMostrarFormularioRegistro] = useState(false);
     /* const [personaSeleccionada, setPersonaSeleccionada] = useState<Persona | null>(null); */ // Persona seleccionada para editar
 
         // Filtra los alumnos según el filtro de estado
@@ -93,12 +93,12 @@ interface Persona {
             }, []);
         
             useEffect(() => {
-                if (mostrarFormulario) {
+                if (mostrarFormularioRegistro) {
                     document.body.classList.add("modal-open");
                 } else {
                     document.body.classList.remove("modal-open");
                 }
-            }, [mostrarFormulario]);
+            }, [mostrarFormularioRegistro]);
         
     // Manejador para el filtro de habilitado/inhabilitado
     const handleFiltroEstado = (e: React.ChangeEvent<HTMLSelectElement>) => {

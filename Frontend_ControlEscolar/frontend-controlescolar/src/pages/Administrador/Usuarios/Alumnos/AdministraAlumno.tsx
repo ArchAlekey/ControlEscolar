@@ -47,7 +47,8 @@ interface Persona {
 
 function AdministraAlumno() {
     const navigate = useNavigate();
-    const [mostrarFormulario, setMostrarFormulario] = useState(false);
+    const [mostrarFormularioRegistro, setMostrarFormularioRegistro] = useState(false);
+    const [mostrarFormularioActualiza, setMostrarFormularioActualiza] = useState(false); // Estado para mostrar el formulario de actualización
     const [carreras, setCarreras] = useState<Carrera[]>([]);
     const [alumnos, setAlumnos] = useState<Alumno[]>([]);
     const [textoBusqueda, setTextoBusqueda] = useState(""); // Estado para el texto de búsqueda
@@ -92,14 +93,14 @@ function AdministraAlumno() {
     }, []);
 
     useEffect(() => {
-        if (mostrarFormulario) {
+        if (mostrarFormularioRegistro) {
             // Agrega la clase "modal-open" al body cuando el formulario está visible
             document.body.classList.add("modal-open");
         } else {
             // Elimina la clase "modal-open" del body cuando el formulario está oculto
             document.body.classList.remove("modal-open");
         }
-    }, [mostrarFormulario]);
+    }, [mostrarFormularioRegistro]);
 
     // Función para generar el número de cuenta basado en el CURP
     const generarNumeroCuenta = (curp: string): string => {
@@ -205,7 +206,7 @@ function AdministraAlumno() {
                 nid_carrera: 0,
                 ccorreo_personal: "",
             });
-            setMostrarFormulario(false); // Oculta el formulario
+            setMostrarFormularioRegistro(false); // Oculta el formulario
         } catch (error) {
             alert("Error al registrar alumno o enviar correo. Revisa los datos e intenta nuevamente.");
         }
@@ -214,7 +215,7 @@ function AdministraAlumno() {
     // Maneja la selección de una persona para editar
     const seleccionarPersona = (persona: Persona) => {
         setPersonaSeleccionada(persona);
-        setMostrarFormulario(true); // Muestra el formulario de edición
+        setMostrarFormularioActualiza(true); // Muestra el formulario de edición
     };
 
     // Maneja el cambio en los campos del formulario de edición
@@ -234,7 +235,7 @@ function AdministraAlumno() {
             try {
                 const respuesta = await actualizarPersona(personaSeleccionada);
                 toastr.success('Persona actualizada correctamente');
-                setMostrarFormulario(false); // Oculta el formulario
+                setMostrarFormularioActualiza(false); // Oculta el formulario
             } catch (error) {
                 toastr.error('Error al actualizar la persona. Intenta nuevamente.');
             }
@@ -244,10 +245,8 @@ function AdministraAlumno() {
     return (
         <div>
             <h1>Administrar Alumnos</h1>
-            <BotonRegresar
-                textoBoton="Agregar Alumno"
-            />
-            <button className="btn-agregar" onClick={() => setMostrarFormulario(true)}>
+            <BotonRegresar />
+            <button className="btn-agregar" onClick={() => setMostrarFormularioRegistro(true)}>
                 Agregar Alumno
             </button>
 
@@ -266,14 +265,16 @@ function AdministraAlumno() {
 
             />
             <AlumnoRegistro
-                mostrarFormulario={mostrarFormulario}
-                setMostrarFormulario={setMostrarFormulario}
+                mostrarFormulario={mostrarFormularioRegistro}
+                setMostrarFormulario={setMostrarFormularioRegistro}
+                datos={datos}
+                setDatos={setDatos}
             />
             <AlumnoActualiza
                 personaSeleccionada={personaSeleccionada}
                 setPersonaSeleccionada={setPersonaSeleccionada}
-                mostrarFormulario={mostrarFormulario}
-                setMostrarFormulario={setMostrarFormulario}
+                mostrarFormularioActualiza={mostrarFormularioActualiza}
+                setMostrarFormularioActualiza={setMostrarFormularioActualiza}
                 handleSubmitPersona={handleSubmitPersona}
                 handleChangePersona={handleChangePersona}
             />

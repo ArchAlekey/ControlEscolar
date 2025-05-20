@@ -1,5 +1,3 @@
-import axios from "axios";
-
 // Base URL para las peticiones relacionadas con alumnos
 const URL_REGISTRAR = "/api/registrar/alumno";
 const URL_CARRERAS = "/api/carreras/mostrar"; // Usa el prefijo "/api" para que el proxy funcione
@@ -69,33 +67,6 @@ export const consultarCarreras = async () => {
     } catch (error) {
         console.error("Error al consultar carreras:", error.message);
         throw error; // Lanza el error para manejarlo en el componente
-    }
-};
-
-// Servicio para actualizar un alumno (puedes implementar más adelante)
-
-const URL_ACTUALIZAR = " ";
-export const actualizarAlumno = async (datos) => {
-    try {
-        const response = await axios.put(URL_ACTUALIZAR, datos);
-        return response.data;
-    } catch (error) {
-        console.error("Error al actualizar alumno:", error);
-        throw error;
-    }
-};
-
-// Servicio para eliminar un alumno (puedes implementar más adelante)
-
-const URL_ELIMINAR = " ";
-
-export const eliminarAlumno = async (id) => {
-    try {
-        const response = await axios.delete(`${URL_ELIMINAR}/${id}`);
-        return response.data;
-    } catch (error) {
-        console.error("Error al eliminar alumno:", error);
-        throw error;
     }
 };
 
