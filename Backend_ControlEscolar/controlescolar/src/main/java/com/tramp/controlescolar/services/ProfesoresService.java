@@ -32,11 +32,13 @@ public class ProfesoresService {
         for(Object[] fila: resultados){
             //Asignamos cada columna del resultado a su respectivo campo en el mapa
             Map<String, Object> grupo = new HashMap<>();
-            grupo.put("cgrupo", fila[0]);
-            grupo.put("cnombre_materia", fila[1]);
-            grupo.put("cclave_materia", fila[2]);
-            grupo.put("cperiodo", fila[3]);
-            grupo.put("chorario", fila[4]);
+            grupo.put("nid_grupo", fila[0]);
+            grupo.put("cgrupo", fila[1]);
+            grupo.put("nid_materia", fila[2]);
+            grupo.put("cnombre_materia", fila[3]);
+            grupo.put("cclave_materia", fila[4]);
+            grupo.put("cperiodo", fila[5]);
+            grupo.put("chorario", fila[6]);
 
             //Agregamos el objecto calificacion a la lista de resultados
             grupos.add(grupo);
@@ -45,24 +47,33 @@ public class ProfesoresService {
     }
 
     @Transactional 
-    public void insertaCalificaciones(Integer nid_materia, Integer nid_usuario, Float ncalificacion){
-        profesoresRepository.insertaCalificaciones(nid_materia, nid_usuario, ncalificacion);
+    public void insertaCalificaciones(Integer nid_horario_materia, Integer nid_usuario, Float ncalificacion){
+        profesoresRepository.insertaCalificaciones(nid_horario_materia, nid_usuario, ncalificacion);
+    };
+
+    @Transactional 
+    public void eliminaCalificacion(Integer nid_horario_materia, Integer nid_usuario){
+        profesoresRepository.eliminaCalificacion(nid_horario_materia, nid_usuario);
     }
 
     @Transactional 
-    public List<Map<String, Object>> consultarAlumnosInscritos(Integer nid_grupo){
-        List<Object[]> resultados = profesoresRepository.consultaAlumnosIns(nid_grupo);
+    public List<Map<String, Object>> consultarAlumnosInscritos(Integer nid_grupo, Integer nid_materia){
+        List<Object[]> resultados = profesoresRepository.consultaAlumnosIns(nid_grupo, nid_materia);
         List<Map<String, Object>> alumnos = new ArrayList<>();
 
         //Iteramos sobre los resultados devueltos en el procedimiento
         for(Object[] fila: resultados){
             //Asignamos cada columna del resultado a su respectivo campo en el mapa
             Map<String, Object> alumno = new HashMap<>();
-            alumno.put("Nombre", fila[0]);
-            alumno.put("cnumero_cuenta", fila[1]);
-            alumno.put("ccorreo_institucional", fila[2]);
-            alumno.put("ccorreo_personal", fila[3]); //Falta agregar al modelo (models) !!!
-
+            alumno.put("nid_usuario", fila[0]);
+            alumno.put("nid_horario_materia", fila[1]);
+            alumno.put("nid_grupo", fila[2]);
+            alumno.put("nid_materia", fila[3]);
+            alumno.put("Nombre", fila[4]);
+            alumno.put("cnumero_cuenta", fila[5]);
+            alumno.put("ncalificacion", fila[6]);
+            alumno.put("ccorreo_institucional", fila[7]);
+            alumno.put("ccorreo_personal", fila[8]); //Falta agregar al modelo (models) !!!
             //Agregamos el objecto alumno a la lista de resultados 
             alumnos.add(alumno);
         }

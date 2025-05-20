@@ -1,4 +1,3 @@
-
 DELIMITER $$
 
 CREATE PROCEDURE SPD_CONSULTA_GRUPOS_ASIGNADOS
@@ -10,7 +9,9 @@ BEGIN
     SELECT
         DISTINCT
             /* thm.nid_horario_materia, */
+            cagr.nid_grupo,
             cagr.cgrupo,
+            cama.nid_materia,
             cama.cnombre_materia,
             cama.cclave_materia,
             cape.cperiodo,
@@ -23,6 +24,6 @@ BEGIN
     inner join cat_materias as                  cama on thm.nid_materia = cama.nid_materia 
     where thm.nid_academico_profesor = IntIdAcademicoProfesor;
 
-END
+END $$
 
 DELIMITER ;

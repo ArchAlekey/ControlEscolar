@@ -5,7 +5,7 @@ import { Endpoints } from "../../api/ApiEndpoints";
 function DatosPersonales(){
 
     const [persona, setPersona] = useState(null);
-    const nid_persona = localStorage.getItem('id')
+    const nid_persona = localStorage.getItem('idPersona')
 
     useEffect(() => {
         
@@ -50,7 +50,7 @@ function DatosPersonales(){
                         </div>
                         <div className="contenedor-campo">
                             <label className="label-datos-personales">RFC</label>
-                            <input className="input-datos-personales" disabled type="text" value={persona?.cRFC || ''}></input>
+                            <input className="input-datos-personales" disabled type="text" value={persona?.cRFC || 'No cuenta con RFC'}></input>
                         </div>
                     </div>
 

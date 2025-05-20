@@ -18,27 +18,6 @@ public class AlumnosService {
         alumnosRepository.insertarInscripcion(nid_usuario, nid_grupo);
     }
 
-    @Transactional
-    public List<Map<String, Object>> consultarCalificaciones(Integer nid_usuario){
-        List<Object[]> resultados = alumnosRepository.consultarCalificaciones(nid_usuario);
-        List<Map<String, Object>> calificaciones = new ArrayList<>();
-
-        //Iteramos sobre los resultados devueltos en el procedimiento
-        for(Object[] fila: resultados){
-            //Asignamos cada columna del resultado a su respectivo campo en el mapa
-            Map<String, Object> calificacion = new HashMap<>();
-            calificacion.put("cnombre_materia", fila[0]);
-            calificacion.put("cclave_materia", fila[1]);
-            calificacion.put("ncalificación", fila[2]);
-            calificacion.put("cperiodo", fila[3]);
-            calificacion.put("cgrupo", fila[4]);
-
-            //Agregamos el objecto calificacion a la lista de resultados
-            calificaciones.add(calificacion);
-        }
-        return calificaciones;
-    }
-    
     @Transactional 
     public List<Map<String, Object>> consultaInscripcion(Integer nid_usuario){
         List<Object[]> resultados = alumnosRepository.consultarInscripcion(nid_usuario);
@@ -86,7 +65,7 @@ public class AlumnosService {
         alumnosRepository.actualizarEstadoHabilitado(idAlumno, habilitado);
     }
 
-     @Transactional
+    @Transactional
     public List<Map<String, Object>> buscarAlumnos(String textoBusqueda) {
         List<Object[]> resultados = alumnosRepository.buscarAlumnos(textoBusqueda);
 
@@ -102,6 +81,26 @@ public class AlumnosService {
             alumnos.add(alumno);
         }
         return alumnos;
+    }
+
+    @Transactional
+    public List<Map<String, Object>> consultarHistorial(Integer nid_usuario){
+        List<Object[]> resultado = alumnosRepository.consultaHistorial(nid_usuario);
+        List<Map<String, Object>> lista = new ArrayList<>();
+
+        for(Object[] fila : resultado){
+            Map<String, Object> regMaterias = new HashMap<>();
+            regMaterias.put("nid_insc_alumno", fila[0]);
+            regMaterias.put("nid_horario_materia", fila[1]);
+            regMaterias.put("cnombre_materia", fila[2]);
+            regMaterias.put("cclave_materia", fila[3]);
+            regMaterias.put("ncalificación", fila[4]);
+            regMaterias.put("nsemestre", fila[5]);
+            regMaterias.put("cperiodo", fila[6]);
+            regMaterias.put("canio", fila[7]);
+            lista.add(regMaterias);
+        }
+        return lista;
     }
     
 
