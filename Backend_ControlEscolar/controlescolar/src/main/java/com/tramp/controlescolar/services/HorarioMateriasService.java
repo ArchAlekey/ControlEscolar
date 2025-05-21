@@ -1,5 +1,7 @@
 package com.tramp.controlescolar.services;
 
+import com.tramp.controlescolar.dto.InscripcionHorarioMateriaDTO;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.Service;
 import java.util.*;
@@ -59,5 +61,21 @@ public class HorarioMateriasService {
             Lista.add(new HorariosMateriasInscDTO(nid_grupo, cgrupo));
         }
         return Lista;
+    }
+
+    @Transactional
+    public void asignarProfesorMateria(InscripcionHorarioMateriaDTO dto) {
+        Integer resultado = _horarioMaterias.asignarProfesorMateria(
+                dto.getNid_carrera(),
+                dto.getNid_periodo(),
+                dto.getNid_semestre(),
+                dto.getNid_grupo(),
+                dto.getNid_academico_profesor(),
+                dto.getNid_horario(),
+                dto.getNid_materia()
+        );
+        if (resultado == null || (resultado != 1 && resultado != 2)) {
+            throw new RuntimeException("No se pudo realizar la asignación (código: " + resultado + ")");
+        }
     }
 }
