@@ -159,8 +159,8 @@
   }
   .elemento-insc-form-btn{
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
   }
 
 .dialog-insc{
@@ -195,7 +195,7 @@
 /* Estilos para consulta inscripción */
 .contenedor-tabla{
   display: grid;
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: auto auto 1fr auto;
   justify-content: center;
 }
 /* Estilos para consulta inscripción */
@@ -269,7 +269,7 @@
 }
 .container-calif{
   display: grid;
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: auto 1fr auto;
 
 }
 .container-input{

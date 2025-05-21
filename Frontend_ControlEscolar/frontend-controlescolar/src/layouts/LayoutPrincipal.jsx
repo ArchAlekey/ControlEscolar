@@ -121,7 +121,9 @@ function LayoutPrincipal(){
                     </div>
                 )}
                 <div className="contenedor_dinamico">
-                    <Outlet />
+                    <div className="vista-transicion fade-in">
+                        <Outlet />
+                    </div>
                 </div>
             </main>
             <footer className={`${switchBG()}`}>
@@ -129,9 +131,9 @@ function LayoutPrincipal(){
                 <div className="secciones_footer">Contactanos</div>
                 <div className="secciones_footer"><p className="info secciones_footer">Lorem ipsum dolor sit amet consectetur adipisicing elit</p></div>
                 <div className="iconos_redes secciones_footer">
-                    <i className="fa-brands fa-facebook"></i>
-                    <i className="fa-brands fa-whatsapp"></i>
-                    <i className="fa-brands fa-github"></i>
+                    <a href="https://github.com/ArchAlekey/ControlEscolar" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-github"></i></a>
+                    <a href="../../public/cv/Alejandro Hernández Rodríguez.pdf" download><i className="fa-brands fa-solid fa-ghost"></i></a>
+                    <a href="../../public/cv/CV-DEV-V7.pdf" download><i className="fa-brands fa-solid fa-circle-user"></i></a>
                 </div>
             </footer>
         </div>
