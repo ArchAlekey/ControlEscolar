@@ -19,7 +19,11 @@ import AdministraAlumno from './pages/Administrador/Usuarios/Alumnos/AdministraA
 import AdministraProfesor from './pages/Administrador/Usuarios/Profesores/AdministrarProfesor.jsx';
 import Carreras from './pages/Administrador/Carreras/Carreras.jsx'
 import Periodos from './pages/Administrador/Periodos/Periodos.jsx'
+import Horarios from './pages/Administrador/Horarios/Horarios.js'
 import AdministraCarrera from './pages/Administrador/Carreras/AdministraCarrera.js'
+import AdministraGrupos from './pages/Administrador/Carreras/AdministraGrupos.js'
+import AdministraMaterias from './pages/Administrador/Carreras/AdministraMaterias.js'
+
 
 const router = createBrowserRouter([
   {
@@ -90,10 +94,22 @@ const router = createBrowserRouter([
             path: "carrera",
             element: <Carreras />,
             children: [
-            {
-              path: "carreras",
-              element: <AdministraCarrera/>
-            }
+              {
+                path: "carreras",
+                element: <AdministraCarrera/>
+              },
+              {
+                path: "grupos",
+                element: <AdministraGrupos/>
+              },
+              {
+                path: "materias",
+                element: <AdministraMaterias/>
+              },
+              {
+              path: "horarios",
+              element: < Horarios/>,
+              }
             ]
           },
           {

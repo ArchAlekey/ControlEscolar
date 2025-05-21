@@ -3,12 +3,14 @@ package com.tramp.controlescolar.controllers;
 import com.tramp.controlescolar.models.catalogos.Horarios;
 import com.tramp.controlescolar.services.HorariosService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/horarios")
 public class HorariosController {

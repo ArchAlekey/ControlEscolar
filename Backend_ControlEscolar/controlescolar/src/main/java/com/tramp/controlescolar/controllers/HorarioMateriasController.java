@@ -10,11 +10,13 @@ import org.springframework.web.bind.annotation.*;
 
 import com.tramp.controlescolar.dto.HorarioMateriasDTO;
 import com.tramp.controlescolar.dto.HorariosMateriasInscDTO;
+import com.tramp.controlescolar.dto.InscripcionHorarioMateriaDTO;
 import com.tramp.controlescolar.services.HorarioMateriasService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
-
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/horarios")
 public class HorarioMateriasController {
@@ -44,5 +46,15 @@ public class HorarioMateriasController {
         response.put("data", horariosResultados);
 
         return ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/asignar")
+    public ResponseEntity<?> asignar(@RequestBody InscripcionHorarioMateriaDTO dto) {
+        try {
+            horarioMateriasService.asignarProfesorMateria(dto);
+            return ResponseEntity.ok("Asignación realizada correctamente");
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Error al asignar profesor a materia: " + e.getMessage());
+        }
     }
 }
