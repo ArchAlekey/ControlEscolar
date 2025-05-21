@@ -16,7 +16,9 @@ import CalificarAlumnos from './pages/Profesor/CalificarAlumnos.jsx';
 import AdministraUsuarios from './pages/Administrador/Usuarios/AdministraUsuarios.js';
 import AdministraAlumno from './pages/Administrador/Usuarios/Alumnos/AdministraAlumno.js';
 import AdministraProfesor from './pages/Administrador/Usuarios/Profesores/AdministrarProfesor.jsx';
-
+import Carreras from './pages/Administrador/Carreras/Carreras.jsx'
+import Periodos from './pages/Administrador/Periodos/Periodos.jsx'
+import AdministraCarrera from './pages/Administrador/Carreras/AdministraCarrera.js'
 
 const router = createBrowserRouter([
   {
@@ -87,10 +89,22 @@ const router = createBrowserRouter([
             path: "carrera",
             element: <Carreras />,
             children: [
-            {
-              path: "carreras",
-              element: <AdministraCarrera/>
-            }
+              {
+                path: "carreras",
+                element: <AdministraCarrera/>
+              },
+              {
+                path: "grupos",
+                element: <AdministraGrupos/>
+              },
+              {
+                path: "materias",
+                element: <AdministraMaterias/>
+              },
+              {
+              path: "horarios",
+              element: < Horarios/>,
+              }
             ]
           },
           {
