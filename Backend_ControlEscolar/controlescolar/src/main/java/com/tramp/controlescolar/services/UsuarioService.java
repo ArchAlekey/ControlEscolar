@@ -8,8 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.*;
 import com.tramp.controlescolar.repository.UsuarioRepository;
 
-import io.swagger.v3.core.util.Json;
-
 import com.tramp.controlescolar.dto.UsuarioValidaDTO;
 //import com.tramp.controlescolar.models.tablas.Usuarios;
 import org.json.JSONObject ;

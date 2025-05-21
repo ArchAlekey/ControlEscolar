@@ -10,7 +10,6 @@ import DatosPersonales from './pages/Alumno/DatosPersonales.jsx'
 import ConsultaHorario from './pages/Alumno/ConsultaHorarios.jsx';
 import Inscripcion from './pages/Alumno/Inscripcion.jsx';
 import ConsultaInscripcion from './pages/Alumno/ConsultaInscripcion.jsx';
-import ConsultaCalificaciones from './pages/Alumno/ConsultaCalificaciones.jsx';
 import ConsultaHistorial from './pages/Alumno/ConsultaHistorial.jsx';
 import GruposAsignados from './pages/Profesor/GruposAsignados.jsx';
 import CalificarAlumnos from './pages/Profesor/CalificarAlumnos.jsx';
@@ -19,11 +18,7 @@ import AdministraAlumno from './pages/Administrador/Usuarios/Alumnos/AdministraA
 import AdministraProfesor from './pages/Administrador/Usuarios/Profesores/AdministrarProfesor.jsx';
 import Carreras from './pages/Administrador/Carreras/Carreras.jsx'
 import Periodos from './pages/Administrador/Periodos/Periodos.jsx'
-import Horarios from './pages/Administrador/Horarios/Horarios.js'
 import AdministraCarrera from './pages/Administrador/Carreras/AdministraCarrera.js'
-import AdministraGrupos from './pages/Administrador/Carreras/AdministraGrupos.js'
-import AdministraMaterias from './pages/Administrador/Carreras/AdministraMaterias.js'
-
 
 const router = createBrowserRouter([
   {
@@ -43,8 +38,8 @@ const router = createBrowserRouter([
           {path: "horarios", element: <ConsultaHorario />},
           {path: "inscripcion", element: <Inscripcion />},
           {path: "consulta-inscripcion", element: <ConsultaInscripcion />},
-          {path: "consulta-calificaciones", element: <ConsultaCalificaciones />},
-          {path: "consulta-historial", element: <ConsultaHistorial />},
+          /* {path: "consulta-calificaciones", element: <ConsultaRCalificaciones />}, */
+          {path: "consulta-historial", element: <ConsultarHistorial />},
         ]
       },
     ]
@@ -132,7 +127,7 @@ const router = createBrowserRouter([
           {path: "horarios", element: <ConsultaHorario />},
           {path: "inscripcion", element: <Inscripcion />},
           {path: "consulta-inscripcion", element: <ConsultaInscripcion />},
-          {path: "consulta-calificaciones", element: <ConsultaCalificaciones />},
+         /*  {path: "consulta-calificaciones", element: <ConsultaCalificaciones />}, */
           {path: "consulta-historial", element: <ConsultaHistorial />},
           {path: "datos", element: <DatosPersonales />},
         ]

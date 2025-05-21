@@ -1,11 +1,18 @@
 package com.tramp.controlescolar.controllers;
 
 import com.tramp.controlescolar.services.ProfesoresService;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import java.util.List;
 import java.util.Map;
 
@@ -32,15 +39,36 @@ public class ProfesoresController {
     }
 
     @PostMapping("/insertarCalificacion")
-    public ResponseEntity<?> insertarCalificacion(
-            @RequestParam Integer nid_materia,
-            @RequestParam Integer nid_usuario,
-            @RequestParam Float ncalificacion
-    ) {
+    public ResponseEntity<?> insertarCalificacion(@RequestBody Map<String, Object> body) {
+        Integer nid_horario_materia = Integer.valueOf(body.get("nid_horario_materia").toString());
+        Integer nid_usuario = Integer.valueOf(body.get("nid_usuario").toString());
+        Float ncalificacion = Float.valueOf(body.get("ncalificacion").toString());
         try {
-            profesoresService.insertaCalificaciones(nid_materia, nid_usuario, ncalificacion);
-            return ResponseEntity.ok("Calificación insertada correctamente.");
+            profesoresService.insertaCalificaciones(nid_horario_materia, nid_usuario, ncalificacion);
+            Map<String, Object> response = new HashMap<>();
+            response.put("message", "Asignación de calificaión exitosa");
+            return ResponseEntity.ok(response);
+
         } catch (Exception e) {
+
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error al insertar calificación: " + e.getMessage());
+        }
+    }
+
+    @PostMapping("/eliminarCalificacion")
+    public ResponseEntity<?> eliminarCalificaion(@RequestBody Map<String, Object> body) {
+        Integer nid_horario_materia = Integer.valueOf(body.get("nid_horario_materia").toString());
+        Integer nid_usuario = Integer.valueOf(body.get("nid_usuario").toString());
+
+        try {
+            profesoresService.eliminaCalificacion(nid_horario_materia, nid_usuario);
+            Map<String, Object> response = new HashMap<>();
+            response.put("message", "Eliminación de calificaión exitosa");
+            return ResponseEntity.ok(response);
+
+        } catch (Exception e) {
+
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Error al insertar calificación: " + e.getMessage());
         }
@@ -48,10 +76,11 @@ public class ProfesoresController {
 
     @GetMapping("/consultaAlumnosInscritos")
     public ResponseEntity<?> consultaAlumnosInscritos(
-            @RequestParam Integer nid_grupo
+            @RequestParam Integer nid_grupo,
+            @RequestParam Integer nid_materia
     ){
         try{
-            List<Map<String, Object>> alumnos = profesoresService.consultarAlumnosInscritos(nid_grupo);
+            List<Map<String, Object>> alumnos = profesoresService.consultarAlumnosInscritos(nid_grupo, nid_materia);
             return ResponseEntity.ok(alumnos);
         }
         catch(Exception e){

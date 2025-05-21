@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/alumnos")
@@ -33,19 +36,6 @@ public class AlumnosController {
                     .body("Error al insertar inscripción: " + e.getMessage());
         }
 
-    }
-
-    @GetMapping("/consultaCalificaciones")
-    public ResponseEntity<?> consultarCalificaciones(@RequestParam Integer nid_usuario){
-        try{
-            List<Map<String, Object>> calificaciones = alumnosService.consultarCalificaciones(nid_usuario);
-            return ResponseEntity.ok(calificaciones);
-        }
-        catch(Exception e){
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Error al consultar calificaciones" + e.getMessage());
-
-        }
     }
 
     @GetMapping("/consultaInscripcion")
@@ -95,5 +85,18 @@ public class AlumnosController {
                     .body("Error al buscar alumnos: " + e.getMessage());
         }
     }
+
+    @GetMapping("/consultaHistorial")
+    public ResponseEntity<?> consultarHistorial(@RequestParam Integer nid_usuario) {
+        try{
+            List<Map<String, Object>> historial = alumnosService.consultarHistorial(nid_usuario);
+            return ResponseEntity.ok(historial);
+        } catch(Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error al consultar inscripción" + e.getMessage());
+
+        }
+    }
+    
 
 }

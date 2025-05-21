@@ -24,29 +24,15 @@ public interface AlumnosRepository extends JpaRepository<Personas, Integer>{
 
     //Procedimiento SPD_INSERTA_INSCRIPCION
     @Procedure(procedureName = "SPD_INSERTA_INSCRIPCION")
-        void insertarInscripcion(
-                @Param("IntIdUSuario") Integer nid_usuario,
-                @Param("IntIdGrupo") Integer nid_grupo
-    );
+        void insertarInscripcion(@Param("IntIdUSuario") Integer nid_usuario, @Param("IntIdGrupo") Integer nid_grupo);
 
-    //Procedimiento SPD_INSERTA_INSCRIPCION 
+    //Procedimiento SPD_CONSULTA_INSCRIPCION 
     @Procedure(procedureName = "SPD_CONSULTA_INSCRIPCION")
-        List<Object[]> consultarInscripcion(
-        @Param("IntIdUsuario") Integer nid_usuario
-
-    );
-
-    //Procedimiento SPD_CONSULTA_CALIFICACIONES
-    @Procedure(procedureName = "SPD_CONSULTA_CALIFICACIONES")
-    List<Object[]> consultarCalificaciones(
-            @Param("IntIdUsuario") Integer nid_usuario
-     );
+        List<Object[]> consultarInscripcion(@Param("IntIdUsuario") Integer nid_usuario);
      
      //Procedimiento SPD_BUSCAR_ALUMNOS
      @Procedure(procedureName = "SPD_BUSCAR_ALUMNOS")
-     List<Object[]> buscarAlumnos(
-        @Param("textoBusqueda") String textoBusqueda
-     );
+     List<Object[]> buscarAlumnos(@Param("textoBusqueda") String textoBusqueda);
      
      //Procedimiento SPD_INSERTA_INSCRIPCION 
 /*      @Procedure(procedureName = "SPD_CONSULTA_INSCRIPCION")
@@ -54,5 +40,6 @@ public interface AlumnosRepository extends JpaRepository<Personas, Integer>{
         @Param("IntIdUsuario") Integer nid_usuario
      ); */
 
-
+    @Procedure(procedureName = "SPD_CONSULTA_HISTORIAL")
+    List<Object[]> consultaHistorial(@Param("IntIdUsuario") Integer nid_usuario);
 }

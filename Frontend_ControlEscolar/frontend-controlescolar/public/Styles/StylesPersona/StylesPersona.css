@@ -201,28 +201,132 @@
 /* Estilos para consulta inscripción */
 
 /* Sección de estilos para el modulo de profesor */
+
 /* Estilos para el Details */
 .container-main{
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: center;
+  margin: auto;
 }
-.container-details{
-  width: 70vh;
-  height: auto;
-  display: grid;
-  justify-content: center;
-  cursor: pointer;
+
+.table-grupos{
+  background-color: #8ca2b2;
+  border: #000000 solid 1px;
+  width: 85vh;
+  /* table-layout: fixed; */
+  border-collapse: collapse;
+  margin: 10px;
+  font-size: 100%;
 }
 .container-summary{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color: #ffffff;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 240%;
+  color: #000000;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: #ffffff solid 2px;
+  border: #000000 solid 2px;
+  border-radius: 1rem;
+  width:75vh;
+  height: 5vw;
+  margin: 2vh auto;
+  background-color: #9bb797;
+}
+.container-details{
+  width: 80vh;
+  display: grid;
+  justify-content: center;
+  cursor: pointer;
+  margin: 2vh auto;
+}
+.container-info-grupo{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 150%;
+}
+
+.icon-container{
+  width: 15vh;
+}
+.icon{
+  font-size: 150%;
+}
+.calificar:hover{
+  color: #5bff69;
+}
+.eliminar:hover{
+  color: #ff0000;
+}
+
+.container-dialog-calif{
+  width: 60vh;
+  height: 25vw;
   border-radius: 2rem;
-  width:70vh;
+  border: #000000 3px solid;
+  background-color: #9bb797;
+}
+.container-calif{
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+
+}
+.container-input{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.input-calif{
+  font-size: 200%;
+  text-align: center;
+  border-radius: 1rem;
+  height: 3vw;
+}
+.container-botones{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 /* Estilos para el Details */
+
+/*  Estilos para el módulo de Historial */
+.container-main-historial{
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  /* border: #000000 solid 2px; */
+}
+.table{
+  background-color: #8ca2b2;
+  border: #000000 solid 1px;
+  width: 85vh;
+  table-layout: fixed;
+  border-collapse: collapse;
+  margin: 10px;
+}
+.t-promedio{
+  border: #000000 solid 1px;
+  height: 5vw;
+}
+.t-head{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 115%;
+  text-align: center;
+  height: 5vw;
+}
+.t-body{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 110%;
+  text-align: center;
+}
+.t-body:hover{
+  background-color: #067bbe;
+}
+.t-celda{
+  height: 7vw;
+}
+.container-btn{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
