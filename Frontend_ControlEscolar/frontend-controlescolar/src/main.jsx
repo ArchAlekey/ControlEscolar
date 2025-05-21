@@ -10,7 +10,7 @@ import DatosPersonales from './pages/Alumno/DatosPersonales.jsx'
 import ConsultaHorario from './pages/Alumno/ConsultaHorarios.jsx';
 import Inscripcion from './pages/Alumno/Inscripcion.jsx';
 import ConsultaInscripcion from './pages/Alumno/ConsultaInscripcion.jsx';
-import ConsultaHistorial from './pages/Alumno/ConsultaHistorial.jsx';
+import ConsultarHistorial from './pages/Alumno/ConsultarHistorial.jsx';
 import GruposAsignados from './pages/Profesor/GruposAsignados.jsx';
 import CalificarAlumnos from './pages/Profesor/CalificarAlumnos.jsx';
 import AdministraUsuarios from './pages/Administrador/Usuarios/AdministraUsuarios.js';
@@ -37,7 +37,7 @@ const router = createBrowserRouter([
           {path: "inscripcion", element: <Inscripcion />},
           {path: "consulta-inscripcion", element: <ConsultaInscripcion />},
           /* {path: "consulta-calificaciones", element: <ConsultaRCalificaciones />}, */
-          {path: "consulta-historial", element: <ConsultarHistorial />},
+          {path: "consulta-historial", element: <ConsultarHistorial /> },
         ]
       },
     ]
@@ -83,7 +83,7 @@ const router = createBrowserRouter([
                 }
               ]
           },
-          {
+/*           {
             path: "carrera",
             element: <Carreras />,
             children: [
@@ -96,7 +96,7 @@ const router = createBrowserRouter([
           {
             path: "periodos",
             element: < Periodos/>,
-          }
+          } */
         ]
         
       }
@@ -114,7 +114,7 @@ const router = createBrowserRouter([
           {path: "inscripcion", element: <Inscripcion />},
           {path: "consulta-inscripcion", element: <ConsultaInscripcion />},
          /*  {path: "consulta-calificaciones", element: <ConsultaCalificaciones />}, */
-          {path: "consulta-historial", element: <ConsultaHistorial />},
+          {path: "consulta-historial", element: <ConsultarHistorial />},
           {path: "datos", element: <DatosPersonales />},
         ]
       }

@@ -78,7 +78,7 @@ function ConsultarHistorial() {
                         </tbody>
                     </table>
                 </div>
-                <div className="container-btn">
+                <div className="elemento-insc-form-btn">
                     <Boton titulo="Guardar Historial" />
                     <Boton titulo="Regresar al Inicio" onClick={() => navigate(home())} />
                 </div>

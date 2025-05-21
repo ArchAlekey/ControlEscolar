@@ -7,10 +7,11 @@
     border: solid 3px #000;
     border-radius: 30px;
     cursor: pointer;
+    transition: all 0.5s;
 }
 .contenedor_menu:hover{
     background-color: #e7e7e7;
-    transform: scale(1,1.05);
+    transform: scale(1.05);
 }
 
 .title-btn{

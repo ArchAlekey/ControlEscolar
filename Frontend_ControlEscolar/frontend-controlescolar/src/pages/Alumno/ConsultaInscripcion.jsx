@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Endpoints } from "../../api/ApiEndpoints";import Boton from "../../components/boton/boton";
 import { useNavigate } from "react-router-dom";
-/* import html2pdf from "html2pdf.js"; */
 
 function ConsultaInscripcion(){
 
@@ -36,23 +35,12 @@ function ConsultaInscripcion(){
         }
     };
 
-/*     const handlePrint = () => {
-        const element = pdfRef.current;
-        const opt = {
-          margin:       0.5,
-          filename:     `Inscripcion_${usuario}.pdf`,
-          image:        { type: 'jpeg', quality: 0.98 },
-          html2canvas: { scale: 1.5, windowWidth: 1200 },
-          jsPDF:        { unit: 'in', format: 'letter', orientation: 'landscape' }
-        };
-        html2pdf().set(opt).from(element).save();
-      }; */
 
     return(
         <div className="contenedor-main-insc" >
-            <h1 className="h1-DP">Tu Inscripción</h1>
-            <h2 className="h1-DP">Usuario: {usuario}</h2>
             <div className="contenedor-tabla">
+                <h1 className="h1-DP">Tu Inscripción</h1>
+                <h2 className="h1-DP">Usuario: {usuario}</h2>
                 <table className="tbl-horarios" ref={pdfRef}>
                     <thead>
                         <tr className="h-table">
@@ -80,7 +68,7 @@ function ConsultaInscripcion(){
                     </tbody>
                 </table>
                 <div className="elemento-insc-form-btn">
-                    <Boton titulo="Imprimir" /* onClick={handlePrint} *//>
+                    <Boton titulo="Imprimir" />
                     <Boton titulo="Regresar" onClick={() => navigate(home())}/>
                 </div>
             </div>

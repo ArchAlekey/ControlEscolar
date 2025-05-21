@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import ProfesorTable from "../../../../components/Administrador/Usuarios/Profesores/ProfesorTable.tsx";
+/* import ProfesorTable from "../../../../components/Administrador/Usuarios/Profesores/ProfesorTable.tsx"; */
 import "../Alumnos/AdministraAlumno.css"
 import BotonRegresar from "../../../../components/Administrador/BotonRegresar.js"
-import ProfesorFiltro from "../../../../components/Administrador/Usuarios/Profesores/ProfesorFiltro.js";
+/* import ProfesorFiltro from "../../../../components/Administrador/Usuarios/Profesores/ProfesorFiltro.js"; */
 import ProfesorRegistro from "../../../../components/Administrador/Usuarios/Profesores/ProfesorRegistro.js";
-import ProfesorActualiza from "../../../../components/Administrador/Usuarios/Profesores/ProfesorActualiza.js";
+/* import ProfesorActualiza from "../../../../components/Administrador/Usuarios/Profesores/ProfesorActualiza.js"; */
 import {registrarProfesor, enviarCorreo, actualizarPersona} from "../../../../services/Administrador/Usuarios/Profesor/ProfesorService.js";
 import toastr from "toastr";
 
@@ -151,7 +151,7 @@ function AdministrarProfesor(){
                 Agregar Profesor
             </button>
 
-            <ProfesorFiltro
+{/*             <ProfesorFiltro
                 profesores={profesores}
                 setProfesores={setProfesores}
                 filtroEstado={filtroEstado}
@@ -164,7 +164,7 @@ function AdministrarProfesor(){
                 personaSeleccionada={personaSeleccionada}
                 setPersonaSeleccionada={setPersonaSeleccionada}
                 seleccionarPersona={seleccionarPersona}
-            />
+            /> */}
 
             <ProfesorRegistro
                 mostrarFormulario={mostrarFormularioRegistro}
@@ -172,14 +172,14 @@ function AdministrarProfesor(){
                 datos={datos}
                 setDatos={setDatos}
             />
-            <ProfesorActualiza
+{/*             <ProfesorActualiza
                 personaSeleccionada={personaSeleccionada}
                 setPersonaSeleccionada={setPersonaSeleccionada}
                 mostrarFormularioActualiza={mostrarFormularioActualiza}
                 setMostrarFormularioActualiza={setMostrarFormularioActualiza}
                 handleSubmitPersona={handleSubmitPersona}
                 handleChangePersona={handleChangePersona}
-            />
+            /> */}
 
         </div>
 
