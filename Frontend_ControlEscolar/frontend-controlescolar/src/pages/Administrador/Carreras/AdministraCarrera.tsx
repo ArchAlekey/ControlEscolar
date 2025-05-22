@@ -25,20 +25,16 @@ function AdministraCarrera ()
         }, []);
 
     return(
-    <div>
-        <h1>Administra Carrera</h1>
-    <div>
-      <h2>Carreras</h2>
-      <ul>
-        {carreras.map((carrera) => (
-          <li key={carrera.idCarrera}>
-            <b>{carrera.carrera}</b>  - {carrera.habilitado ? "Habilitado" : "Inhabilitado"}
-          </li>
-        ))}
-      </ul>
+    <div className="container-main">
+      <h1 className="h1-DP">Administra Carrera</h1>
+        <ul className="ul-carreras">
+          {carreras.map((carrera) => (
+            <li key={carrera.idCarrera} className="li-carreras">
+              <b>{carrera.carrera}</b>  - {carrera.habilitado ? "Habilitado" : "Inhabilitado"}
+            </li>
+          ))}
+        </ul>
     </div>
-            
-        </div>
     )
 }
 export default AdministraCarrera;

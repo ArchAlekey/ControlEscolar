@@ -3,10 +3,14 @@ import { Endpoints } from "../../api/ApiEndpoints";
 import Boton from "../../components/boton/boton";
 import { useNavigate } from "react-router-dom";
 
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import PDFHistorial from "../../components/pdf/pdfHistorial";
+
 function ConsultarHistorial() {
     const [historialLista, setHistorialLista] = useState([]);
     const [promedio, setPromedio] = useState(null);
     const nid_usuario = Number(localStorage.getItem("idUsuario"));
+    const usuario = localStorage.getItem("usuario");
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -79,7 +83,15 @@ function ConsultarHistorial() {
                     </table>
                 </div>
                 <div className="elemento-insc-form-btn">
-                    <Boton titulo="Guardar Historial" />
+                      <PDFDownloadLink
+                        document={<PDFHistorial historial={historialLista} usuario={usuario} promedio={promedio} />}
+                        fileName={`historial_academico_${usuario}.pdf`}
+                        style={{ textDecoration: "none" }}
+                    >
+                        {({ loading }) =>
+                        <Boton titulo={loading ? "Generando..." : "Imprimir"} />
+                        }
+                    </PDFDownloadLink>
                     <Boton titulo="Regresar al Inicio" onClick={() => navigate(home())} />
                 </div>
             </div>
