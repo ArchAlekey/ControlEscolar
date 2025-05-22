@@ -15,11 +15,13 @@ import GruposAsignados from './pages/Profesor/GruposAsignados.jsx';
 import CalificarAlumnos from './pages/Profesor/CalificarAlumnos.jsx';
 import AdministraUsuarios from './pages/Administrador/Usuarios/AdministraUsuarios.js';
 import AdministraAlumno from './pages/Administrador/Usuarios/Alumnos/AdministraAlumno.js';
-import AdministraProfesor from './pages/Administrador/Usuarios/Profesores/AdministrarProfesor.jsx';
+import AdministrarProfesor from './pages/Administrador/Usuarios/Profesores/AdministrarProfesor.jsx';
 import Carreras from './pages/Administrador/Carreras/Carreras.jsx'
 import Periodos from './pages/Administrador/Periodos/Periodos.jsx'
 import AdministraCarrera from './pages/Administrador/Carreras/AdministraCarrera.js'
-
+import AdministraMaterias from './pages/Administrador/Carreras/AdministraMaterias.js';
+import AdministraGrupos from './pages/Administrador/Carreras/AdministraGrupos.js';
+import Horarios from './pages/Administrador/Horarios/Horarios.js';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -81,11 +83,11 @@ const router = createBrowserRouter([
                 },
                 { 
                   path: "profesor", 
-                  element: <AdministraProfesor/>
+                  element: <AdministrarProfesor/>
                 }
               ]
           },
-/*           {
+          {
             path: "carrera",
             element: <Carreras />,
             children: [
@@ -110,7 +112,7 @@ const router = createBrowserRouter([
           {
             path: "periodos",
             element: < Periodos/>,
-          } */
+          }
         ]
         
       }

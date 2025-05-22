@@ -107,8 +107,9 @@ interface Persona {
 
             
     return(
-        <table className="tabla">
-                <thead>
+        <div className="container-main">
+            <table className="table-administrador">
+                <thead className="t-head">
                     <tr>
                         <th>ID</th>
                         <th>Nombre</th>
@@ -120,13 +121,13 @@ interface Persona {
                 </thead>
                 <tbody>
                     {alumnosFiltrados.map((alumno, index) => (
-                        <tr key={index}>
-                            <td>{alumno.nid_academico_alumno}</td>
-                            <td>{alumno.cnombre}</td>
-                            <td>{alumno.capellidos}</td>
-                            <td>{alumno.cnumero_cuenta}</td>
-                            <td>{alumno.bhabilitado ? "Activo" : "Inactivo"}</td>
-                            <td>
+                        <tr className="t-body" key={index}>
+                            <td className="t-celda">{alumno.nid_academico_alumno}</td>
+                            <td className="t-celda">{alumno.cnombre}</td>
+                            <td className="t-celda">{alumno.capellidos}</td>
+                            <td className="t-celda">{alumno.cnumero_cuenta}</td>
+                            <td className="t-celda">{alumno.bhabilitado ? "Activo" : "Inactivo"}</td>
+                            <td className="t-celda">
                                 <button className="btn-actualizar" onClick={() =>
                                     seleccionarPersona({
                                         nid_persona: alumno.nid_persona,
@@ -157,6 +158,7 @@ interface Persona {
                     ))}
                 </tbody>
             </table>
+        </div>
     )
 }
 export default AlumnoTable;
