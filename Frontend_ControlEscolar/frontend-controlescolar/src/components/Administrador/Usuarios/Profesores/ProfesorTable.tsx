@@ -1,6 +1,6 @@
 import React, { useState, useEffect, FormEvent } from 'react';
 import {consultarProfesores, cambiarEstadoProfesor} from '../../../../services/Administrador/Usuarios/Profesor/ProfesorService';
-
+import toastr from 'toastr';
 
 function ProfesorTable({profesores, setProfesores, personaSeleccionada, setPersonaSeleccionada, seleccionarPersona}) {
 
@@ -74,9 +74,9 @@ function ProfesorTable({profesores, setProfesores, personaSeleccionada, setPerso
      };
 
     return (
-        <>
-        <table className="tabla">
-            <thead>
+        <div className="container-main">
+            <table className="table-administrador">
+            <thead className="t-head">
                 <th>ID</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
@@ -86,13 +86,13 @@ function ProfesorTable({profesores, setProfesores, personaSeleccionada, setPerso
             </thead>
             <tbody>
                 {profesoresFiltrados.map((profesor, index) => (
-                    <tr key={index}>
-                        <td>{profesor.nid_academico_profesor}</td>
-                        <td>{profesor.cnombre}</td>
-                        <td>{profesor.capellidos}</td>
-                        <td>{profesor.cnumero_cuenta}</td>
-                        <td>{profesor.bhabilitado ? "Habilitado" : "Inhabilitado"}</td>
-                        <td>
+                    <tr  className="t-body" key={index}>
+                        <td className="t-celda">{profesor.nid_academico_profesor}</td>
+                        <td className="t-celda">{profesor.cnombre}</td>
+                        <td className="t-celda">{profesor.capellidos}</td>
+                        <td className="t-celda">{profesor.cnumero_cuenta}</td>
+                        <td className="t-celda">{profesor.bhabilitado ? "Habilitado" : "Inhabilitado"}</td>
+                        <td className="t-celda">
                         <button className="btn-actualizar" onClick={() =>
                             seleccionarPersona({
                                 nid_persona: profesor.nid_persona,
@@ -124,7 +124,7 @@ function ProfesorTable({profesores, setProfesores, personaSeleccionada, setPerso
             )}
             </tbody>
         </table>
-        </>
+        </div>
     )
 }
 export default ProfesorTable;
