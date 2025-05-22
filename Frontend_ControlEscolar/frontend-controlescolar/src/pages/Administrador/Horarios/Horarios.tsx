@@ -7,6 +7,7 @@ import { consultarHorarios } from "../../../services/Administrador/HorarioMateri
 import { consultarPeriodos } from "../../../services/Administrador/HorarioMaterias/HorarioMaterias";
 import { consultarMateriasPorCarreraYSemestre } from "../../../services/Administrador/HorarioMaterias/HorarioMaterias";
 import { consultarProfesores } from "../../../services/Administrador/HorarioMaterias/HorarioMaterias";
+import Boton from "../../../components/boton/boton";
 import toastr from 'toastr';
 import 'toastr/build/toastr.min.css';
 
@@ -142,67 +143,74 @@ function Horarios() {
     }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Carrera:
-        <select value={selectedCarrera} onChange={e => setSelectedCarrera(e.target.value)} required>
-          <option value="">Selecciona una carrera</option>
-          {carreras.map(c => <option key={c.idCarrera} value={c.idCarrera}>{c.carrera}</option>)}
-        </select>
-      </label>
-      <label>
-        Semestre:
-        <select value={selectedSemestre} onChange={e => setSelectedSemestre(e.target.value)} required>
-          <option value="">Selecciona un semestre</option>
-          {semestres.map(s => <option key={s.idSemestre} value={s.idSemestre}>{s.semestre}</option>)}
-        </select>
-      </label>
-      <label>
-        Materia:
-        <select
-          value={selectedMateria}
-          onChange={e => setSelectedMateria(e.target.value)}
-          required
-          disabled={!selectedCarrera || !selectedSemestre} // <-- aquí el cambio
-        >
-          <option value="">Selecciona una materia</option>
-          {materias.map(m => <option key={m.idMateria} value={m.idMateria}>{m.nombreMateria}</option>)}
-        </select>
-      </label>
-      <label>
-        Grupo:
-        <select value={selectedGrupo} onChange={e => setSelectedGrupo(e.target.value)} required>
-          <option value="">Selecciona un grupo</option>
-          {grupos.map(g => <option key={g.idGrupo} value={g.idGrupo}>{g.grupo}</option>)}
-        </select>
-      </label>
-      <label>
-        Horario:
-        <select value={selectedHorario} onChange={e => setSelectedHorario(e.target.value)} required>
-          <option value="">Selecciona un horario</option>
-          {horarios.map(h => <option key={h.idHorario} value={h.idHorario}>{h.horario}</option>)}
-        </select>
-      </label>
-      <label>
-        Periodo:
-        <select value={selectedPeriodo} onChange={e => setSelectedPeriodo(e.target.value)} required>
-          <option value="">Selecciona un periodo</option>
-          {periodos.map(p => <option key={p.idPeriodo} value={p.idPeriodo}>{p.periodo}</option>)}
-        </select>
-      </label>
-      <label>
-        Profesor:
-        <select value={selectedProfesor} onChange={e => setSelectedProfesor(e.target.value)} required>
-          <option value="">Selecciona un profesor</option>
-          {profesores.map(prof => (
-            <option key={prof.nid_academico_profesor} value={prof.nid_academico_profesor}>
-               {prof.cnombre + " " + prof.capellidos}
-            </option>
-          ))}
-        </select>
-      </label>
-      <button type="submit">Guardar horario-materia</button>
-    </form>
+    <div className="container-main">
+      <h1 className="h1-DP">Asigna un nuevo grupo</h1>
+      <form onSubmit={handleSubmit} className="container-form">
+        <label className="label">
+          Carrera:
+          <select value={selectedCarrera} onChange={e => setSelectedCarrera(e.target.value)} required className="select-grupos">
+            <option value="">Selecciona una carrera</option>
+            {carreras.map(c => <option key={c.idCarrera} value={c.idCarrera}>{c.carrera}</option>)}
+          </select>
+        </label>
+        <label className="label">
+          Semestre:
+          <select value={selectedSemestre} onChange={e => setSelectedSemestre(e.target.value)} required className="select-grupos">
+            <option value="">Selecciona un semestre</option>
+            {semestres.map(s => <option key={s.idSemestre} value={s.idSemestre}>{s.semestre}</option>)}
+          </select>
+        </label>
+        <label className="label">
+          Materia:
+          <select
+            value={selectedMateria}
+            onChange={e => setSelectedMateria(e.target.value)}
+            required
+            disabled={!selectedCarrera || !selectedSemestre} // <-- aquí el cambio
+            className="select-grupos"
+          >
+            <option value="">Selecciona una materia</option>
+            {materias.map(m => <option key={m.idMateria} value={m.idMateria}>{m.nombreMateria}</option>)}
+          </select>
+        </label>
+        <label className="label">
+          Grupo:
+          <select value={selectedGrupo} onChange={e => setSelectedGrupo(e.target.value)} required className="select-grupos">
+            <option value="">Selecciona un grupo</option>
+            {grupos.map(g => <option key={g.idGrupo} value={g.idGrupo}>{g.grupo}</option>)}
+          </select>
+        </label>
+        <label className="label">
+          Horario:
+          <select value={selectedHorario} onChange={e => setSelectedHorario(e.target.value)} required className="select-grupos">
+            <option value="">Selecciona un horario</option>
+            {horarios.map(h => <option key={h.idHorario} value={h.idHorario}>{h.horario}</option>)}
+          </select>
+        </label>
+        <label className="label">
+          Periodo:
+          <select value={selectedPeriodo} onChange={e => setSelectedPeriodo(e.target.value)} required className="select-grupos">
+            <option value="">Selecciona un periodo</option>
+            {periodos.map(p => <option key={p.idPeriodo} value={p.idPeriodo}>{p.periodo}</option>)}
+          </select>
+        </label>
+        <label className="label">
+          Profesor:
+          <select value={selectedProfesor} onChange={e => setSelectedProfesor(e.target.value)} required className="select-grupos">
+            <option value="">Selecciona un profesor</option>
+            {profesores.map(prof => (
+              <option key={prof.nid_academico_profesor} value={prof.nid_academico_profesor}>
+                {prof.cnombre + " " + prof.capellidos}
+              </option>
+            ))}
+          </select>
+        </label>
+        <div className="container-btn">
+          {/* <button type="submit">Guardar horario-materia</button> */}
+          <Boton titulo="Guardar Grupo" />
+        </div>
+      </form>
+    </div>
   );
 }
 

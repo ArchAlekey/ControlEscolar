@@ -2,6 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import { Endpoints } from "../../api/ApiEndpoints";import Boton from "../../components/boton/boton";
 import { useNavigate } from "react-router-dom";
 
+import PDFInscripcion from "../../components/pdf/pdfInscripcion";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+
 function ConsultaInscripcion(){
 
     const [inscripciones, setInscripciones] = useState([]);
@@ -68,7 +71,15 @@ function ConsultaInscripcion(){
                     </tbody>
                 </table>
                 <div className="elemento-insc-form-btn">
-                    <Boton titulo="Imprimir" />
+                    <PDFDownloadLink
+                        document={<PDFInscripcion inscripciones={inscripciones} usuario={usuario} />}
+                        fileName={`reporte_inscripcion_${usuario}.pdf`}
+                        style={{ textDecoration: "none" }}
+                    >
+                        {({ loading }) =>
+                        <Boton titulo={loading ? "Generando..." : "Imprimir"} />
+                        }
+                    </PDFDownloadLink>
                     <Boton titulo="Regresar" onClick={() => navigate(home())}/>
                 </div>
             </div>

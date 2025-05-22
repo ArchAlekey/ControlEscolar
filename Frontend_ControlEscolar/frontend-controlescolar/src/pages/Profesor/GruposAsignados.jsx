@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Endpoints } from "../../api/ApiEndpoints";
 import Boton from "../../components/boton/boton";
 
+import PDFListaAlumnos from "../../components/pdf/pdfListaAlumnos";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+
+
 function GruposAsignados(){
 
     const [gruposAsignados, setGruposAsignados] = useState([]);
@@ -85,7 +89,16 @@ function GruposAsignados(){
                                     setListaAlumnos([]);
                                     setIdGrupo(0);
                                 }}/>
-                                <Boton titulo="Imprimir Lista" />
+                                <PDFDownloadLink
+                                document={<PDFListaAlumnos alumnos={listaAlumnos} grupoInfo={grupos} />}
+                                fileName={`lista_alumnos_${grupos.cnombre_materia}_${grupos.cgrupo}.pdf`}
+                                style={{ textDecoration: "none", marginTop: "10px" }}
+                                >
+                                {({ loading }) => (
+                                    <Boton titulo={loading ? "Generando..." : "Imprimir Lista"} />
+                                )}
+                                </PDFDownloadLink>
+
                             </div>
                         ) : (
                             <div className="lista-alumnos">
